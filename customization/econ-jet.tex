@@ -1,0 +1,66 @@
+%#!pdflatex 
+%#BIBTEX bibtex econ-jet
+
+%############################## Main #################################
+\documentclass[10pt]{article}
+
+%% Use natbib.sty
+\usepackage[numbers]{natbib}
+\usepackage{mathpazo}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{MyBrown}{rgb}{0.3,0,0}
+\definecolor{MyBlue}{rgb}{0,0,0.3}
+\definecolor{MyRed}{rgb}{0.4,0,0.1}
+\definecolor{MyGreen}{rgb}{0,0.4,0}
+\usepackage[bookmarks=true,%
+bookmarksnumbered=true,%
+colorlinks=true,%
+linkcolor=MyBlue,%
+citecolor=MyRed,%
+filecolor=MyBlue,%
+urlcolor=MyGreen%
+]{hyperref}
+
+\setlength{\topmargin}{-20pt} 
+\setlength{\textheight}{648pt}
+\setlength{\oddsidemargin}{15pt}
+\setlength{\textwidth}{440pt}
+
+%#####################################################################
+%######################### Document Starts ###########################
+%#####################################################################
+\begin{document}
+
+This document uses ``\verb|econ-jet.bst|''. The style like JET ({\itshape Journal of
+Economic Theory}).
+
+\vspace{1em}
+
+\input{cited-part}
+\vspace*{1em}
+
+In the citation part above, we use
+\verb|\citet| command which creates the style like ``author name + number''. If we use \verb|\cite|
+command, we have the style only with number like the followings: \\
+\cite{Ryza15:_advan_analy_spark_patter_learn_data_scale},
+\cite{yamazaki13:_japan}, \cite{stakeda2013web}, \cite{Takeda2012a},
+\cite{bergemann11:_ration}, \cite{goldin:katz:2011}, \cite{Takeda2011b},
+\cite{takeda2011c}.
+
+\nocite{*}
+
+%% bst file:
+\bibliographystyle{econ-jet}
+\bibliography{../econ-example}
+
+\end{document}
+
+%#####################################################################
+%######################### Document Ends #############################
+%#####################################################################
+% --------------------
+% Local Variables:
+% fill-column: 80
+% End:

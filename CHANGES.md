@@ -1,0 +1,251 @@
+<!--
+Author:			Shiro Takeda
+First-written:  <2008/11/18>
+Time-stamp:	    <2017-07-30 10:06:38 st>
+-->
+
+Changelogs for econ.bst
+==============================
+
+## Ver. 2.2
+
+* Slightly changed the definition of `format.url`, `bst.url.pre` and
+  `bst.url.post`.
+
+* Changed `\it` command to `\textit` command.
+
+* Added the function `bst.url.doi` which determines the way for displaying URL
+  and DOI fields when both fields exist. You can choose three values for
+  `bst.url.doi`.
+  
+  #0 -> Both fields are displayed
+  #1 -> Only URL field is displayed
+  #2 -> Only DOI field is displayed
+  
+
+
+## Ver. 2.1 (2013-07-09)
+
+* URL field: In the new econ.bst, URL field can be displayed. If you set
+  non-zero to `bst.show.url`, url field is displayed before note field (this is
+  the default behavior). If you set zero to `bst.show.url`, url field is
+  suppressed.
+
+* Added the new function `bst.url.pre` and `bst.url.post`. These functions
+  specify the strings before and after url field.
+
+* access field: Added the new function `bst.access.pre` and
+  `bst.access.post`. These functions specify the strings before and after access
+  field. Note that access field is specific to econ.bst and not inherent in the
+  standard bib file. The value of access field is used for accessed date for
+  URL. For example, suppose that there are the following two settings in the bib
+  file
+
+        url          = {http://shirotakeda.org/en/tex/econ-bst.html},
+        access       = {4th July, 2013}
+
+  In the default econ.bst, these settings generate the reference like
+
+        URL: http://shirotakeda.org/en/tex/econ-bst.html, accessed on 4th July, 2013.
+  
+* Added the new function `bst.show.doi`. If you set non-zero to `bst.show.doi`,
+  DOI field is displayed before note field. If you set zero to `bst.show.doi`,
+  DOI field is suppressed (this is the default behavior). Note that DOI field is
+  not inherent in the standard bib file. See econ-sample.pdf for an example.
+
+* Added the new function `bst.doi.pre` and `bst.doi.post`. These functions
+  specify the strings before and after DOI field.
+
+* Added the new function `bst.post.note`. This function specifies the strings
+  after note field.
+
+* Added new type "online". This is the document type for web page. Note that
+  this is not inherent in the standard bib file and it does not work for other
+  bst files.
+
+
+## Ver. 2.0.1 (2011-12-05)
+
+* Fixed bugs for sorting entries. In version 2.0, entries of book and
+  incollection type are not sometimes sorted in alphabetical order.
+
+* The previous econ.bst always puts `period' before the content of note
+  field. The new econ.bst uses `comma' by default (but this depends on user
+  customization).
+
+* Added new function `bst.hide.title`. If you set non-zero to bst.hide.title,
+  title is not displayed. 
+
+
+## Ver. 2.0 (2011-11-10)
+
+* Added \bysame abbreviation of alternative style.
+
+  Suppose that there are the following three entries:
+
+  Mazda, A., Subaru, B., and Honda, C., (2011) "ABC"
+  Mazda, A., Subaru, B., and Honda, C., (2011) "DEF"
+  Mazda, A., Subaru, B., and Toyota, D., (2011) "GHI"
+
+  When you set non-zero to `bst.use.bysame` in the previous econ.bst,
+  these entries are listed like
+
+  [List 1]
+  Mazda, A., Subaru, B., and Honda, C., (2011) "ABC"
+  ----, (2011) "DEF"
+  Mazda, A., Subaru, B., and Toyota, D., (2011) "GHI"
+
+  That is, the abbreviation of authors by \bysame is only applied to entries
+  with exactly the same name.
+
+  In the new econ.bst, you can choose an alternative abbreviation style like
+
+  [List 2]
+  Mazda, A., Subaru, B., Honda, C., (2011) "ABC"
+  ----, ----, and ----, (2011) "DEF"
+  ----, ----, and Toyota, D., (2011) "GHI"
+
+  In the new econ.bst, you can choose three values for `bst.use.bysame`.
+
+  #0: Not use bysame command.
+  #1: Use bysame command like List 1 (this is the default value).
+  #2: Use bysame command like List 2.
+
+  For the details, see econ-sample.pdf.
+
+
+* Abolished `bst.year.backward` and added `bst.year.position`.
+  Now you can choose the position of year.
+
+  If set to #0, year is always placed right after "author".
+
+  If non-zero, year is placed at the end (before note field) except for aritcle
+  type entry.
+
+  In article type entry, the position of year changes according to the following
+  rule:
+  
+  #1 -> year is placed at the end.
+  #2 -> year is placed after journal name in aritcle type entry.
+  #3 -> year is placed after volume in aritcle type entry.
+
+* Added `bst.year.na.pre` and `bst.year.na.post`.  These functions are
+  `bst.year.pre` and `bst.year.post` for non-article type entry. In the new
+  econ.bst, `bst.year.pre` and `bst.year.post` are only applied to aritcle type
+  entry.
+
+* Added `bst.editor.btitle.order`.
+
+  This determines the order of editor and booktitle in incollection and
+  inproceedings entry.
+
+  If #0,	editors - booktitle order (the default value).
+  If non-zero,	booktitle - editors order.
+
+* Added `bst.address.position`.
+
+  You can choose the order of address and publisher by this function.
+
+  If #0,	address -> publisher order (the default value).
+  If non-zero,	publisher -> address order.
+
+  
+## Ver. 1.3.2 (2011-04-05)
+
+* Fixed a bug in `bst.hide.number`.
+
+
+## Ver. 1.3.1 (2010-12-17)
+
+* Added the new function `bst.hide.number`.  If you want to hide number filed,
+  set non-zero to this function.
+
+
+## Ver. 1.3 (2010-12-04)
+
+* Fixed a bug in period-comma handling.
+
+* Changed the rule for sorting entries.
+
+  In the previous rule, econ.bst use full author name for primary sorting
+  key. For example, suppose that there are references like
+
+  Hatoyama, Fukuda, Abe (2009) "apple"
+  Hatoyama, Aso, Fukuda, Abe (2007) "orange."
+  Hatoyama, Abe, Fukuda, Koizumi (2009) "grape."
+
+  In this case, econ.bst sorts references in the following order.
+
+  Hatoyama, Abe, Fukuda, Koizumi (2009) "grape."
+  Hatoyama, Aso, Fukuda, Abe (2007) "orange."
+  Hatoyama, Fukuda, Abe (2009) "apple."
+
+  In the new rule, econ.bst uses the abbreviated author name instead of the full
+  author name. That is, the econ.bst uses 
+
+  Hatoyama et al. (2009) "apple."
+  Hatoyama et al. (2007) "orange."
+  Hatoyama et al. (2009) "grape."
+
+  for the sorting key. So three articles are sorted in the following order.
+
+  Hatoyama, Aso, Fukuda, Abe (2007) "orange."
+  Hatoyama, Fukuda, Abe (2009) "apple."
+  Hatoyama, Abe, Fukuda, Koizumi (2009) "grape."
+
+* Changed the rule for attaching alphabetical index to year.
+
+  In the previous rule, econ.bst does not attach alphabetical index to year in
+  the following two articles.
+
+  Hatoyama, Abe, Fukuda, Koizumi (2009) "grape."
+  Hatoyama, Fukuda, Abe (2009) "apple."
+
+  This means that two articles have the exactly same abbreated citation form
+  "Hatoyama et al.(2009)".
+
+  In the new rule, econ.bst attaches alphabetical index to the above two
+  articles like
+
+  Hatoyama, Fukuda, Abe (2009a) "apple."
+  Hatoyama, Abe, Fukuda, Koizumi (2009b) "grape."
+
+  So the abbreated citation form for two articles are distinguished like
+  Hatoyama et al.(2009a) and  Hatoyama et al.(2009b). 
+
+
+## Ver. 1.2 (2008-12-22)
+
+* When there are successive periods and commas (for example, ".,", "..", ",,"
+  etc.), the second one is removed.  In the previous jecon.bst, it is difficult
+  to use period and comma as delimiters at the same time because it often causes
+  problems such as successive commas and periods.  The new jecon.bst removes the
+  second period or comma if there are successive periods and commas.
+
+* Added new function `bst.and.others.num`.  Author names in the citation part
+  are abbreviated by et al. if the number of authors is greater or equal to
+  bst.and.others.num.  
+
+
+## Ver. 1.1 (2008-11-17)
+
+* Added new functions: `bst.sort.year`, `bst.and.others`, `bst.cite.and` and
+  `bst.cite.ands`.
+
+* Corrected typos.
+
+  
+## Ver. 1.0 (2007-11-20)
+
+* The initial release.
+
+
+<!--
+--------------------
+Local Variables:
+mode: markdown
+fill-column: 80
+coding: utf-8-dos
+End:
+-->
+
