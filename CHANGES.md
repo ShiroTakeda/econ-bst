@@ -1,7 +1,7 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2017-07-30 10:06:38 st>
+Time-stamp:	    <2017-07-30 21:52:31 st>
 -->
 
 Changelogs for econ.bst
@@ -18,10 +18,9 @@ Changelogs for econ.bst
   and DOI fields when both fields exist. You can choose three values for
   `bst.url.doi`.
   
-  #0 -> Both fields are displayed
-  #1 -> Only URL field is displayed
-  #2 -> Only DOI field is displayed
-  
+  + #0 -> Both fields are displayed
+  + #1 -> Only URL field is displayed
+  + #2 -> Only DOI field is displayed
 
 
 ## Ver. 2.1 (2013-07-09)
