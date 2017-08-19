@@ -1,7 +1,7 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-07-29 22:51:06 st>
+% Time-stamp:          <2017-08-19 14:04:46 st>
 % Version 2.2
 %
 % $Id: econ.bst,v 1.6 2008/12/22 09:10:51 st Exp $
@@ -3429,7 +3429,7 @@ FUNCTION{punctuation}
   "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
   "%  This bbl file is created by econ.bst ver." econ.version *       write$ newline$
   "%  The latest econ.bst is available at"                              write$ newline$
-  "%  <http://shirotakeda.org/home/tex/econ-bst.html>"             write$ newline$
+  "%  <http://shirotakeda.org/en/tex/econ-bst.html>"             write$ newline$
   "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
   newline$
 }

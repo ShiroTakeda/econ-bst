@@ -1,13 +1,13 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2017-07-30 21:52:31 st>
+Time-stamp:	    <2017-08-19 14:02:25 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
-## Ver. 2.2
+## Ver. 2.2 (2017-08-19)
 
 * Slightly changed the definition of `format.url`, `bst.url.pre` and
   `bst.url.post`.
