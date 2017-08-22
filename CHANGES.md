@@ -1,11 +1,22 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2017-08-19 14:02:25 st>
+Time-stamp:	    <2017-08-22 11:45:28 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Ver. 2.3
+
+* Changed the default setting of `bst.hide.number`.
+
+* Modified the style for Ph.D. thesis (the title of Ph.D. thesis is treated as
+  book title).
+  
+* Modified the style for editors to be similar to the style for authors. Now,
+  the setting of `bst.author.name` is applied to editors.
+
 
 ## Ver. 2.2 (2017-08-19)
 

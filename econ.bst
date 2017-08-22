@@ -1,7 +1,7 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-08-19 14:04:46 st>
+% Time-stamp:          <2017-08-22 11:41:54 st>
 % Version 2.2
 %
 % $Id: econ.bst,v 1.6 2008/12/22 09:10:51 st Exp $
@@ -409,8 +409,8 @@ FUNCTION {bst.volume.post}
 
 % Hide number.  If non-zero, number is suppressed. 
 FUNCTION {bst.hide.number}
-% { #0 }    % #0 -> show number field (default)
-{ #1 }    % non-#0 -> Hide number field.
+{ #0 }    % #0 -> show number field (default)
+% { #1 }    % non-#0 -> Hide number field.
 
 % The string before number:
 %
@@ -1170,40 +1170,6 @@ FUNCTION {format.names}
   while$
 }
 
-%%% editor
-FUNCTION {format.editornames}
-{ 's :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { bst.first.name.initial #0 = 
-        { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-        { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-      if$
-      nameptr #1 >
-        % If there are multiple editors
-        { namesleft #1 >
-            { ", " * t * }
-            { t "others" =
-                { bst.and.others * }
-                { numnames #2 =
-                    { bst.and  * t * }
-                    { bst.ands * t * }
-                  if$
-                }
-              if$
-            }
-          if$
-        }
-        't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
-
 % remove successive periods (commas) from author
 FUNCTION {remove.ss.period.auth}
 { 's :=
@@ -1346,7 +1312,7 @@ FUNCTION {format.editors.x}
           if$
         }
       if$
-      editor format.editornames *
+      editor format.names *
       bst.editor.btitle.order #0 =
         { editor num.names$ #1 >
            { bst.editors * }
@@ -2329,7 +2295,7 @@ FUNCTION {phdthesis}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
-  format.title "title" output.check.nocomma
+  format.book "title" output.check.nocomma
   format.phd
   format.thesis.type output.nonnull.nocomma
   format.school "school" output.check.nocomma
