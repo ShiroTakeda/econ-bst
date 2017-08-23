@@ -1,7 +1,7 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-08-22 18:53:27 st>
+% Time-stamp:          <2017-08-23 09:49:16 st>
 % Version 2.3
 
 % Features of econ.bst
@@ -44,8 +44,8 @@ FUNCTION {econ.debug}
 % See econ-sample.pdf for details.
 % 
 FUNCTION {bst.use.bysame}
-{ #0 }    % Not use \bysame
-% { #1 }    % -> Use \bysame (default)
+% { #0 }    % Not use \bysame
+{ #1 }    % -> Use \bysame (default)
 % { #2 }    % -> Use \bysame of alternative style.
 
 % The definition of \bysame command.
@@ -77,8 +77,8 @@ FUNCTION {bst.author.name}
 % Abbreviate first name of authors (editors):
 %
 FUNCTION {bst.first.name.initial}
-{ #0 }    % #0 -> full letters (default).
-% { #1 }    % Non-zero -> initial letter only.
+% { #0 }    % #0 -> full letters (default).
+{ #1 }    % Non-zero -> initial letter only.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -226,8 +226,7 @@ FUNCTION {bst.notuse.order.field}
 % String replaced with _ in "Mr. A _ Mr. B "
 %
 FUNCTION {bst.and}
-{ ", and " }
-% { " and " }    % (default)
+{ " and " }    % (default)
 
 %%% String used to separate author names in references (more than two authors).
 %
@@ -272,13 +271,13 @@ FUNCTION {bst.and.others}
 % The string before author:
 %
 FUNCTION {bst.author.pre}
-{ "\textbf{" }
+{ "\textsc{" }
 % { "" }    % (default)
 
 % The string after author:
 %
 FUNCTION {bst.author.post}
-{ ".}" }
+{ "}" }
 % { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -287,25 +286,23 @@ FUNCTION {bst.author.post}
 % The string before year only for aritcle type entry.
 %
 FUNCTION {bst.year.pre}
-{ " " }
-% { " (" }    % (default)
+{ " (" }    % (default)
 
 % The string after year only for aritcle type entry.
 %
 FUNCTION {bst.year.post}
-{ ". " }
+{ "): " }
 % { ") " }    % (default)
 
 % The string after year for non-article type entry (book, incollection etc)
 %
 FUNCTION {bst.year.na.pre}
-{ " " }
-% { " (" }    % (default)
+{ " (" }    % (default)
 
 % The string after year for non-article type entry (book, incollection etc)
 %
 FUNCTION {bst.year.na.post}
-{ ". " }
+{ "): " }
 % { ") " }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -319,8 +316,7 @@ FUNCTION {bst.title.pre}
 % The string after title:
 %
 FUNCTION {bst.title.post}
-{ ".''" }
-% { ",''" }    % (default)
+{ ",''" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       tile for book:
@@ -333,8 +329,7 @@ FUNCTION {bst.book.pre}
 % The string after book title:
 %
 FUNCTION {bst.book.post}
-{ "}." }
-% { "}" }    % (default)
+{ "}" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       booktitle
@@ -347,8 +342,7 @@ FUNCTION {bst.btitle.pre}
 % The string after booktitle:
 %
 FUNCTION {bst.btitle.post}
-{ "}." }
-% { "}" }    % (default)
+{ "}" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       journal name
@@ -382,8 +376,7 @@ FUNCTION {bst.editor}
 % If set to non-zero:	booktitle -> editors order
 %
 FUNCTION {bst.editor.btitle.order}
-{ #1 }
-% { #0 }    % (default)
+{ #0 }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       edition
@@ -425,13 +418,13 @@ FUNCTION {bst.hide.number}
 % The string before number:
 %
 FUNCTION {bst.number.pre}
-{ "(" }
+{ " (" }
 % { ", No. " }    % (default)
 
 % The string after number:
 %
 FUNCTION {bst.number.post}
-{ "): " }
+{ ")" }
 % { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -440,8 +433,7 @@ FUNCTION {bst.number.post}
 % In
 %
 FUNCTION {bst.in}
-{ " In " }
-% { " in " }    % (default)
+{ " in " }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       page
@@ -449,13 +441,14 @@ FUNCTION {bst.in}
 % The string before page (multiple pages):
 %
 FUNCTION {bst.pages.pre}
-{ " " }
+{ ", " }
 % { ", pp." }    % (default)
 
 % The string before page:
 %
 FUNCTION {bst.page.pre}
-{ ", p." }    % (default)
+{ ", " }
+% { ", p." }    % (default)
 
 % The string after page (multiple pages):
 %
@@ -525,8 +518,7 @@ FUNCTION {bst.publisher.pre}
 % The string after publisher:
 %
 FUNCTION {bst.publisher.post}
-{ ", " }
-% { "" }    % (default)
+{ "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       series

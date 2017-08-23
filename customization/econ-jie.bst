@@ -1,7 +1,7 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-08-22 18:53:27 st>
+% Time-stamp:          <2017-08-23 10:11:33 st>
 % Version 2.3
 
 % Features of econ.bst
@@ -44,8 +44,8 @@ FUNCTION {econ.debug}
 % See econ-sample.pdf for details.
 % 
 FUNCTION {bst.use.bysame}
-{ #0 }    % Not use \bysame
-% { #1 }    % -> Use \bysame (default)
+% { #0 }    % Not use \bysame
+{ #1 }    % -> Use \bysame (default)
 % { #2 }    % -> Use \bysame of alternative style.
 
 % The definition of \bysame command.
@@ -59,8 +59,8 @@ FUNCTION {bst.bysame.definition}
 % The order of fist and last name.
 %
 FUNCTION {bst.author.name}
-{ #0 }    % (default)
-% { #1 }
+% { #0 }    % (default)
+{ #1 }
 % { #2 }
 
 % Case of #0: First author -> last-first, other authors -> first-last. 
@@ -77,16 +77,16 @@ FUNCTION {bst.author.name}
 % Abbreviate first name of authors (editors):
 %
 FUNCTION {bst.first.name.initial}
-{ #0 }    % #0 -> full letters (default).
-% { #1 }    % Non-zero -> initial letter only.
+% { #0 }    % #0 -> full letters (default).
+{ #1 }    % Non-zero -> initial letter only.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Decapitalize of strings in title field.
 %
 FUNCTION {bst.title.lower.case}
-{ #0 }    % If #0, not decapitalize title (default).
-% { #1 }    % If non-#0, decapitalize title
+% { #0 }    % If #0, not decapitalize title (default).
+{ #1 }    % If non-#0, decapitalize title
 
 % Hide title filed.
 %
@@ -226,7 +226,7 @@ FUNCTION {bst.notuse.order.field}
 % String replaced with _ in "Mr. A _ Mr. B "
 %
 FUNCTION {bst.and}
-{ ", and " }
+{ " " }
 % { " and " }    % (default)
 
 %%% String used to separate author names in references (more than two authors).
@@ -234,7 +234,8 @@ FUNCTION {bst.and}
 % String replaced with _ in "Mr. A, Mr. B _ Mr. C"
 %
 FUNCTION {bst.ands}
-{ ", and " }    % (default)
+{ " " }
+% { ", and " }    % (default)
 
 %%% String used to separate author names in citation part.
 %
@@ -272,13 +273,12 @@ FUNCTION {bst.and.others}
 % The string before author:
 %
 FUNCTION {bst.author.pre}
-{ "\textbf{" }
-% { "" }    % (default)
+{ "" }    % (default)
 
 % The string after author:
 %
 FUNCTION {bst.author.post}
-{ ".}" }
+{ "," }
 % { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -314,12 +314,13 @@ FUNCTION {bst.year.na.post}
 % The string before title:
 %
 FUNCTION {bst.title.pre}
-{ "``" }    % (default)
+{ "" }
+% { "``" }    % (default)
 
 % The string after title:
 %
 FUNCTION {bst.title.post}
-{ ".''" }
+{ "." }
 % { ",''" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,12 +329,13 @@ FUNCTION {bst.title.post}
 % The string before book title:
 %
 FUNCTION {bst.book.pre}
-{ " \textit{" }    % (default)
+{ " " }
+% { " \textit{" }    % (default)
 
 % The string after book title:
 %
 FUNCTION {bst.book.post}
-{ "}." }
+{ "." }
 % { "}" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -342,12 +344,13 @@ FUNCTION {bst.book.post}
 % The string before booktitle:
 %
 FUNCTION {bst.btitle.pre}
-{ " \textit{" }    % (default)
+{ " " }
+% { " \textit{" }    % (default)
 
 % The string after booktitle:
 %
 FUNCTION {bst.btitle.post}
-{ "}." }
+{ "." }
 % { "}" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -356,12 +359,14 @@ FUNCTION {bst.btitle.post}
 % The string before journal name:
 %
 FUNCTION {bst.journal.pre}
-{ " \textit{" }    % (default)
+{ " " }
+% { " \textit{" }    % (default)
 
 % The string after journal name:
 %
 FUNCTION {bst.journal.post}
-{ "}" }    % (default)
+{ "" }
+% { "}" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
@@ -369,7 +374,8 @@ FUNCTION {bst.journal.post}
 % The string that indicates multiple editors:
 %
 FUNCTION {bst.editors}
-{ " eds. " }    % (default)
+{ " (Eds.)," }
+% { " eds. " }    % (default)
 
 % The string that indicates single editor:
 %
@@ -382,8 +388,7 @@ FUNCTION {bst.editor}
 % If set to non-zero:	booktitle -> editors order
 %
 FUNCTION {bst.editor.btitle.order}
-{ #1 }
-% { #0 }    % (default)
+{ #0 }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       edition
@@ -404,7 +409,7 @@ FUNCTION {bst.edition.post}
 % The string before volume:
 %
 FUNCTION {bst.volume.pre}
-{ ", " }
+{ " " }
 % { ", Vol. " }    % (default)
 
 % The string after volume:
@@ -425,13 +430,13 @@ FUNCTION {bst.hide.number}
 % The string before number:
 %
 FUNCTION {bst.number.pre}
-{ "(" }
+{ " (" }
 % { ", No. " }    % (default)
 
 % The string after number:
 %
 FUNCTION {bst.number.post}
-{ "): " }
+{ ")," }
 % { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -440,7 +445,7 @@ FUNCTION {bst.number.post}
 % In
 %
 FUNCTION {bst.in}
-{ " In " }
+{ " In: " }
 % { " in " }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -511,8 +516,8 @@ FUNCTION {bst.address.post}
 % If non-zero,	publisher -> address order.
 
 FUNCTION {bst.address.position}
-{ #0 }    % Address is placed before publisher (default)
-% { #1 }    % Address is placed after publisher 
+% { #0 }    % Address is placed before publisher (default)
+{ #1 }    % Address is placed after publisher 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       publisher
@@ -520,13 +525,13 @@ FUNCTION {bst.address.position}
 % The string before publisher:
 %
 FUNCTION {bst.publisher.pre}
-{ ": " }    % (default)
+{ ", " }
+% { ": " }    % (default)
 
 % The string after publisher:
 %
 FUNCTION {bst.publisher.post}
-{ ", " }
-% { "" }    % (default)
+{ "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       series
@@ -1895,7 +1900,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { " Technical Report" }
     { " " type * }
   if$
   number empty$

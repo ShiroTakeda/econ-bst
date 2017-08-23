@@ -1,10 +1,8 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-07-30 00:10:19 st>
-% Version 2.2
-%
-% $Id: econ.bst,v 1.6 2008/12/22 09:10:51 st Exp $
+% Time-stamp:          <2017-08-22 18:52:34 st>
+% Version 2.3
 
 % Features of econ.bst
 % (1) Reference style used in economics paper.
@@ -21,7 +19,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.2" }
+FUNCTION {econ.version} { "2.3" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
@@ -1191,40 +1189,6 @@ FUNCTION {format.names}
   while$
 }
 
-%%% editor
-FUNCTION {format.editornames}
-{ 's :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { bst.first.name.initial #0 = 
-        { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-        { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-      if$
-      nameptr #1 >
-        % If there are multiple editors
-        { namesleft #1 >
-            { ", " * t * }
-            { t "others" =
-                { bst.and.others * }
-                { numnames #2 =
-                    { bst.and  * t * }
-                    { bst.ands * t * }
-                  if$
-                }
-              if$
-            }
-          if$
-        }
-        't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
-
 % remove successive periods (commas) from author
 FUNCTION {remove.ss.period.auth}
 { 's :=
@@ -1367,7 +1331,7 @@ FUNCTION {format.editors.x}
           if$
         }
       if$
-      editor format.editornames *
+      editor format.names *
       bst.editor.btitle.order #0 =
         { editor num.names$ #1 >
            { bst.editors * }
@@ -2350,7 +2314,7 @@ FUNCTION {phdthesis}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
-  format.title "title" output.check.nocomma
+  format.book "title" output.check.nocomma
   format.phd
   format.thesis.type output.nonnull.nocomma
   format.school "school" output.check.nocomma
@@ -3450,7 +3414,7 @@ FUNCTION{punctuation}
   "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
   "%  This bbl file is created by econ.bst ver." econ.version *       write$ newline$
   "%  The latest econ.bst is available at"                              write$ newline$
-  "%  <http://shirotakeda.org/home/tex/econ-bst.html>"             write$ newline$
+  "%  <http://shirotakeda.org/en/tex/econ-bst.html>"             write$ newline$
   "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
   newline$
 }

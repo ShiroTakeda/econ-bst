@@ -1,10 +1,8 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-08-22 11:41:54 st>
-% Version 2.2
-%
-% $Id: econ.bst,v 1.6 2008/12/22 09:10:51 st Exp $
+% Time-stamp:          <2017-08-22 19:02:13 st>
+% Version 2.3
 
 % Features of econ.bst
 % (1) Reference style used in economics paper.
@@ -21,7 +19,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.2" }
+FUNCTION {econ.version} { "2.3" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
