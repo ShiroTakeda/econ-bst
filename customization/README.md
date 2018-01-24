@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2017-07-30 21:33:13 st>
+Time-stamp:     <2018-01-24 20:00:57 st>
 -->
 
 Contents of this folder
@@ -19,6 +19,9 @@ Contents of this folder
 | `econ-aer.bst` | A style like AER (American Economic Review). | 
 | `econ-jet.bst` | A style like JET (Journal of Economic Theoriy). | 
 | `econ-no-sort.bst` | This style lists entries in citation order. | 
+| `econ-econometrica.bst` | A style like Econometrica. | 
+| `econ-jie.bst` | A style like JIE (Journal of International Economics). | 
+
 
 <!--
 --------------------

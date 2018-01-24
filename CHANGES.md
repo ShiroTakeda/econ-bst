@@ -1,7 +1,7 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2017-08-22 11:45:28 st>
+Time-stamp:	    <2018-01-24 19:59:49 st>
 -->
 
 Changelogs for econ.bst
@@ -227,9 +227,9 @@ Changelogs for econ.bst
 ## Ver. 1.2 (2008-12-22)
 
 * When there are successive periods and commas (for example, ".,", "..", ",,"
-  etc.), the second one is removed.  In the previous jecon.bst, it is difficult
+  etc.), the second one is removed.  In the previous econ.bst, it is difficult
   to use period and comma as delimiters at the same time because it often causes
-  problems such as successive commas and periods.  The new jecon.bst removes the
+  problems such as successive commas and periods.  The new econ.bst removes the
   second period or comma if there are successive periods and commas.
 
 * Added new function `bst.and.others.num`.  Author names in the citation part
