@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2018-01-24 20:00:57 st>
+Time-stamp:     <2018-11-09 11:54:42 st>
 -->
 
 Contents of this folder
@@ -21,6 +21,13 @@ Contents of this folder
 | `econ-no-sort.bst` | This style lists entries in citation order. | 
 | `econ-econometrica.bst` | A style like Econometrica. | 
 | `econ-jie.bst` | A style like JIE (Journal of International Economics). | 
+
+| PDF file         | Explanation                                                 |
+|:---------------------|:--------------------------------------------------------|
+| `econ-default.pdf`  | PDF file created from econ.bst file. |
+| `econ-numbers.pdf` | PDF file which use numerical citation mode. |
+
+Other PDF files are created from the corresponding bst files above.
 
 
 <!--
