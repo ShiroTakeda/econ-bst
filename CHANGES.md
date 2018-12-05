@@ -1,11 +1,29 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2018-01-24 19:59:49 st>
+Time-stamp:	    <2018-12-05 13:48:28 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Ver. 2.4
+
+* Added the function to implement certificated random author ordering propsed by
+  the following article.
+
+  Ray, Debraj ⓡ Arthur Robson (2018) "Certiﬁed Random: A New Order for
+  Coauthorship," American Economic Review, Vol. 108, No. 2, pp. 489–520, URL:
+  http://www.aeaweb.org/articles?id=10.1257/aer.20161492, DOI:
+  http://dx.doi.org/10.1257/aer.20161492.
+  
+  For this, the following functions are added: `bst.use.nameorder`,
+  `bst.and.nameorder`, `bst.cite.and.nameorder`, `bst.and.others.nameorder`.
+  
+  For the details, see the section "Certified random order" in econ-example.pdf.
+  
+* Changed the default value of `bst.doi.pre`.
+    
 
 ## Ver. 2.3
 
@@ -29,9 +47,9 @@ Changelogs for econ.bst
   and DOI fields when both fields exist. You can choose three values for
   `bst.url.doi`.
   
-  + #0 -> Both fields are displayed
-  + #1 -> Only URL field is displayed
-  + #2 -> Only DOI field is displayed
+  + `#0` -> Both fields are displayed
+  + `#1` -> Only URL field is displayed
+  + `#2` -> Only DOI field is displayed
 
 
 ## Ver. 2.1 (2013-07-09)
@@ -117,9 +135,9 @@ Changelogs for econ.bst
 
   In the new econ.bst, you can choose three values for `bst.use.bysame`.
 
-  #0: Not use bysame command.
-  #1: Use bysame command like List 1 (this is the default value).
-  #2: Use bysame command like List 2.
+  + `#0`: Not use bysame command.
+  + `#1`: Use bysame command like List 1 (this is the default value).
+  + `#2`: Use bysame command like List 2.
 
   For the details, see econ-sample.pdf.
 
@@ -135,9 +153,9 @@ Changelogs for econ.bst
   In article type entry, the position of year changes according to the following
   rule:
   
-  #1 -> year is placed at the end.
-  #2 -> year is placed after journal name in aritcle type entry.
-  #3 -> year is placed after volume in aritcle type entry.
+  + `#1` -> year is placed at the end.
+  + `#2` -> year is placed after journal name in aritcle type entry.
+  + `#3` -> year is placed after volume in aritcle type entry.
 
 * Added `bst.year.na.pre` and `bst.year.na.post`.  These functions are
   `bst.year.pre` and `bst.year.post` for non-article type entry. In the new
@@ -149,14 +167,14 @@ Changelogs for econ.bst
   This determines the order of editor and booktitle in incollection and
   inproceedings entry.
 
-  If #0,	editors - booktitle order (the default value).
+  If `#0`,	editors - booktitle order (the default value).
   If non-zero,	booktitle - editors order.
 
 * Added `bst.address.position`.
 
   You can choose the order of address and publisher by this function.
 
-  If #0,	address -> publisher order (the default value).
+  If `#0`,	address -> publisher order (the default value).
   If non-zero,	publisher -> address order.
 
   
