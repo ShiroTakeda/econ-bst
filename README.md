@@ -3,13 +3,19 @@ Filename:       README.md
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2017-07-30>
-Time-stamp:     <2018-01-24 20:00:06 st>
+Time-stamp:     <2018-12-05 13:59:17 st>
 -->
 
 econ.bst
 ==============================
 
-BibTeX style file for economics. http://shirotakeda.org/en/tex/econ-bst.html
+`econ.bst` is a BibTeX style file for economics. It It provids the following
+features:
+
+* The author-year type citation (you need `natbib.sty` as well).
+* Reference style used in economics papers.
+* Highly customizable.  You can easily customize reference style as you wish.
+
 
 ## Explanation of files
 
