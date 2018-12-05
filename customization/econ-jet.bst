@@ -1,8 +1,13 @@
 % econ.bst: BibTeX style file for papers in economics.
 %
+% Author: Shiro Takeda
+% Maintainer: Shiro Takeda
+% Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2017-08-22 18:52:34 st>
-% Version 2.3
+% Time-stamp:          <2018-12-05 14:16:18 st>
+% Version: 2.4
+% Keywords: TeX, BibTeX, bst 
+% URL: https://github.com/ShiroTakeda/econ-bst
 
 % Features of econ.bst
 % (1) Reference style used in economics paper.
@@ -19,12 +24,30 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.3" }
+FUNCTION {econ.version} { "2.4" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
 { #0 }    % Debug mode off (default).
 % { #1 }    % Debug mode on.
+
+ENTRY
+  %%% Declaration of field
+  { access address author booktitle chapter doi edition editor howpublished
+    institution journal key month note number organization pages publisher
+    school series title type url volume year
+  % Fields specific to econ.bst
+    order absorder nameorder
+  }
+
+  % Definition of entry variable.  The entry variable is a variable which has
+  % different values according to different entries.
+  %% Integer entry variable:
+  { order.cited }
+
+  %% String entry variable
+  { label cyear flabel alabel extra.label sort.label sort.label.abb
+    extra.label.bysame nameorder.temp }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -249,6 +272,26 @@ FUNCTION {bst.cite.and}
 FUNCTION {bst.cite.ands}
 { " and " }    % (default)
 
+%%% If you want to use random author order for some bibliography entries, set
+% non-zero to this function.
+% 
+FUNCTION {bst.use.nameorder}
+{ #1 }	% Use random order (default)
+% { #0 }	% Not use random order
+
+%%% String used to separate author names in references for the entry of random
+% author order.
+%
+FUNCTION {bst.and.nameorder}
+{ " \textcircled{r} " }    % (default)
+
+%%% String used to separate author names in citation part for the entry of
+% random author order
+%
+FUNCTION {bst.cite.and.nameorder}
+{ " \textcircled{r} " }    % (default)
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Author names in the citation part are abbreviated by et al. if the number of
@@ -264,6 +307,11 @@ FUNCTION {bst.and.others.num}
 % Strings used when abbreviating multiple-authors in citation part.
 FUNCTION {bst.and.others}
 { " et~al." }    % (default)
+
+% Strings used when abbreviating multiple-authors in citation part for entries
+% with random author order.
+FUNCTION {bst.and.others.nameorder}
+{ " \textcircled{r}~al." }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       author 
@@ -643,7 +691,7 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", DOI: \url{http://dx.doi.org/" } % (default)
+{ ", DOI: \href{http://dx.doi.org/" doi * "}{" * } % (default)
 
 % The string after DOI:
 %
@@ -744,45 +792,6 @@ FUNCTION {bst.th}
 %
 % About the definition of a function with more than two arguments, see the
 % definition of "chop.word".
-
-ENTRY
-
-  %%% Declaration of field
-  { access address author booktitle chapter doi edition editor howpublished
-    institution journal key month note number organization pages publisher
-    school series title type url volume year
-
-    % Fields specific to econ.bst
-    order absorder
-  }
-
-  % Definition of entry variable.  The entry variable is a variable which has
-  % different values according to different entries.
-
-  %% Integer entry variable:
-  { order.cited }
-
-  %% String entry variable
-  { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame }
-
-%%% Explanation of variables.
-
-% alabel: author (editor) name (abbreviated form) used for citation part.
-% Not used for reference part.
-
-% flabel: author (editor) name (full name form) used for citation part.
-% Not used for reference part.
-
-% sort.label: author (editor) name (full name form) used for sorting
-% entries (NB: this is not used for sorting in the current code).
-
-% sort.label.abb: author (editor) name (abbreviated form) used for sorting
-% entries.
-
-% sort.key$: key used for sorting entries.
-% It usually has the string of author - year - title - month.
-    
 
 %%% Declaration of variables:
 
@@ -1119,6 +1128,15 @@ FUNCTION {format.url.doi}
   if$
 }
 
+%%% and others
+FUNCTION {bst.and.others.output}
+{ nameorder.temp "random" =
+  bst.use.nameorder #0 = not and
+    { bst.and.others.nameorder }
+    { bst.and.others }
+  if$
+}
+
 %%% author and editor
 
 %%% name
@@ -1137,15 +1155,15 @@ FUNCTION {format.names}
        bst.author.name #1 =
        or
           { bst.first.name.initial #0 = 
-  	   { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-  	   { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-  	  if$
-  	}
+           { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+           { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+          if$
+        }
           { bst.first.name.initial #0 = 
              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-  	  if$
-  	}
+          if$
+        }
        if$
      }
      % The second or later authors
@@ -1155,12 +1173,12 @@ FUNCTION {format.names}
           { bst.first.name.initial #0 = 
              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-  	 if$
+         if$
           }
           { bst.first.name.initial #0 = 
                { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
                { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-  	 if$
+         if$
           }
        if$
      }
@@ -1168,15 +1186,23 @@ FUNCTION {format.names}
 
     nameptr #1 >
       % The second or later authors
-      { namesleft #1 >
-          { ", " * t * }
-          { t "others" =
-              { bst.and.others * }
-              { numnames #2 =
-		   { bst.and * t * }
-		   { bst.ands * t * }
-      	  if$
-      	}
+      { nameorder.temp "random" =
+        bst.use.nameorder #0 = not and
+          { bst.and.nameorder * t * }
+          { namesleft #1 >
+              % More than one authors left
+              { ", " * t * }
+              % Only one author left
+              { t "others" =
+                  { bst.and.others.output * }
+                  { numnames #2 =
+                      % Entry with two authors
+                      { bst.and * t * }
+                      { bst.ands * t * }
+                    if$
+                  }
+                if$
+              }
             if$
           }
         if$
@@ -1352,10 +1378,10 @@ FUNCTION {remove.irrelevant.period.comma}
     { s #-1 #3 substring$ "?,'" =
       s #-1 #3 substring$ "?.'" = or
         { s #-3 global.max$ substring$ "'" * }
-	{ s #-1 #4 substring$ "?,''" =
+        { s #-1 #4 substring$ "?,''" =
           s #-1 #4 substring$ "?.''" = or
             { s #-4 global.max$ substring$ "''" * }
-	    { s #-1 #2 substring$ "?," =
+            { s #-1 #2 substring$ "?," =
               s #-1 #2 substring$ "?." = or
                 { s #-2 global.max$ substring$ "" * }
                 { s #-1 #3 substring$ "?,~" =
@@ -1364,7 +1390,7 @@ FUNCTION {remove.irrelevant.period.comma}
                     's
                   if$
                 }
-	      if$
+              if$
             }
           if$
         }
@@ -2453,7 +2479,17 @@ FUNCTION {set.order.cited}
 }
 %%% Iterate for all entries:
 ITERATE {set.order.cited}
-  
+
+%%% check the value of nameorder field.
+FUNCTION {set.nameorder}
+{ nameorder empty$
+    { "" 'nameorder.temp := }
+    { nameorder 'nameorder.temp := }
+  if$
+}
+%%% Iterate for all entries:
+ITERATE {set.nameorder}
+
 %%% Remove symbols and convert to lowercase.
 FUNCTION {sortify}
 { purify$ "l" change.case$ }
@@ -2468,12 +2504,12 @@ FUNCTION {sort.format.names}
     { namesleft #0 > }
     { nameptr #1 >
         { ", " * }
-	'skip$
+        'skip$
       if$
       s nameptr "{ll}{ f}{ j}" format.name$ 't :=
       nameptr numnames = t "others" = and
- 	{ bst.and.others *}
-	{ t sortify * }
+        { bst.and.others.output *}
+        { t sortify * }
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -2500,12 +2536,24 @@ FUNCTION {format.lab.names.full}
       { s nameptr "{vv~}{ll}" format.name$ 't :=
         nameptr #1 >
           { namesleft #1 >
-              { ", " * t * }
+              { nameorder.temp "random" = bst.use.nameorder #0 = not and
+                  { bst.and.nameorder * t * }
+                  { ", " * t * }
+                if$
+              }
               { t "others" =
-                  { bst.and.others * }
+                  { bst.and.others.output * }
                   { numnames #2 > 
-                      { bst.cite.ands * t * }
-                      { bst.cite.and * t * }
+                      { nameorder.temp "random" = bst.use.nameorder #0 = not and
+                          { bst.cite.and.nameorder * t * }
+                          { bst.cite.ands * t * }
+                        if$
+                      }
+                      { nameorder.temp "random" = bst.use.nameorder #0 = not and
+                          { bst.cite.and.nameorder * t * }
+                          { bst.cite.and * t * }
+                        if$
+                      }
                     if$
                   }
                 if$
@@ -2530,7 +2578,7 @@ FUNCTION {format.lab.names.abb}
      % if the number of authors is less than bst.and.others.num, full name.
      { s format.lab.names.full }
      % if the number of authors is equal or more than bst.and.others.num, abbreviated name.
-     { s #1 "{ll}" format.name$ bst.and.others * }
+     { s #1 "{ll}" format.name$ bst.and.others.output * }
    if$
 }
 
@@ -3412,11 +3460,9 @@ ITERATE {forward.pass.two}
 FUNCTION{punctuation}
 {
   "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
-  "%  This bbl file is created by econ.bst ver." econ.version *       write$ newline$
-  "%  The latest econ.bst is available at"                              write$ newline$
-  "%  <http://shirotakeda.org/en/tex/econ-bst.html>"             write$ newline$
-  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
-  newline$
+  "%  This bbl file is created by econ.bst ver." econ.version *          write$ newline$
+  "%  The latest econ.bst is available at"                               write$ newline$
+  "%  <https://github.com/ShiroTakeda/econ-bst>"                         write$ newline$ newline$
 }
 
 EXECUTE {punctuation}
