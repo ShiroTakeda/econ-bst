@@ -3,7 +3,7 @@ Filename:       README.md
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2017-07-30>
-Time-stamp:     <2018-12-05 13:59:17 st>
+Time-stamp:     <2018-12-05 15:22:04 st>
 -->
 
 econ.bst
@@ -13,9 +13,8 @@ econ.bst
 features:
 
 * The author-year type citation (you need `natbib.sty` as well).
-* Reference style used in economics papers.
+* Reference style used in economics papers (`econ.bst` is not a BibTeX style for a specific journal).
 * Highly customizable.  You can easily customize reference style as you wish.
-
 
 ## Explanation of files
 
