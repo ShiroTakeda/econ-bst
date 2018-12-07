@@ -1,30 +1,44 @@
-% econ.bst: BibTeX style file for papers in economics.
+%% econ.bst: BibTeX style file for papers in economics.
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2018-11-23 22:41:18 st>
-% Version: 2.4
+% Time-stamp:          <2018-12-07 18:49:14 st>
+% Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
-% Features of econ.bst
-% (1) Reference style used in economics paper.
-% (2) Highly customizable:
-%     In econ.bst, functions which have names like bst.xxx.yyy are defined.
-%     You can easily customize style of reference by changing contents of these functions.
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+% 
+% The Current Maintainer of this work is Shiro Takeda.
 
-% This econ.bst files is based on the following bst files: jpolisci.bst (by
-% Osamu Iida), nissya.bst (by Koichi Higuchi), aer.bst, jfm.bst, jplain.bst.
-% I would like to thank the authors of these bst files.
+%% Main features of econ.bst.
+
+% "econ.bst" is a BibTeX style file for economics. It provids the following
+% features:
+
+% 1) The author-year type citation (you need "natbib.sty" as well).
+% 2) Reference style used in economics papers ("econ.bst" is not a BibTeX style
+%    for a specific journal).
+% 3) Highly customizable.  You can easily customize reference style as you wish.
+% 4) You can use "certified random order" proposed by Ray ⓡ Robson (2018)
+%    (http://dx.doi.org/10.1257/aer.20161492).
 
 % Bug reports, requests and suggestions are welcome. 
 
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.4" }
+FUNCTION {econ.version} { "2.5" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
@@ -1234,7 +1248,7 @@ FUNCTION {compare.names.aer}
       s i.aer "{ff }{vv }{ll}{ jj}" format.name$
       =
         { #1 i.aer <
-            { " and " * }       % \bysame �ŏȗ����钘�҂̑O�ɂ� and 
+            { " and " * }       % \bysame で省略する著者の前につく and 
             { }
           if$
           "\bysame{}" *

@@ -1,11 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2018-12-05 13:48:28 st>
+Time-stamp:	    <2018-12-07 18:50:38 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Ver. 2.5
+
+* Changed the license of `econ.bst` to the LaTeX Project Public License.
+
 
 ## Ver. 2.4
 
