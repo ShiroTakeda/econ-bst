@@ -1,11 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2018-12-07 18:50:38 st>
+Time-stamp:	    <2018-12-13 11:14:12 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Ver 2.5.1
+
+* Added URL and DOI to techreport.
+
 
 ## Ver. 2.5
 

@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2018-12-07 18:49:14 st>
+% Time-stamp:          <2018-12-13 11:13:25 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -2398,6 +2398,8 @@ FUNCTION {techreport}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
+
+  format.url.doi output.nocomma
 
   format.note output.nocomma
   fin.entry
