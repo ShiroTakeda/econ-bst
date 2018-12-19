@@ -1,7 +1,7 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2018-12-13 11:14:12 st>
+Time-stamp:	    <2018-12-19 22:39:25 st>
 -->
 
 Changelogs for econ.bst
@@ -10,6 +10,10 @@ Changelogs for econ.bst
 ## Ver 2.5.1
 
 * Added URL and DOI to techreport.
+
+* Changed the default setting of `bst.url.doi` to `#2` (this means that only DOI
+  is displayed if both DOI and URL fields have the values).
+
 
 
 ## Ver. 2.5
