@@ -1,10 +1,10 @@
-%% econ.bst: BibTeX style file for papers in economics.
+%% econ-aer.bst: BibTeX style file for American Economic Review (AER).
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2018-12-07 18:49:31 st>
+% Time-stamp:          <2019-01-31 12:10:15 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -21,21 +21,13 @@
 % 
 % The Current Maintainer of this work is Shiro Takeda.
 
-%% Main features of econ.bst.
+%% econ-aer.bst
 
-% "econ.bst" is a BibTeX style file for economics. It provids the following
-% features:
+% "econ-aer.bst" is a BibTeX style file for American Economic Review (AER).
+% AER Style Guide is found at the following site:
+% https://www.aeaweb.org/journals/aer/submissions/accepted-articles/styleguide
 
-% 1) The author-year type citation (you need "natbib.sty" as well).
-% 2) Reference style used in economics papers ("econ.bst" is not a BibTeX style
-%    for a specific journal).
-% 3) Highly customizable.  You can easily customize reference style as you wish.
-% 4) You can use "certified random order" proposed by Ray ⓡ Robson (2018)
-%    (http://dx.doi.org/10.1257/aer.20161492).
-
-% Bug reports, requests and suggestions are welcome. 
-
-% For changelogs, see CHANGES.txt file.
+% "econ-aer.bst" is created from "econ.bst".
 
 % version number
 FUNCTION {econ.version} { "2.5" }
@@ -285,7 +277,8 @@ FUNCTION {bst.cite.and}
 % String replaced with _ in "Mr. A, Mr. B _ Mr. C"
 %
 FUNCTION {bst.cite.ands}
-{ " and " }    % (default)
+{ ", and " }
+% { " and " }    % (default)
 
 %%% If you want to use random author order for some bibliography entries, set
 % non-zero to this function.
@@ -313,7 +306,11 @@ FUNCTION {bst.cite.and.nameorder}
 % authors is greater or equal to bst.and.others.num.
 FUNCTION {bst.and.others.num}
 { #3 }    % If the number of authors is greater or equal to three (default).
-% { #4 }
+
+% If the number of authors is greater or equal to bst.max.author.num, only
+% first author is listed and other authors' names are abbreviated as "et al.".
+FUNCTION {bst.max.author.num}
+{ #12 }    % If the number of authors is greater or equal to 12 (default).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -466,7 +463,7 @@ FUNCTION {bst.edition.post}
 % The string before volume:
 %
 FUNCTION {bst.volume.pre}
-{ ", " }
+{ " " }
 % { ", Vol. " }    % (default)
 
 % The string after volume:
@@ -487,7 +484,7 @@ FUNCTION {bst.hide.number}
 % The string before number:
 %
 FUNCTION {bst.number.pre}
-{ "(" }
+{ " (" }
 % { ", No. " }    % (default)
 
 % The string after number:
@@ -666,7 +663,8 @@ FUNCTION {bst.show.url}
 % The string before url:
 %
 FUNCTION {bst.url.pre}
-{ ", URL: \url{" }	% (default)
+{ ", \url{" }	% (default)
+% { ", URL: \url{" }	% (default)
 
 % The string after url:
 %
@@ -701,7 +699,8 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", DOI: \href{http://dx.doi.org/" doi * "}{" * } % (default)
+{ ". \url{https://doi.org/" }
+% { ", DOI: \href{http://dx.doi.org/" doi * "}{" * } % (default)
 
 % The string after DOI:
 %
@@ -1156,56 +1155,62 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   % Repeat if namesleft > 0
   { namesleft #0 > }
-  {  nameptr #1 =
-     % First author
-     { bst.author.name #0 =
-       bst.author.name #1 =
-       or
-          { bst.first.name.initial #0 = 
-           { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-           { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-          if$
-        }
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-          if$
-        }
-       if$
-     }
-     % The second or later authors
-     { bst.author.name #0 =
-       bst.author.name #2 =
-       or
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-         if$
-          }
-          { bst.first.name.initial #0 = 
-               { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-               { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-         if$
-          }
-       if$
-     }
-    if$
 
+  { nameptr #1 =
+      % First author
+      { bst.author.name #0 =
+        bst.author.name #1 =
+        or
+           { bst.first.name.initial #0 = 
+            { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+            { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+           if$
+         }
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+           if$
+         }
+        if$
+      }
+      % The second or later authors
+      { bst.author.name #0 =
+        bst.author.name #2 =
+        or
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+             if$
+           }
+           { bst.first.name.initial #0 = 
+                { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+                { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+             if$
+           }
+        if$
+      }
+    if$
+    
     nameptr #1 >
       % The second or later authors
-      { nameorder.temp "random" =
-        bst.use.nameorder #0 = not and
-          { bst.and.nameorder * t * }
-          { namesleft #1 >
-              % More than one authors left
-              { ", " * t * }
-              % Only one author left
-              { t "others" =
-                  { bst.and.others.output * }
-                  { numnames #2 =
-                      % Entry with two authors
-                      { bst.and * t * }
-                      { bst.ands * t * }
+      { numnames bst.max.author.num >
+          { bst.and.others * 
+            #1 'namesleft :=  }
+          { nameorder.temp "random" =
+            bst.use.nameorder #0 = not and
+              { bst.and.nameorder * t * }
+              { namesleft #1 >
+                  % More than one authors left
+                  { ", " * t * }
+                  % Only one author left
+                  { t "others" =
+                      { bst.and.others.output * }
+                      { numnames #2 =
+                          % Entry with two authors
+                          { bst.and * t * }
+                          { bst.ands * t * }
+                        if$
+                      }
                     if$
                   }
                 if$
@@ -1499,7 +1504,8 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { bst.volume.pre volume * bst.volume.post *
+%     { bst.volume.pre volume * bst.volume.post *
+    { " Volume " volume * "." *
       series empty$
         'skip$
         %% If there is series field
@@ -2416,6 +2422,8 @@ FUNCTION {techreport}
     'skip$
   if$
 
+  format.url.doi output.nocomma
+
   format.note output.nocomma
   fin.entry
 }
@@ -2928,6 +2936,15 @@ FUNCTION {calc.flabel}
     }
   if$
   'flabel :=
+  author empty$
+    'skip$
+    { author num.names$ 'numnames :=
+      numnames bst.max.author.num >
+        { alabel 'flabel := }
+        'skip$
+      if$
+    }
+  if$
   % For debug
   econ.debug #0 = not
     { "flabel = ``\texttt{" write$
