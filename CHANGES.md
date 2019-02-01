@@ -1,11 +1,14 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2018-12-19 22:39:25 st>
+Time-stamp:	    <2019-02-01 21:47:50 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+* Added the new function `bst.max.author.num`. If the number of authors exceeds
+  12, the authors after the 2nd author are abbriviated by "et al.".
 
 ## Ver 2.5.1
 

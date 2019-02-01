@@ -3,7 +3,7 @@
 % Filename:            econ-example.tex
 % Author:              Shiro Takeda
 % First-written:       <2002/11/02>
-% Time-stamp:          <2018-12-06 00:47:47 st>
+% Time-stamp:          <2019-02-01 21:45:33 st>
 %
 % This document explains how to use econ.bst.
 
@@ -131,9 +131,9 @@ package.
 In the main text, you can cite bibliographic entries by \verb|\citet|
 command.
 
-For example, ``\verb|\citet{Takeda2011b}| is my paper'' generates the output like
+For example, ``\verb|\citet{Takeda2014a}| is my paper'' generates the output like
 \begin{Frame}
-\citet{Takeda2011b} is my paper.
+\citet{Takeda2014a} is my paper.
 \end{Frame}
 
 At the place where you want to add ``the reference part'', you have to set the
@@ -518,9 +518,9 @@ abbreviated names. For example, by using command `\verb|\citet|' and
 `\verb|\citet*|', you can generate the following two styles.
 \begin{itemize}
  \item Citation by full names: \\
-       \verb|\citet*{Takeda2011b}| $\longrightarrow$ \citet*{Takeda2011b}
+       \verb|\citet*{Takeda2014a}| $\longrightarrow$ \citet*{Takeda2014a}
  \item Citation by abbreviated names: \\
-       \verb|\citet{Takeda2011b}| $\longrightarrow$ \citet{Takeda2011b}
+       \verb|\citet{Takeda2014a}| $\longrightarrow$ \citet{Takeda2014a}
 \end{itemize}
 
 By the default, author names more than three are abbreviated. But you can change
@@ -564,7 +564,7 @@ To use this style, you first need to load \texttt{natbib} package with option
 In addition, you need to use \texttt{citep} command in the citation part like
 \begin{Frame}
 \begin{verbatim}
-\citep{Takeda2011b}
+\citep{Takeda2014a}
 \end{verbatim} 
 \end{Frame}
 
@@ -819,15 +819,18 @@ FUNCTION {bst.notuse.absorder.field}
 
 \citet{borgers95:_note_implem_stron_domin},
 \citet{bergemann11:_ration},
-\citet{takeda2011c},
-\citet{Takeda2011b},
+\citet{takeda2015a},
+\citet{Takeda2014a},
 \citet{Biker-2007-unemployment},
 \citet{Babiker-1999-JapaneseNuclearPower},
 \citet{Babiker-1999-KyotoProtocoland},
 \citet{Babiker2000525},
 \citet{BabikerRutherford-2005-EconomicEffectsof},
 \citet{goldin:katz:2011}, \citet{goldin:katz:2008}, \citet{goldin:katz:2000}.
-\citet{stakeda2013web}
+\citet{stakeda2019web},
+\citet{essd-10-405-2018},
+\citet{luthi08:_high},
+\citet{doi:10.1175/2009BAMS2778.1}
 \vspace*{1em}
 
 \nocite{*}
