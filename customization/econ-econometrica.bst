@@ -4,8 +4,8 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2018-12-07 18:48:59 st>
-% Version: 2.4
+% Time-stamp:          <2019-01-29 17:02:25 st>
+% Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -263,7 +263,8 @@ FUNCTION {bst.notuse.order.field}
 % String replaced with _ in "Mr. A _ Mr. B "
 %
 FUNCTION {bst.and}
-{ " and " }    % (default)
+{ ", and " }
+% { " and " }    % (default)
 
 %%% String used to separate author names in references (more than two authors).
 %
@@ -339,7 +340,7 @@ FUNCTION {bst.author.pre}
 % The string after author:
 %
 FUNCTION {bst.author.post}
-{ "}" }
+{ "} " }
 % { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -425,7 +426,8 @@ FUNCTION {bst.journal.post}
 % The string that indicates multiple editors:
 %
 FUNCTION {bst.editors}
-{ " eds. " }    % (default)
+{ " ed. " }
+% { " eds. " }    % (default)
 
 % The string that indicates single editor:
 %
@@ -438,7 +440,8 @@ FUNCTION {bst.editor}
 % If set to non-zero:	booktitle -> editors order
 %
 FUNCTION {bst.editor.btitle.order}
-{ #0 }    % (default)
+% { #0 }    % (default)
+{ #1 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       edition
@@ -474,20 +477,18 @@ FUNCTION {bst.volume.post}
 
 % Hide number.  If non-zero, number is suppressed. 
 FUNCTION {bst.hide.number}
-{ #0 }    % #0 -> show number field (default)
-% { #1 }    % non-#0 -> Hide number field.
+% { #0 }    % #0 -> show number field (default)
+{ #1 }    % non-#0 -> Hide number field.
 
 % The string before number:
 %
 FUNCTION {bst.number.pre}
-{ " (" }
-% { ", No. " }    % (default)
+{ ", No. " }    % (default)
 
 % The string after number:
 %
 FUNCTION {bst.number.post}
-{ ")" }
-% { "" }    % (default)
+{ "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       in 
@@ -707,9 +708,9 @@ FUNCTION {bst.doi.post}
 % #2 -> Only DOI field is displayed
 %
 FUNCTION {bst.url.doi}
-% { #0 }    % (default) -> Both fields are displayed
+% { #0 }    % -> Both fields are displayed
 % { #1 }    % -> Only URL field is displayed
-{ #2 }    % -> Only DOI field is displayed 
+{ #2 }    % (default) --> Only DOI field is displayed 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Other functions:
@@ -735,7 +736,8 @@ FUNCTION {bst.mthesis}
 % The string that represents phd thesis:
 %
 FUNCTION {bst.phdthesis}
-{ " Ph.D. dissertation" }    % (default)
+{ ", Ph.D. dissertation" }
+% { " Ph.D. dissertation" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -1214,6 +1216,61 @@ FUNCTION {format.names}
   while$
 }
 
+FUNCTION {format.names.ed}
+{ 's :=
+  % insert 1 to nameptr.
+  #1 'nameptr :=
+  % Set the number of authors to numnames.
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+  % Repeat if namesleft > 0
+  { namesleft #0 > }
+  {  nameptr #1 =
+     % First author
+     { bst.first.name.initial #0 = 
+        { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+        { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+       if$
+     }
+     % The second or later authors
+     { bst.first.name.initial #0 = 
+          { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+          { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+       if$
+     }
+    if$
+
+    nameptr #1 >
+      % The second or later authors
+      { nameorder.temp "random" =
+        bst.use.nameorder #0 = not and
+          { bst.and.nameorder * t * }
+          { namesleft #1 >
+              % More than one authors left
+              { ", " * t * }
+              % Only one author left
+              { t "others" =
+                  { bst.and.others.output * }
+                  { numnames #2 =
+                      % Entry with two authors
+                      { bst.and * t * }
+                      { bst.ands * t * }
+                    if$
+                  }
+                if$
+              }
+            if$
+          }
+        if$
+      }
+      't
+    if$
+    nameptr #1 + 'nameptr :=
+    namesleft #1 - 'namesleft :=
+  }
+  while$
+}
+
 % remove successive periods (commas) from author
 FUNCTION {remove.ss.period.auth}
 { 's :=
@@ -1356,7 +1413,7 @@ FUNCTION {format.editors.x}
           if$
         }
       if$
-      editor format.names *
+      editor format.names.ed *
       bst.editor.btitle.order #0 =
         { editor num.names$ #1 >
            { bst.editors * }
@@ -1491,7 +1548,8 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { bst.volume.pre volume * bst.volume.post *
+    { " Volume " volume * bst.volume.post *
+%     { bst.volume.pre volume * bst.volume.post *
       series empty$
         'skip$
         %% If there is series field
@@ -2407,6 +2465,8 @@ FUNCTION {techreport}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
+
+  format.url.doi output.nocomma
 
   format.note output.nocomma
   fin.entry

@@ -2,13 +2,15 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2018-11-09 11:54:42 st>
+Time-stamp:     <2019-01-30 17:47:40 st>
 -->
 
 Contents of this folder
 ==============================
 
 + This folders includes bst files created by customizing econ.bst.
+  + These bst files are basically the same as econ.bst except that function named like
+    bst.xxx have different values.
 + If you want to customize econ.bst, see these files.
 
 | bst file         | Explanation                                                 |
@@ -17,9 +19,10 @@ Contents of this folder
 | `econ-a.bst` | A simple style. |
 | `econ-b.bst` | A style with much decoration. |
 | `econ-aer.bst` | A style like AER (American Economic Review). | 
+| `econ-econometrica.bst` | A style like Econometrica. | 
+| `econ-jpe.bst` | A style like JPE (Journal of Poilitical Economy). | 
 | `econ-jet.bst` | A style like JET (Journal of Economic Theoriy). | 
 | `econ-no-sort.bst` | This style lists entries in citation order. | 
-| `econ-econometrica.bst` | A style like Econometrica. | 
 | `econ-jie.bst` | A style like JIE (Journal of International Economics). | 
 
 | PDF file         | Explanation                                                 |
