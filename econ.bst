@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-01-30 19:44:04 st>
+% Time-stamp:          <2019-02-04 10:26:14 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -2162,9 +2162,9 @@ FUNCTION {incollection}
 
   format.in.ed.booktitle "booktitle" output.check.nocomma
   format.bvolume output.nocomma
-  output.address.organization.publisher
   format.edition output.nocomma
   format.chapter.pages output.nocomma
+  output.address.organization.publisher
 
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }
