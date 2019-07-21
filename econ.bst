@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-02-04 10:26:14 st>
+% Time-stamp:          <2019-07-21 22:22:23 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -39,6 +39,9 @@
 
 % version number
 FUNCTION {econ.version} { "2.5" }
+
+% File name
+FUNCTION {econ.file} { "econ.bst" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
@@ -3470,10 +3473,10 @@ ITERATE {forward.pass.two}
 
 FUNCTION{punctuation}
 {
-  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
-  "%  This bbl file is created by econ.bst ver." econ.version *          write$ newline$
-  "%  The latest econ.bst is available at"                               write$ newline$
-  "%  <https://github.com/ShiroTakeda/econ-bst>"                         write$ newline$ newline$
+  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" write$ newline$
+  "%  This bbl file is created by " econ.file * " ver." * econ.version *          write$ newline$
+  "%  The latest " econ.file * " is available at " *			write$ newline$
+  "%  <https://github.com/ShiroTakeda/econ-bst>"                        write$ newline$ newline$
 }
 
 EXECUTE {punctuation}
