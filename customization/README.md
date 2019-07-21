@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-01-30 17:47:40 st>
+Time-stamp:     <2019-07-21 22:36:45 st>
 -->
 
 Contents of this folder
@@ -18,7 +18,7 @@ Contents of this folder
 | `econ.bst`  | The default econ.bst file. |
 | `econ-a.bst` | A simple style. |
 | `econ-b.bst` | A style with much decoration. |
-| `econ-aer.bst` | A style like AER (American Economic Review). | 
+| `econ-aea.bst` | A style for AEA journals such as AER and JEL. | 
 | `econ-econometrica.bst` | A style like Econometrica. | 
 | `econ-jpe.bst` | A style like JPE (Journal of Poilitical Economy). | 
 | `econ-jet.bst` | A style like JET (Journal of Economic Theoriy). | 
