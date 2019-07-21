@@ -1,0 +1,58 @@
+%#!pdflatex 
+%#BIBTEX bibtex econ-aea
+
+%############################## Main #################################
+\documentclass[10pt]{article}
+
+%% Use natbib.sty
+\usepackage{natbib}
+\usepackage{newtxtext,newtxmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{MyBrown}{rgb}{0.3,0,0}
+\definecolor{MyBlue}{rgb}{0,0,0.3}
+\definecolor{MyRed}{rgb}{0.4,0,0.1}
+\definecolor{MyGreen}{rgb}{0,0.4,0}
+\usepackage[bookmarks=true,%
+bookmarksnumbered=true,%
+colorlinks=true,%
+linkcolor=MyBlue,%
+citecolor=MyRed,%
+filecolor=MyBlue,%
+urlcolor=MyGreen%
+]{hyperref}
+
+\setlength{\topmargin}{-20pt} 
+\setlength{\textheight}{648pt}
+\setlength{\oddsidemargin}{15pt}
+\setlength{\textwidth}{440pt}
+
+%#####################################################################
+%######################### Document Starts ###########################
+%#####################################################################
+\begin{document}
+
+This document uses ``\verb|econ-aea.bst|'', which is the style for journals of
+American Economic Association (AEA) such as {\itshape American Economic Review},
+{\itshape Journal of Economic Literature} and {\itshape American Economic
+Journals}.
+
+\vspace{1em}
+
+\input{cited-part}
+\nocite{*}
+
+%% bst file:
+\bibliographystyle{econ-aea}
+\bibliography{../econ-example}
+
+\end{document}
+
+%#####################################################################
+%######################### Document Ends #############################
+%#####################################################################
+% --------------------
+% Local Variables:
+% fill-column: 80
+% End:
