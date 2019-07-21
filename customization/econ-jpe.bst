@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-01-30 14:54:22 st>
+% Time-stamp:          <2019-07-21 22:22:39 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -39,6 +39,9 @@
 
 % version number
 FUNCTION {econ.version} { "2.5" }
+
+% File name
+FUNCTION {econ.file} { "econ-jpe.bst" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
@@ -500,7 +503,8 @@ FUNCTION {bst.number.post}
 % In
 %
 FUNCTION {bst.in}
-{ " in " }    % (default)
+{ " In " }
+% { " in " }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       page
@@ -584,7 +588,8 @@ FUNCTION {bst.publisher.pre}
 % The string after publisher:
 %
 FUNCTION {bst.publisher.post}
-{ "" }    % (default)
+{ "," }
+% { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       series
@@ -3521,10 +3526,10 @@ ITERATE {forward.pass.two}
 
 FUNCTION{punctuation}
 {
-  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
-  "%  This bbl file is created by econ.bst ver." econ.version *          write$ newline$
-  "%  The latest econ.bst is available at"                               write$ newline$
-  "%  <https://github.com/ShiroTakeda/econ-bst>"                         write$ newline$ newline$
+  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" write$ newline$
+  "%  This bbl file is created by " econ.file * " ver." * econ.version *          write$ newline$
+  "%  The latest " econ.file * " is available at " *			write$ newline$
+  "%  <https://github.com/ShiroTakeda/econ-bst>"                        write$ newline$ newline$
 }
 
 EXECUTE {punctuation}
