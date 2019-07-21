@@ -1,14 +1,21 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-02-01 21:47:50 st>
+Time-stamp:	    <2019-07-21 22:47:12 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
+## Ver 2.6
+
+* Added the new style `econ-aea.bst` and removed `econ-aer.bst`. `econ-aea.bst`
+  is the style for journals of AEA (American Economic Association) such as AER,
+  JEL, and AEJ.
+
 * Added the new function `bst.max.author.num`. If the number of authors exceeds
   12, the authors after the 2nd author are abbriviated by "et al.".
+
 
 ## Ver 2.5.1
 
@@ -16,7 +23,6 @@ Changelogs for econ.bst
 
 * Changed the default setting of `bst.url.doi` to `#2` (this means that only DOI
   is displayed if both DOI and URL fields have the values).
-
 
 
 ## Ver. 2.5
