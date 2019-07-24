@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-23 23:18:20 st>
+% Time-stamp:          <2019-07-24 15:05:35 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -21,17 +21,9 @@
 % 
 % The Current Maintainer of this work is Shiro Takeda.
 
-%% Main features of econ.bst.
-
-% "econ.bst" is a BibTeX style file for economics. It provids the following
-% features:
-
-% 1) The author-year type citation (you need "natbib.sty" as well).
-% 2) Reference style used in economics papers ("econ.bst" is not a BibTeX style
-%    for a specific journal).
-% 3) Highly customizable.  You can easily customize reference style as you wish.
-% 4) You can use "certified random order" proposed by Ray ⓡ Robson (2018)
-%    (http://dx.doi.org/10.1257/aer.20161492).
+% "econ-econometrica.bst" is a BibTeX style file for Econometrica.
+% "econ-econometrica.bst" is created from "econ.bst" which is distributed from
+% https://github.com/ShiroTakeda/econ-bst
 
 % Bug reports, requests and suggestions are welcome. 
 
