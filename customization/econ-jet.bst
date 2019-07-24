@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-21 22:27:54 st>
+% Time-stamp:          <2019-07-24 15:05:53 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -22,7 +22,6 @@
 % The Current Maintainer of this work is Shiro Takeda.
 
 % "econ-jet.bst" is a BibTeX style file for Journal fo Economic Theory.
-
 % "econ-jet.bst" is created from "econ.bst" which is distributed from
 % https://github.com/ShiroTakeda/econ-bst
 
