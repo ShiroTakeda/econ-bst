@@ -1,11 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-07-21 22:47:12 st>
+Time-stamp:	    <2019-07-31 22:25:21 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Ver 2.6.1
+
+* Changed `format.tr.number`.
+
 
 ## Ver 2.6
 
