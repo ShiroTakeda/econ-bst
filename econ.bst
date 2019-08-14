@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-31 22:24:19 st>
+% Time-stamp:          <2019-08-14 15:47:16 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -64,7 +64,7 @@ ENTRY
 
   %% String entry variable
   { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame nameorder.temp }
+    extra.label.bysame nameorder.temp jname }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -421,6 +421,15 @@ FUNCTION {bst.journal.pre}
 %
 FUNCTION {bst.journal.post}
 { "}" }    % (default)
+
+% Use the abbreviated journal name
+%
+% If set to #0, do not use abbreviated journal name.
+% If set to non-#0, use abbreviated journal name.
+%
+FUNCTION {bst.journal.name.abb}
+{ #0 }    % (default)
+% { #1 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
@@ -1066,11 +1075,37 @@ FUNCTION {format.btitle}
   if$
 }
 
+FUNCTION {journal.name.sub}
+{ 't :=
+  t #1 #4 substring$ "The " =
+    % Use #30 to handle with the long journal name.
+    { t #5 #30 substring$ 't := }
+    'skip$
+  if$
+  t
+}
+
+FUNCTION {format.journal.name.abb}
+{ journal 's :=
+  journal 'jname :=
+  s journal.name.sub 's :=
+  bst.journal.name.abb #0 =
+    'skip$
+    { 
+       s "Academic Management Review" =
+        { "Acad. Manage. J." 'jname := }
+        'skip$
+      if$
+    }
+  if$
+  jname
+}
+
 %%% journal
 FUNCTION {format.journal}
 { journal empty$
     { "" }
-    { bst.journal.pre journal * bst.journal.post * }
+    { bst.journal.pre format.journal.name.abb * bst.journal.post * }
   if$
 }
 
