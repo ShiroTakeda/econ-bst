@@ -1,11 +1,15 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-08-14 21:57:31 st>
+Time-stamp:	    <2019-09-20 20:54:15 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+
+* Changed the default value for `bst.techrep`.
+
 
 ## Ver 2.6.1
 

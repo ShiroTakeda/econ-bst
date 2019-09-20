@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-08-14 15:35:27 st>
+% Time-stamp:          <2019-09-20 20:55:42 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -732,7 +732,7 @@ FUNCTION {bst.note.post}
 % The string that represents Technical report:
 %
 FUNCTION {bst.techrep}
-{ "" }    % (default)
+{ "Technical Report" }    % (default)
 
 % The string that represents master thesis:
 %
@@ -3111,7 +3111,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { bst.techrep }
     { " " type * }
   if$
   number empty$
