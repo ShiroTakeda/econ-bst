@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-08-14 22:00:48 st>
+Time-stamp:     <2019-09-25 17:35:59 st>
 -->
 
 Contents of this folder
@@ -20,7 +20,7 @@ Contents of this folder
 | `econ-b.bst` | A style with much decoration. |
 | `econ-no-sort.bst` | This style lists entries in citation order. | 
 | `econ-abbr.bst` | This style uses abbreviated journal name. | 
-| `econ-aea.bst` | A style for AEA journals such as AER and JEL. | 
+| `econ-aea.bst` | A style for AEA journals such as AER, JEL, AEJ and JEP. | 
 | `econ-econometrica.bst` | A style like Econometrica. | 
 | `econ-jpe.bst` | A style like JPE (Journal of Poilitical Economy). | 
 | `econ-jet.bst` | A style like JET (Journal of Economic Theoriy). | 
