@@ -1,10 +1,10 @@
-%% econ-aea.bst: BibTeX style file for journals of American Economic Association (AEA).
+%% aea.bst: BibTeX style file for journals of American Economic Association (AEA).
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-21 22:19:02 st>
+% Time-stamp:          <2019-09-25 17:23:53 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -21,9 +21,9 @@
 % 
 % The Current Maintainer of this work is Shiro Takeda.
 
-%% econ-aea.bst
+%% Main features of aea.bst
 
-% "econ-aea.bst" is a BibTeX style file for journals of American Economic
+% "aea.bst" is a BibTeX style file for journals of American Economic
 % Association such as
 % - The American Economic Review
 % - Papers and Proceedins
@@ -33,13 +33,14 @@
 % AEA Style Guide is found at the following site:
 % https://www.aeaweb.org/journals/aer/submissions/accepted-articles/styleguide
 
-% "econ-aea.bst" is created from "econ.bst".
+% "aea.bst" is created from "econ.bst" which is distributed from
+% https://github.com/ShiroTakeda/econ-bst
 
 % version number
 FUNCTION {econ.version} { "2.5" }
 
 % File name
-FUNCTION {econ.file} { "econ-aer.bst" }
+FUNCTION {econ.file} { "aer.bst" }
 
 % Debug mode. Non-zero makes debug mode on.
 FUNCTION {econ.debug}
@@ -62,7 +63,7 @@ ENTRY
 
   %% String entry variable
   { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame nameorder.temp }
+    extra.label.bysame nameorder.temp jname }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -431,6 +432,15 @@ FUNCTION {bst.journal.pre}
 FUNCTION {bst.journal.post}
 { "}" }    % (default)
 
+% Use the abbreviated journal name
+%
+% If set to #0, do not use abbreviated journal name.
+% If set to non-#0, use abbreviated journal name.
+%
+FUNCTION {bst.journal.name.abb}
+{ #0 }    % (default)
+% { #1 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
 
@@ -523,7 +533,8 @@ FUNCTION {bst.pages.pre}
 % The string before page:
 %
 FUNCTION {bst.page.pre}
-{ ", p." }    % (default)
+{ "" }
+% { ", p." }    % (default)
 
 % The string after page (multiple pages):
 %
@@ -723,9 +734,9 @@ FUNCTION {bst.doi.post}
 % #2 -> Only DOI field is displayed
 %
 FUNCTION {bst.url.doi}
-% { #0 }    % (default) -> Both fields are displayed
+% { #0 }    % -> Both fields are displayed
 % { #1 }    % -> Only URL field is displayed
-{ #2 }    % -> Only DOI field is displayed 
+{ #2 }    % (default) --> Only DOI field is displayed 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Other functions:
@@ -741,7 +752,7 @@ FUNCTION {bst.note.post}
 % The string that represents Technical report:
 %
 FUNCTION {bst.techrep}
-{ " Tech. Rep." }    % (default)
+{ "Technical Report" }    % (default)
 
 % The string that represents master thesis:
 %
@@ -1084,11 +1095,37 @@ FUNCTION {format.btitle}
   if$
 }
 
+FUNCTION {journal.name.sub}
+{ 't :=
+  t #1 #4 substring$ "The " =
+    % Use #30 to handle with the long journal name.
+    { t #5 #30 substring$ 't := }
+    'skip$
+  if$
+  t
+}
+
+FUNCTION {format.journal.name.abb}
+{ journal 's :=
+  journal 'jname :=
+  s journal.name.sub 's :=
+  bst.journal.name.abb #0 =
+    'skip$
+    { 
+       s "Academic Management Review" =
+        { "Acad. Manage. J." 'jname := }
+        'skip$
+      if$
+    }
+  if$
+  jname
+}
+
 %%% journal
 FUNCTION {format.journal}
 { journal empty$
     { "" }
-    { bst.journal.pre journal * bst.journal.post * }
+    { bst.journal.pre format.journal.name.abb * bst.journal.post * }
   if$
 }
 
@@ -1953,7 +1990,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { bst.techrep }
     { " " type * }
   if$
   number empty$
@@ -3498,10 +3535,10 @@ ITERATE {forward.pass.two}
 
 FUNCTION{punctuation}
 {
-  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" write$ newline$
-  "%  This bbl file is created by " econ.file * " ver." * econ.version *          write$ newline$
-  "%  The latest " econ.file * " is available at " *			write$ newline$
-  "%  <https://github.com/ShiroTakeda/econ-bst>"                        write$ newline$ newline$
+  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
+  "%  This bbl file is created by aea.bst ver." econ.version *          write$ newline$
+  "%  The latest aea.bst is available at"                               write$ newline$
+  "%  <https://github.com/ShiroTakeda/econ-bst>"                         write$ newline$ newline$
 }
 
 EXECUTE {punctuation}

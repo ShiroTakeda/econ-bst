@@ -1,11 +1,30 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-07-21 22:47:12 st>
+Time-stamp:	    <2019-09-25 17:30:34 st>
 -->
 
 Changelogs for econ.bst
 ==============================
+
+## Changelogs
+
+* 2019-09-21: Changed the default value for `bst.techrep`.
+
+
+## Ver 2.6.1
+
+* Changed `format.tr.number`.
+
+* Added the new style `econ-abbr.bst`. In this style, we use abbreviated names
+  for journal name such as "Am. Econ. Rev." for "American Economics Review".
+  The list of abbreviated names is provided in "journal_name.xlsx".
+
+  To use abbreviated journal name, we have to hardcode the list of all
+  abbreviated journal names in the bst file. It makes the bst file quite
+  long. So this feature is not provided in the standard `econ.bst` and provided
+  only in `econ-abbr.bst` (and `econ-jet.bst`).
+
 
 ## Ver 2.6
 
