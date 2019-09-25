@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-21 22:23:33 st>
+% Time-stamp:          <2019-09-21 22:43:54 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -64,7 +64,7 @@ ENTRY
 
   %% String entry variable
   { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame nameorder.temp }
+    extra.label.bysame nameorder.temp jname }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -317,7 +317,11 @@ FUNCTION {bst.cite.and.nameorder}
 % authors is greater or equal to bst.and.others.num.
 FUNCTION {bst.and.others.num}
 { #3 }    % If the number of authors is greater or equal to three (default).
-% { #4 }
+
+% If the number of authors is greater or equal to bst.max.author.num, only
+% first author is listed and other authors' names are abbreviated as "et al.".
+FUNCTION {bst.max.author.num}
+{ #12 }    % If the number of authors is greater or equal to 12 (default).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -431,6 +435,15 @@ FUNCTION {bst.journal.pre}
 FUNCTION {bst.journal.post}
 { "." }
 % { "}" }    % (default)
+
+% Use the abbreviated journal name
+%
+% If set to #0, do not use abbreviated journal name.
+% If set to non-#0, use abbreviated journal name.
+%
+FUNCTION {bst.journal.name.abb}
+{ #0 }    % (default)
+% { #1 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
@@ -721,9 +734,9 @@ FUNCTION {bst.doi.post}
 % #2 -> Only DOI field is displayed
 %
 FUNCTION {bst.url.doi}
-% { #0 }    % (default) -> Both fields are displayed
+% { #0 }    % -> Both fields are displayed
 { #1 }    % -> Only URL field is displayed
-% { #2 }    % -> Only DOI field is displayed 
+% { #2 }    % (default) --> Only DOI field is displayed 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Other functions:
@@ -739,7 +752,7 @@ FUNCTION {bst.note.post}
 % The string that represents Technical report:
 %
 FUNCTION {bst.techrep}
-{ " Tech. Rep." }    % (default)
+{ "Technical Report" }    % (default)
 
 % The string that represents master thesis:
 %
@@ -749,7 +762,7 @@ FUNCTION {bst.mthesis}
 % The string that represents phd thesis:
 %
 FUNCTION {bst.phdthesis}
-{ " Ph.D. thesis" }    % (default)
+{ " Ph.D. dissertation" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -1082,11 +1095,37 @@ FUNCTION {format.btitle}
   if$
 }
 
+FUNCTION {journal.name.sub}
+{ 't :=
+  t #1 #4 substring$ "The " =
+    % Use #30 to handle with the long journal name.
+    { t #5 #30 substring$ 't := }
+    'skip$
+  if$
+  t
+}
+
+FUNCTION {format.journal.name.abb}
+{ journal 's :=
+  journal 'jname :=
+  s journal.name.sub 's :=
+  bst.journal.name.abb #0 =
+    'skip$
+    { 
+       s "Academic Management Review" =
+        { "Acad. Manage. J." 'jname := }
+        'skip$
+      if$
+    }
+  if$
+  jname
+}
+
 %%% journal
 FUNCTION {format.journal}
 { journal empty$
     { "" }
-    { bst.journal.pre journal * bst.journal.post * }
+    { bst.journal.pre format.journal.name.abb * bst.journal.post * }
   if$
 }
 
@@ -1162,56 +1201,62 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   % Repeat if namesleft > 0
   { namesleft #0 > }
-  {  nameptr #1 =
-     % First author
-     { bst.author.name #0 =
-       bst.author.name #1 =
-       or
-          { bst.first.name.initial #0 = 
-           { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-           { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-          if$
-        }
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-          if$
-        }
-       if$
-     }
-     % The second or later authors
-     { bst.author.name #0 =
-       bst.author.name #2 =
-       or
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-         if$
-          }
-          { bst.first.name.initial #0 = 
-               { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-               { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-         if$
-          }
-       if$
-     }
-    if$
 
+  { nameptr #1 =
+      % First author
+      { bst.author.name #0 =
+        bst.author.name #1 =
+        or
+           { bst.first.name.initial #0 = 
+            { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+            { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+           if$
+         }
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+           if$
+         }
+        if$
+      }
+      % The second or later authors
+      { bst.author.name #0 =
+        bst.author.name #2 =
+        or
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+             if$
+           }
+           { bst.first.name.initial #0 = 
+                { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+                { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+             if$
+           }
+        if$
+      }
+    if$
+    
     nameptr #1 >
       % The second or later authors
-      { nameorder.temp "random" =
-        bst.use.nameorder #0 = not and
-          { bst.and.nameorder * t * }
-          { namesleft #1 >
-              % More than one authors left
-              { ", " * t * }
-              % Only one author left
-              { t "others" =
-                  { bst.and.others.output * }
-                  { numnames #2 =
-                      % Entry with two authors
-                      { bst.and * t * }
-                      { bst.ands * t * }
+      { numnames bst.max.author.num >
+          { bst.and.others * 
+            #1 'namesleft :=  }
+          { nameorder.temp "random" =
+            bst.use.nameorder #0 = not and
+              { bst.and.nameorder * t * }
+              { namesleft #1 >
+                  % More than one authors left
+                  { ", " * t * }
+                  % Only one author left
+                  { t "others" =
+                      { bst.and.others.output * }
+                      { numnames #2 =
+                          % Entry with two authors
+                          { bst.and * t * }
+                          { bst.ands * t * }
+                        if$
+                      }
                     if$
                   }
                 if$
@@ -1938,7 +1983,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { bst.techrep }
     { " " type * }
   if$
   number empty$
@@ -2175,9 +2220,9 @@ FUNCTION {incollection}
 
   format.in.ed.booktitle "booktitle" output.check.nocomma
   format.bvolume output.nocomma
-  output.address.organization.publisher
   format.edition output.nocomma
   format.chapter.pages output.nocomma
+  output.address.organization.publisher
 
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }
@@ -2421,6 +2466,8 @@ FUNCTION {techreport}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
+
+  format.url.doi output.nocomma
 
   format.note output.nocomma
   fin.entry
@@ -2934,6 +2981,15 @@ FUNCTION {calc.flabel}
     }
   if$
   'flabel :=
+  author empty$
+    'skip$
+    { author num.names$ 'numnames :=
+      numnames bst.max.author.num >
+        { alabel 'flabel := }
+        'skip$
+      if$
+    }
+  if$
   % For debug
   econ.debug #0 = not
     { "flabel = ``\texttt{" write$

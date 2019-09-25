@@ -1,0 +1,22 @@
+
+First-written:	<2019/09/25>
+Time-stamp:	<2019-09-25 17:29:12 st>
+
+--------------------------------------------------------------------------
+
+* check
+
++ econ-jpe.bst
++ econ-econometrica.bst
+
+
+
+
+
+
+--------------------
+Local Variables:
+mode: org
+coding: utf-8
+fill-column: 80
+End:

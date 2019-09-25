@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-07-24 15:32:36 st>
+% Time-stamp:          <2019-09-21 22:37:39 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -58,7 +58,7 @@ ENTRY
 
   %% String entry variable
   { label cyear flabel alabel extra.label sort.label sort.label.abb
-    extra.label.bysame nameorder.temp }
+    extra.label.bysame nameorder.temp jname }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -431,6 +431,15 @@ FUNCTION {bst.journal.post}
 { "." }
 % { "}" }    % (default)
 
+% Use the abbreviated journal name
+%
+% If set to #0, do not use abbreviated journal name.
+% If set to non-#0, use abbreviated journal name.
+%
+FUNCTION {bst.journal.name.abb}
+{ #0 }    % (default)
+% { #1 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
 
@@ -741,7 +750,7 @@ FUNCTION {bst.note.post}
 % The string that represents Technical report:
 %
 FUNCTION {bst.techrep}
-{ " Tech. Rep." }    % (default)
+{ "Technical Report" }    % (default)
 
 % The string that represents master thesis:
 %
@@ -1084,11 +1093,37 @@ FUNCTION {format.btitle}
   if$
 }
 
+FUNCTION {journal.name.sub}
+{ 't :=
+  t #1 #4 substring$ "The " =
+    % Use #30 to handle with the long journal name.
+    { t #5 #30 substring$ 't := }
+    'skip$
+  if$
+  t
+}
+
+FUNCTION {format.journal.name.abb}
+{ journal 's :=
+  journal 'jname :=
+  s journal.name.sub 's :=
+  bst.journal.name.abb #0 =
+    'skip$
+    { 
+       s "Academic Management Review" =
+        { "Acad. Manage. J." 'jname := }
+        'skip$
+      if$
+    }
+  if$
+  jname
+}
+
 %%% journal
 FUNCTION {format.journal}
 { journal empty$
     { "" }
-    { bst.journal.pre journal * bst.journal.post * }
+    { bst.journal.pre format.journal.name.abb * bst.journal.post * }
   if$
 }
 
@@ -1946,7 +1981,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { bst.techrep }
     { " " type * }
   if$
   number empty$
@@ -2183,9 +2218,9 @@ FUNCTION {incollection}
 
   format.in.ed.booktitle "booktitle" output.check.nocomma
   format.bvolume output.nocomma
-  output.address.organization.publisher
   format.edition output.nocomma
   format.chapter.pages output.nocomma
+  output.address.organization.publisher
 
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }
@@ -2429,6 +2464,8 @@ FUNCTION {techreport}
     { format.year "year" output.check.nocomma }
     'skip$
   if$
+
+  format.url.doi output.nocomma
 
   format.note output.nocomma
   fin.entry
