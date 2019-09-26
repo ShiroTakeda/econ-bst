@@ -3,7 +3,7 @@ Filename:       README.md
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2017-07-30>
-Time-stamp:     <2019-09-25 17:34:30 st>
+Time-stamp:     <2019-09-26 09:17:57 st>
 -->
 
 econ.bst
@@ -20,16 +20,19 @@ features:
 
 ## Explanation of files
 
-| File                                 | Explanation                                                         |
-|:-----------------------------------------|:-------------------------------------------------------------|
-| `econ.bst`                              | This is the main bst file.                                |
-| `econ-example.tex`                      | This file explains how to use econ.bst.                          |
-| [`econ-example.pdf`](econ-example.pdf) | A PDF file created fom `econ-example.tex`.                 |
-| `econ-example.bib`                      | This is a bibliography database file.                                        |
-| [`customization`](customization)                          | This folder contains customized bst files.                      |
-| [`CHANGES.md`](CHANGES.md)               | Changelog file.                               |
-| `README.md`                              | This file.                                          |
+| File                                   | Explanation                                |
+|:---------------------------------------|:-------------------------------------------|
+| `econ.bst`                             | This is the main bst file.                 |
+| `econ-example.tex`                     | This file explains how to use econ.bst.    |
+| [`econ-example.pdf`](econ-example.pdf) | A PDF file created fom `econ-example.tex`. |
+| `econ-example.bib`                     | This is a bibliography database file.      |
+| [`customization`](customization)       | This folder contains customized bst files. |
+| [`CHANGES.md`](CHANGES.md)             | Changelog file.                            |
+| `README.md`                            | This file.                                 |
 
+
+<!-- リンクの作成方法 -->
+<!-- [リンクテキスト](URLを記入) -->
 
 <!--
 --------------------
