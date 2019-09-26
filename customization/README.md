@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-09-25 17:35:59 st>
+Time-stamp:     <2019-09-26 09:17:27 st>
 -->
 
 Contents of this folder
@@ -13,26 +13,23 @@ Contents of this folder
     bst.xxx have different values.
 + If you want to customize econ.bst, see these files.
 
-| bst file         | Explanation                                                 |
-|:---------------------|:--------------------------------------------------------|
-| `econ.bst`  | The default econ.bst file. |
-| `econ-a.bst` | A simple style. |
-| `econ-b.bst` | A style with much decoration. |
-| `econ-no-sort.bst` | This style lists entries in citation order. | 
-| `econ-abbr.bst` | This style uses abbreviated journal name. | 
-| `econ-aea.bst` | A style for AEA journals such as AER, JEL, AEJ and JEP. | 
-| `econ-econometrica.bst` | A style like Econometrica. | 
-| `econ-jpe.bst` | A style like JPE (Journal of Poilitical Economy). | 
-| `econ-jet.bst` | A style like JET (Journal of Economic Theoriy). | 
-| `econ-jie.bst` | A style like JIE (Journal of International Economics). | 
+| bst file                | PDF file                                         | Explanation                                             |
+|:------------------------|:-------------------------------------------------|:--------------------------------------------------------|
+| `econ.bst`              | [`econ-default.pdf`](econ-default.pdf)           | The default econ.bst file.                              |
+| `econ-a.bst`            | [`econ-a.pdf`](econ-a.pdf)                       | A simple style.                                         |
+| `econ-b.bst`            | [`econ-b.pdf`](econ-b.pdf)                       | A style with much decoration.                           |
+| `econ-no-sort.bst`      | [`econ-no-sort.pdf`](econ-no-sort.pdf)           | This style lists entries in citation order.             |
+| `econ-abbr.bst`         | [`econ-abbr.pdf`](econ-abbr.pdf)                 | This style uses abbreviated journal name.               |
+| `econ-aea.bst`          | [`econ-aea.pdf`](econ-aea.pdf)                   | A style for AEA journals such as AER, JEL, AEJ and JEP. |
+| `econ-econometrica.bst` | [`econ-econometrica.pdf`](econ-econometrica.pdf) | A style like Econometrica.                              |
+| `econ-jpe.bst`          | [`econ-jpe.pdf`](econ-jpe.pdf)                   | A style like JPE (Journal of Poilitical Economy).       |
+| `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | A style like JET (Journal of Economic Theoriy).         |
+| `econ-jie.bst`          | [`econ-jie.pdf`](econjie.pdf)                    | A style like JIE (Journal of International Economics).  |
+|                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | PDF file which use numerical citation mode.             |
 
-| PDF file         | Explanation                                                 |
-|:---------------------|:--------------------------------------------------------|
-| `econ-default.pdf`  | PDF file created from econ.bst file. |
-| `econ-numbers.pdf` | PDF file which use numerical citation mode. |
 
-Other PDF files are created from the corresponding bst files above.
-
+<!-- リンクの作成方法 -->
+<!-- [リンクテキスト](URLを記入) -->
 
 <!--
 --------------------
