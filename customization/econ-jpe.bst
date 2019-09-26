@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-09-21 22:36:14 st>
+% Time-stamp:          <2019-09-26 11:04:37 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -436,8 +436,8 @@ FUNCTION {bst.journal.post}
 % If set to non-#0, use abbreviated journal name.
 %
 FUNCTION {bst.journal.name.abb}
-{ #0 }    % (default)
-% { #1 }
+% { #0 }    % (default)
+{ #1 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
@@ -1111,6 +1111,1154 @@ FUNCTION {format.journal.name.abb}
         { "Acad. Manage. J." 'jname := }
         'skip$
       if$
+      s "Academy of Management Journal" =
+        { "Acad. Manage. Rev." 'jname := }
+        'skip$
+      if$
+      s "Accounting Review" =
+        { "Account. Rev." 'jname := }
+        'skip$
+      if$
+      s "Accounting, Organizations and Society" =
+        { "Account. Org. Soc." 'jname := }
+        'skip$
+      if$
+      s "Accounting, Organizations and Society" =
+        { "Admin. Sci. Quart." 'jname := }
+        'skip$
+      if$
+      s "Administrative Science Quarterly" =
+        { "Agr. Econ." 'jname := }
+        'skip$
+      if$
+      s "American Economic Journal: Applied Economics" =
+        { "Am. Econ. J. Appl. Econ." 'jname := }
+        'skip$
+      if$
+      s "American Economic Journal: Economic Policy" =
+        { "Am. Econ. J. Econ. Policy" 'jname := }
+        'skip$
+      if$
+      s "American Economic Journal: Macroeconomics" =
+        { "Am. Econ. J. Macro." 'jname := }
+        'skip$
+      if$
+      s "American Economic Journal: Microeconomics" =
+        { "Am. Econ. J. Micro." 'jname := }
+        'skip$
+      if$
+      s "American Economic Review" =
+        { "Am. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "American Journal of Agricultural Economics" =
+        { "Am. J. Agr. Econ." 'jname := }
+        'skip$
+      if$
+      s "American Journal of Economics and Sociology" =
+        { "Am. J. Econ. Sociol." 'jname := }
+        'skip$
+      if$
+      s "Applied Economics" =
+        { "Appl. Econ." 'jname := }
+        'skip$
+      if$
+      s "Applied Economics Letters" =
+        { "Appl. Econ. Lett." 'jname := }
+        'skip$
+      if$
+      s "Applied Energy" =
+        { "Appl. Energ." 'jname := }
+        'skip$
+      if$
+      s "Applied Stochastic Models in Business and Industry" =
+        { "Appl. Stoch. Model Bus." 'jname := }
+        'skip$
+      if$
+      s "Auditing: A Journal of Practise and Theory" =
+        { "Auditing.-J. Pract. Th." 'jname := }
+        'skip$
+      if$
+      s "Australian Journal of Agricultural and Resource Economics" =
+        { "Aust. J. Agr. Resour. Ec." 'jname := }
+        'skip$
+      if$
+      s "B.E. Journal of Economic Analysis \& Policy" =
+        { "B.E. J. Econ. Anal. Policy" 'jname := }
+        'skip$
+      if$
+      s "Betriebswirtschaftliche Forschung Und Praxis" =
+        { "Betrieb. Forsch. Prax." 'jname := }
+        'skip$
+      if$
+      s "British Journal of Industrial Relations" =
+        { "Brit. J. Ind. Relat." 'jname := }
+        'skip$
+      if$
+      s "British Journal of Management" =
+        { "Brit. J. Manage." 'jname := }
+        'skip$
+      if$
+      s "Bulletin of Indonesian Economic Studies" =
+        { "B. Indones. Econ. Stud." 'jname := }
+        'skip$
+      if$
+      s "Business Ethics Quarterly" =
+        { "Bus. Ethics Q." 'jname := }
+        'skip$
+      if$
+      s "Business History" =
+        { "Bus. Hist." 'jname := }
+        'skip$
+      if$
+      s "Business History Review" =
+        { "Bus. Hist. Rev." 'jname := }
+        'skip$
+      if$
+      s "Business Lawyer" =
+        { "Bus. Lawyer" 'jname := }
+        'skip$
+      if$
+      s "California Management Review" =
+        { "Calif. Manage. Rev." 'jname := }
+        'skip$
+      if$
+      s "Cambridge Journal of Economics" =
+        { "Cambridge J. Econ." 'jname := }
+        'skip$
+      if$
+      s "Canadian Journal of Administrative Sciences" =
+        { "Can. J. Adm. Sci." 'jname := }
+        'skip$
+      if$
+      s "Canadian Journal of Economics" =
+        { "Can. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "China Economic Review" =
+        { "China. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "Climate Change Economics" =
+        { "Clim. Change Econ." 'jname := }
+        'skip$
+      if$
+      s "Climate Policy" =
+        { "Clim. Policy" 'jname := }
+        'skip$
+      if$
+      s "Communications in Statistics – Part A: Theory and Methods" =
+        { "Commun. Stat.-Theor. M." 'jname := }
+        'skip$
+      if$
+      s "Computational Economics" =
+        { "Computation. Econ." 'jname := }
+        'skip$
+      if$
+      s "Computational Statistics" =
+        { "Computation. Stat." 'jname := }
+        'skip$
+      if$
+      s "Computational Statistics and Data Analysis" =
+        { "Comput. Stat. Data An." 'jname := }
+        'skip$
+      if$
+      s "Contemporary Accounting Research" =
+        { "Contemp. Account. Res." 'jname := }
+        'skip$
+      if$
+      s "Contemporary Economic Policy" =
+        { "Contemp. Econ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Defence and Peace Economics" =
+        { "Defence Peace Econ." 'jname := }
+        'skip$
+      if$
+      s "Development Economics" =
+        { "Dev. Econ." 'jname := }
+        'skip$
+      if$
+      s "Eastern European Economics" =
+        { "Eastern Eur. Econ." 'jname := }
+        'skip$
+      if$
+      s "Ecological Economics" =
+        { "Ecol. Econ." 'jname := }
+        'skip$
+      if$
+      s "Econometric Theory" =
+        { "Economet. Theor." 'jname := }
+        'skip$
+      if$
+      s "Econometrica" =
+        { "Econometrica" 'jname := }
+        'skip$
+      if$
+      s "Economic and Industrial Democracy" =
+        { "Econ. Ind. Democr." 'jname := }
+        'skip$
+      if$
+      s "Economic Development and Cultural Change" =
+        { "Econ. Dev. Cult. Change" 'jname := }
+        'skip$
+      if$
+      s "Economic Development and Cultural Change" =
+        { "Economist.-Netherland" 'jname := }
+        'skip$
+      if$
+      s "Economic Development Quarterly" =
+        { "Econ. Dev. Q." 'jname := }
+        'skip$
+      if$
+      s "Economic Geography" =
+        { "Econ. Geogr." 'jname := }
+        'skip$
+      if$
+      s "Economic History Review" =
+        { "Econ. Hist. Rev." 'jname := }
+        'skip$
+      if$
+      s "Economic Inquiry" =
+        { "Econ. Inq." 'jname := }
+        'skip$
+      if$
+      s "Economic Journal" =
+        { "Econ. J." 'jname := }
+        'skip$
+      if$
+      s "Economic Modelling" =
+        { "Econ. Model." 'jname := }
+        'skip$
+      if$
+      s "Economic Policy" =
+        { "Econ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Economic Record" =
+        { "Econ. Rec." 'jname := }
+        'skip$
+      if$
+      s "Economic Theory" =
+        { "Econ. Theor." 'jname := }
+        'skip$
+      if$
+      s "Economica" =
+        { "Economica" 'jname := }
+        'skip$
+      if$
+      s "Economics and Philosophy" =
+        { "Econ. Philos." 'jname := }
+        'skip$
+      if$
+      s "Economics Letters" =
+        { "Econ. Lett." 'jname := }
+        'skip$
+      if$
+      s "Economics of Education Review" =
+        { "Econ. Educ. Rev." 'jname := }
+        'skip$
+      if$
+      s "Economics of Energy \& Environmental Policy" =
+        { "Econ. Energ. Environ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Economics of Transition" =
+        { "Econ. Transit." 'jname := }
+        'skip$
+      if$
+      s "Economy and Society" =
+        { "Econ. Soc." 'jname := }
+        'skip$
+      if$
+      s "Ekonomicky Casopis" =
+        { "Ekon. Cas." 'jname := }
+        'skip$
+      if$
+      s "Ekonomiska Samfundets Tidskrift" =
+        { "Ekon. Samf. Tidskr." 'jname := }
+        'skip$
+      if$
+      s "Emerging Markets Finance and Trade" =
+        { "Emerg. Mark. Financ. Tr." 'jname := }
+        'skip$
+      if$
+      s "Energy Economics" =
+        { "Energ. Econ." 'jname := }
+        'skip$
+      if$
+      s "Energy Journal" =
+        { "Energ. J." 'jname := }
+        'skip$
+      if$
+      s "Energy Policy" =
+        { "Energ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Entrepreneurship \& Regional Development" =
+        { "Entrep. Region. Dev." 'jname := }
+        'skip$
+      if$
+      s "Entrepreneurship Theory and Practice" =
+        { "Entrep. Theory Pract." 'jname := }
+        'skip$
+      if$
+      s "Environment and Development Economics" =
+        { "Environ. Dev. Econ." 'jname := }
+        'skip$
+      if$
+      s "Environmental and Resource Economics" =
+        { "Environ. Resour. Econ." 'jname := }
+        'skip$
+      if$
+      s "Environmental Economics and Policy Studies" =
+        { "Environ. Econ. Policy Stud." 'jname := }
+        'skip$
+      if$
+      s "Environmental Science and Policy" =
+        { "Environ. Sci. Policy" 'jname := }
+        'skip$
+      if$
+      s "Environmental Science \& Technology" =
+        { "Environ. Sci. Technol." 'jname := }
+        'skip$
+      if$
+      s "Eurasian Geography and Economics " =
+        { "Eurasian Geogr. Econ." 'jname := }
+        'skip$
+      if$
+      s "European Economic Review" =
+        { "Eur. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "European Journal of Industrial Relations" =
+        { "Eur. J. Ind. Relat." 'jname := }
+        'skip$
+      if$
+      s "European Review of Agricultural Economics" =
+        { "Eur. Rev. Agric. Econ." 'jname := }
+        'skip$
+      if$
+      s "Europe-Asia Studies" =
+        { "Europe-Asia Stud." 'jname := }
+        'skip$
+      if$
+      s "Explorations in Economic History" =
+        { "Explor. Econ. Hist." 'jname := }
+        'skip$
+      if$
+      s "Feminist Economics" =
+        { "Fem. Econ." 'jname := }
+        'skip$
+      if$
+      s "Finance a Uver" =
+        { "Financ. Uver." 'jname := }
+        'skip$
+      if$
+      s "Finance and Stochastics" =
+        { "Financ. Stoch." 'jname := }
+        'skip$
+      if$
+      s "Financial Analysts Journal" =
+        { "Financ. Anal. J." 'jname := }
+        'skip$
+      if$
+      s "Financial Management" =
+        { "Financ. Manage." 'jname := }
+        'skip$
+      if$
+      s "Fiscal Studies" =
+        { "Fisc. Stud." 'jname := }
+        'skip$
+      if$
+      s "Food Policy" =
+        { "Food. Policy." 'jname := }
+        'skip$
+      if$
+      s "Futures" =
+        { "Futures" 'jname := }
+        'skip$
+      if$
+      s "Games and Economic Behavior" =
+        { "Game Econ. Behav." 'jname := }
+        'skip$
+      if$
+      s "Health Economics" =
+        { "Health Econ." 'jname := }
+        'skip$
+      if$
+      s "Hitotsubashi Journal of Economics" =
+        { "Hitotsub. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "IMF Staff Papers" =
+        { "Imf. Staff. Papers" 'jname := }
+        'skip$
+      if$
+      s "Industrial and Corporate Change" =
+        { "Ind. Corp. Change" 'jname := }
+        'skip$
+      if$
+      s "Industrial and Labor Relations Review" =
+        { "Ind. Labor. Relat. Rev." 'jname := }
+        'skip$
+      if$
+      s "Industrial Marketing Management" =
+        { "Ind. Market Manag." 'jname := }
+        'skip$
+      if$
+      s "Industrial Relations" =
+        { "Ind. Relat." 'jname := }
+        'skip$
+      if$
+      s "Information Economics and Policy" =
+        { "Info. Econ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Insurance: Mathematics and Economics" =
+        { "Insur. Math. Econ." 'jname := }
+        'skip$
+      if$
+      s "International Economic Review" =
+        { "Int. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Electronics and Telecommunications" =
+        { "Int. J. Electron. Comm." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Economic Theory" =
+        { "Int. J. Econ. Theory" 'jname := }
+        'skip$
+      if$
+      s "International Journal of Finance \& Economics" =
+        { "Int. J. Financ. Econ." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Forecasting" =
+        { "Int. J. Forecast." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Game Theory" =
+        { "Int. J. Game. Theory" 'jname := }
+        'skip$
+      if$
+      s "International Journal of Industrial Organization" =
+        { "Int. J. Ind. Organ." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Manpower" =
+        { "Int. J. Manpow." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Market Research" =
+        { "Int. J. Market Res." 'jname := }
+        'skip$
+      if$
+      s "International Journal of Research in Marketing" =
+        { "Int. J. Res. Mark." 'jname := }
+        'skip$
+      if$
+      s "International Labour Review" =
+        { "Int. Labour Rev." 'jname := }
+        'skip$
+      if$
+      s "International Marketing Review" =
+        { "Int. Market. Rev." 'jname := }
+        'skip$
+      if$
+      s "International Review of Applied Economics" =
+        { "Int. Rev. Appl. Econ." 'jname := }
+        'skip$
+      if$
+      s "International Review of Law and Economics" =
+        { "Int. Rev. Law Econ." 'jname := }
+        'skip$
+      if$
+      s "International Small Business Journal" =
+        { "Int. Small. Bus. J." 'jname := }
+        'skip$
+      if$
+      s "International Tax and Public Finance" =
+        { "Int. Tax Public Finan." 'jname := }
+        'skip$
+      if$
+      s "Jahrbücher für Nationalökonomie und Statistik" =
+        { "Jahrb. Natl. Stat." 'jname := }
+        'skip$
+      if$
+      s "Japan and the World Economy" =
+        { "Jpn. World Econ." 'jname := }
+        'skip$
+      if$
+      s "Japanese Economic Review" =
+        { "Jpn. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "JCMS-journal of Common Market Studies" =
+        { "Jcms.-J. Common. Mark. S." 'jname := }
+        'skip$
+      if$
+      s "Journal of Accounting and Economics" =
+        { "J. Account. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Accounting Research" =
+        { "J. Account. Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of Advertising" =
+        { "J. Advertising" 'jname := }
+        'skip$
+      if$
+      s "Journal of Advertising Research" =
+        { "J. Advertising Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of African Economies" =
+        { "J. Afr. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Agricultural and Resource Economics" =
+        { "J. Agr. Resour. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Agricultural Economics" =
+        { "J. Agr. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Applied Econometrics" =
+        { "J. Appl. Econom." 'jname := }
+        'skip$
+      if$
+      s "Journal of Banking and Finance" =
+        { "J. Bank Financ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business" =
+        { "J. Bus." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business and Economic Statistics" =
+        { "J. Bus. Econ. Stat." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business and Psychology" =
+        { "J. Bus. Psychol." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business and Technical Communication" =
+        { "J. Bus. Tech. Commun." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business Ethics" =
+        { "J. Bus. Ethics" 'jname := }
+        'skip$
+      if$
+      s "Journal of Business Research" =
+        { "J. Bus. Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of Business Venturing" =
+        { "J. Bus. Venturing." 'jname := }
+        'skip$
+      if$
+      s "Journal of Cleaner Productiond" =
+        { "J. Clean. Prod." 'jname := }
+        'skip$
+      if$
+      s "Journal of Comparative Economics" =
+        { "J. Comp. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Consumer Affairs" =
+        { "J. Consum. Aff." 'jname := }
+        'skip$
+      if$
+      s "Journal of Consumer Research" =
+        { "J. Consum. Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of Corporate Finance" =
+        { "J. Corp. Financ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Development Economics" =
+        { "J. Dev. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Econometrics" =
+        { "J. Econometrics" 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Behavior and Organization" =
+        { "J. Econ. Behav. Organ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Dynamics and Control" =
+        { "J. Econ. Dyn. Control" 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Education" =
+        { "J. Econ. Educ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Geography" =
+        { "J. Econ. Geogr." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Growth" =
+        { "J. Econ. Growth" 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic History" =
+        { "J. Econ. Hist." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Integration" =
+        { "J. Econ. Integr." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Issues" =
+        { "J. Econ. Issues." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Perspectives" =
+        { "J. Econ. Perspect." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Psychology" =
+        { "J. Econ. Psychol." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Literature" =
+        { "J. Econ. Lit." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Surveys" =
+        { "J. Econ. Surv." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economic Theory" =
+        { "J. Econ. Theory" 'jname := }
+        'skip$
+      if$
+      s "Journal of Economics" =
+        { "J. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Economics and Management Strategy" =
+        { "J. Econ. Manage. Strat." 'jname := }
+        'skip$
+      if$
+      s "Journal of Environmental Economics and Management" =
+        { "J. Environ. Econ. Manag." 'jname := }
+        'skip$
+      if$
+      s "Journal of Evolutionary Economics" =
+        { "J. Evol. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Finance" =
+        { "J. Financ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Financial and Quantitative Analysis" =
+        { "J. Financ. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Financial Economics" =
+        { "J. Financ. Intermed." 'jname := }
+        'skip$
+      if$
+      s "Journal of Financial Intermediation" =
+        { "J. Financ. Mark." 'jname := }
+        'skip$
+      if$
+      s "Journal of Financial Markets" =
+        { "J. Financ. Quant. Anal." 'jname := }
+        'skip$
+      if$
+      s "Journal of Forecasting" =
+        { "J. Forecasting." 'jname := }
+        'skip$
+      if$
+      s "Journal of Futures Markets" =
+        { "J. Futures Market" 'jname := }
+        'skip$
+      if$
+      s "Journal of Health Economics" =
+        { "J. Health Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Housing Economics" =
+        { "J. Hous. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Human Resources" =
+        { "J. Hum. Resour." 'jname := }
+        'skip$
+      if$
+      s "Journal of Industrial Economics" =
+        { "J. Ind. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Institutional and Theoretical Economics" =
+        { "J. Inst. Theor. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Integrated Disaster Risk Management" =
+        { "J. Integr. Disaster Risk Manag." 'jname := }
+        'skip$
+      if$
+      s "Journal of International Business Studies" =
+        { "J. Int. Bus. Stud." 'jname := }
+        'skip$
+      if$
+      s "Journal of International Economics" =
+        { "J. Int. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of International Marketing" =
+        { "J. Int. Marketing" 'jname := }
+        'skip$
+      if$
+      s "Journal of International Money and Finance" =
+        { "J. Int. Money Financ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Labor Economics" =
+        { "J. Labor Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Labor Research" =
+        { "J. Labor Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of Law and Economics" =
+        { "J. Law. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Law, Economics, and Organization" =
+        { "J. Law. Econ. Organ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Macroeconomics" =
+        { "J. Macroecon." 'jname := }
+        'skip$
+      if$
+      s "Journal of Management" =
+        { "J. Manage." 'jname := }
+        'skip$
+      if$
+      s "Journal of Management Studies" =
+        { "J. Manage. Stud." 'jname := }
+        'skip$
+      if$
+      s "Journal of Marketing" =
+        { "J. Marketing" 'jname := }
+        'skip$
+      if$
+      s "Journal of Marketing Research" =
+        { "J. Marketing Res." 'jname := }
+        'skip$
+      if$
+      s "Journal of Mathematical Economics" =
+        { "J. Math. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Media Economics" =
+        { "J. Media Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Monetary Economics" =
+        { "J. Monetary. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Money, Credit and Banking" =
+        { "J. Money Credit Bank." 'jname := }
+        'skip$
+      if$
+      s "Journal of Policy Modeling" =
+        { "J. Policy Model." 'jname := }
+        'skip$
+      if$
+      s "Journal of Political Economy" =
+        { "J. Polit. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Population Economics" =
+        { "J. Popul. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Portfolio Management" =
+        { "J. Portfolio Manage." 'jname := }
+        'skip$
+      if$
+      s "Journal of Post Keynesian Economics" =
+        { "J. Post Keynesian Ec." 'jname := }
+        'skip$
+      if$
+      s "Journal of Product Innovation Management" =
+        { "J. Prod. Innovat. Manag." 'jname := }
+        'skip$
+      if$
+      s "Journal of Productivity Analysis" =
+        { "J. Prod. Anal." 'jname := }
+        'skip$
+      if$
+      s "Journal of Public Economics" =
+        { "J. Public Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Public Policy and Marketing" =
+        { "J. Public Policy Mark." 'jname := }
+        'skip$
+      if$
+      s "Journal of Real Estate Finance and Economics" =
+        { "J. Real Estate Financ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Regulatory Economics" =
+        { "J. Regul. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Retailing" =
+        { "J. Retailing" 'jname := }
+        'skip$
+      if$
+      s "Journal of Risk and Insurance" =
+        { "J. Risk. Insur" 'jname := }
+        'skip$
+      if$
+      s "Journal of Risk and Uncertainty" =
+        { "J. Risk Uncertainty" 'jname := }
+        'skip$
+      if$
+      s "Journal of Statistical Computation and Simulation" =
+        { "J. Stat. Comput. Sim." 'jname := }
+        'skip$
+      if$
+      s "Journal of Statistical Planning and Inference" =
+        { "J. Stat. Plan. Infer." 'jname := }
+        'skip$
+      if$
+      s "Journal of the Academy of Marketing Science" =
+        { "J. Acad. Market. Sci." 'jname := }
+        'skip$
+      if$
+      s "Journal of the American Statistical Association" =
+        { "J. Am. Stat. Assoc." 'jname := }
+        'skip$
+      if$
+      s "Journal of the European Economic Association" =
+        { "J. Eur. Econ. Assoc." 'jname := }
+        'skip$
+      if$
+      s "Journal of the Japanese and International Economies" =
+        { "J. Jpn. Int. Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of Time Series Analysis" =
+        { "J. Time Ser. Anal." 'jname := }
+        'skip$
+      if$
+      s "Journal of Transport Economics and Policy" =
+        { "J. Transp. Econ. Policy" 'jname := }
+        'skip$
+      if$
+      s "Journal of Urban Economics" =
+        { "J. Urban Econ." 'jname := }
+        'skip$
+      if$
+      s "Journal of World Business" =
+        { "J. World. Bus." 'jname := }
+        'skip$
+      if$
+      s "Kyklos" =
+        { "Kyklos" 'jname := }
+        'skip$
+      if$
+      s "Labor History" =
+        { "Labor Hist." 'jname := }
+        'skip$
+      if$
+      s "Labour Economics" =
+        { "Labour Econ." 'jname := }
+        'skip$
+      if$
+      s "Land Economics" =
+        { "Land Econ." 'jname := }
+        'skip$
+      if$
+      s "Long Range Planning" =
+        { "Long Range Plann." 'jname := }
+        'skip$
+      if$
+      s "Macroeconomic Dynamics" =
+        { "Macroecon. Dyn." 'jname := }
+        'skip$
+      if$
+      s "Management Science" =
+        { "Manage. Sci." 'jname := }
+        'skip$
+      if$
+      s "Manchester School" =
+        { "Manch. Sch." 'jname := }
+        'skip$
+      if$
+      s "Marketing Letters" =
+        { "Market. Lett." 'jname := }
+        'skip$
+      if$
+      s "Marketing Science" =
+        { "Market. Sci." 'jname := }
+        'skip$
+      if$
+      s "Materials Transactions" =
+        { "Mater. Trans." 'jname := }
+        'skip$
+      if$
+      s "Mathematical Finance" =
+        { "Math. Financ." 'jname := }
+        'skip$
+      if$
+      s "Monthly Labor Review" =
+        { "Mon. Labor Rev." 'jname := }
+        'skip$
+      if$
+      s "National Tax Journal" =
+        { "Natl. Tax. J." 'jname := }
+        'skip$
+      if$
+      s "New England Economic Review" =
+        { "New Engl. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "New Political Economy" =
+        { "New Polit. Econ." 'jname := }
+        'skip$
+      if$
+      s "Open Economies Review" =
+        { "Open. Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "Organizational Dynamics" =
+        { "Organ. Dyn." 'jname := }
+        'skip$
+      if$
+      s "Oxford Bulletin of Economics and Statistics" =
+        { "Oxford. B. Econ. Stat." 'jname := }
+        'skip$
+      if$
+      s "Oxford Economic Papers" =
+        { "Oxford Econ. Pap." 'jname := }
+        'skip$
+      if$
+      s "Oxford Review of Economic Policy" =
+        { "Oxford. Rev. Econ. Pol." 'jname := }
+        'skip$
+      if$
+      s "Politicka Ekonomie" =
+        { "Polit. Ekon." 'jname := }
+        'skip$
+      if$
+      s "Population and Development Review" =
+        { "Popul. Dev. Rev." 'jname := }
+        'skip$
+      if$
+      s "Post-Communist Economies" =
+        { "Post.-Communist. Econ." 'jname := }
+        'skip$
+      if$
+      s "Post-Soviet Affairs" =
+        { "Post.-Sov. Aff." 'jname := }
+        'skip$
+      if$
+      s "Psychology \& Marketing" =
+        { "Psychol. Market." 'jname := }
+        'skip$
+      if$
+      s "Public Choice" =
+        { "Public. Choice." 'jname := }
+        'skip$
+      if$
+      s "Quantitative Finance" =
+        { "Quant. Financ." 'jname := }
+        'skip$
+      if$
+      s "Quarterly Journal of Economics" =
+        { "Q. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "R\&D Management" =
+        { "R.\&D. Manage." 'jname := }
+        'skip$
+      if$
+      s "RAND Journal of Economics" =
+        { "Rand. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "Real Estate Economics" =
+        { "Real Estate Econ." 'jname := }
+        'skip$
+      if$
+      s "Regional Science and Urban Economics" =
+        { "Reg. Sci. Urban. Econ." 'jname := }
+        'skip$
+      if$
+      s "Regional Studies" =
+        { "Reg. Stud." 'jname := }
+        'skip$
+      if$
+      s "Relations Industrielles-Industrial Relations" =
+        { "Relat. Ind.-Ind. Relat." 'jname := }
+        'skip$
+      if$
+      s "Research-Technology Management" =
+        { "Res. Technol. Manage." 'jname := }
+        'skip$
+      if$
+      s "Resource and Energy Economics" =
+        { "Resour. Energy. Econ." 'jname := }
+        'skip$
+      if$
+      s "Review of Accounting Studies" =
+        { "Rev. Acc. Stud." 'jname := }
+        'skip$
+      if$
+      s "Review of Agricultural Economics" =
+        { "Rev. Agr. Econ." 'jname := }
+        'skip$
+      if$
+      s "Review of Development Economics" =
+        { "Rev. Dev. Econ." 'jname := }
+        'skip$
+      if$
+      s "Review of Economic Dynamics" =
+        { "Rev. Econ. Dynam." 'jname := }
+        'skip$
+      if$
+      s "Review of Economic Studies" =
+        { "Rev. Econ. Stat." 'jname := }
+        'skip$
+      if$
+      s "Review of Economics and Statistics" =
+        { "Rev. Econ. Stud." 'jname := }
+        'skip$
+      if$
+      s "Review of Financial Studies" =
+        { "Rev. Financ. Stud." 'jname := }
+        'skip$
+      if$
+      s "Review of Income and Wealth" =
+        { "Rev. Income Wealth" 'jname := }
+        'skip$
+      if$
+      s "Review of Industrial Organization" =
+        { "Rev. Ind. Organ." 'jname := }
+        'skip$
+      if$
+      s "Review of International Economics" =
+        { "Rev. Int. Econ." 'jname := }
+        'skip$
+      if$
+      s "Review of International Political Economy" =
+        { "Rev. Int. Polit. Econ." 'jname := }
+        'skip$
+      if$
+      s "Review of World Economics" =
+        { "Rev. World Econ." 'jname := }
+        'skip$
+      if$
+      s "Scandinavian Journal of Economics" =
+        { "Scand. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "Scottish Journal of Political Economy" =
+        { "Scot. J. Polit. Econ." 'jname := }
+        'skip$
+      if$
+      s "Small Business Economics" =
+        { "Small. Bus. Econ." 'jname := }
+        'skip$
+      if$
+      s "Social Choice and Welfare" =
+        { "Soc. Choice Welfare" 'jname := }
+        'skip$
+      if$
+      s "South African Journal of Economics" =
+        { "S. Afr. J. Econ." 'jname := }
+        'skip$
+      if$
+      s "Southern Economic Journal" =
+        { "South. Econ. J." 'jname := }
+        'skip$
+      if$
+      s "Strategic Management Journal" =
+        { "Statistics." 'jname := }
+        'skip$
+      if$
+      s "Strategic Management Journal" =
+        { "Strategic Manage. J." 'jname := }
+        'skip$
+      if$
+      s "Studies in Nonlinear Dynamics and Econometrics" =
+        { "Stoch. Anal. Appl." 'jname := }
+        'skip$
+      if$
+      s "Studies in Nonlinear Dynamics and Econometrics" =
+        { "Stud. Nonlinear. Dyn. E." 'jname := }
+        'skip$
+      if$
+      s "Supply Chain Management" =
+        { "Supply. Chain. Manag." 'jname := }
+        'skip$
+      if$
+      s "Sustainability" =
+        { "Sustainability" 'jname := }
+        'skip$
+      if$
+      s "Technological Forecasting and Social Change" =
+        { "Technol. Forecast. Soc." 'jname := }
+        'skip$
+      if$
+      s "Theory and Decision" =
+        { "Theor. Decis." 'jname := }
+        'skip$
+      if$
+      s "Tijdschrift voor Economische en Sociale Geografie" =
+        { "Tijdschr. Econ. Soc. Ge." 'jname := }
+        'skip$
+      if$
+      s "Trimestre Economico" =
+        { "Trimest. Econ." 'jname := }
+        'skip$
+      if$
+      s "Work and Occupations" =
+        { "Work Occupation." 'jname := }
+        'skip$
+      if$
+      s "Work, Employment and Society" =
+        { "Work Employ. Soc." 'jname := }
+        'skip$
+      if$
+      s "World Bank Economic Review" =
+        { "World Bank Econ. Rev." 'jname := }
+        'skip$
+      if$
+      s "World Bank Research Observer" =
+        { "World Bank Res. Obser." 'jname := }
+        'skip$
+      if$
+      s "World Development" =
+        { "World Dev." 'jname := }
+        'skip$
+      if$
+      s "World Economy" =
+        { "World Econ." 'jname := }
+        'skip$
+      if$
     }
   if$
   jname
@@ -1196,56 +2344,62 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   % Repeat if namesleft > 0
   { namesleft #0 > }
-  {  nameptr #1 =
-     % First author
-     { bst.author.name #0 =
-       bst.author.name #1 =
-       or
-          { bst.first.name.initial #0 = 
-           { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-           { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-          if$
-        }
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-          if$
-        }
-       if$
-     }
-     % The second or later authors
-     { bst.author.name #0 =
-       bst.author.name #2 =
-       or
-          { bst.first.name.initial #0 = 
-             { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-             { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-         if$
-          }
-          { bst.first.name.initial #0 = 
-               { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-               { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
-         if$
-          }
-       if$
-     }
-    if$
 
+  { nameptr #1 =
+      % First author
+      { bst.author.name #0 =
+        bst.author.name #1 =
+        or
+           { bst.first.name.initial #0 = 
+            { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+            { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+           if$
+         }
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+           if$
+         }
+        if$
+      }
+      % The second or later authors
+      { bst.author.name #0 =
+        bst.author.name #2 =
+        or
+           { bst.first.name.initial #0 = 
+              { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+              { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+             if$
+           }
+           { bst.first.name.initial #0 = 
+                { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+                { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+             if$
+           }
+        if$
+      }
+    if$
+    
     nameptr #1 >
       % The second or later authors
-      { nameorder.temp "random" =
-        bst.use.nameorder #0 = not and
-          { bst.and.nameorder * t * }
-          { namesleft #1 >
-              % More than one authors left
-              { ", " * t * }
-              % Only one author left
-              { t "others" =
-                  { bst.and.others.output * }
-                  { numnames #2 =
-                      % Entry with two authors
-                      { bst.and * t * }
-                      { bst.ands * t * }
+      { numnames bst.max.author.num >
+          { bst.and.others * 
+            #1 'namesleft :=  }
+          { nameorder.temp "random" =
+            bst.use.nameorder #0 = not and
+              { bst.and.nameorder * t * }
+              { namesleft #1 >
+                  % More than one authors left
+                  { ", " * t * }
+                  % Only one author left
+                  { t "others" =
+                      { bst.and.others.output * }
+                      { numnames #2 =
+                          % Entry with two authors
+                          { bst.and * t * }
+                          { bst.ands * t * }
+                        if$
+                      }
                     if$
                   }
                 if$
@@ -1262,6 +2416,7 @@ FUNCTION {format.names}
   while$
 }
 
+% For JPE, we define `format.name.ed` in addition to `format.name`.
 FUNCTION {format.names.ed}
 { 's :=
   % insert 1 to nameptr.
@@ -2266,9 +3421,12 @@ FUNCTION {incollection}
 
   format.in.ed.booktitle "booktitle" output.check.nocomma
   format.bvolume output.nocomma
+  % For JPE, publisher and its address are placed before edition,
+  % chapter and page number.
   output.address.organization.publisher
   format.edition output.nocomma
   format.chapter.pages output.nocomma
+%   output.address.organization.publisher
 
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }

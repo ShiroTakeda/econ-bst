@@ -1,13 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-09-25 17:30:34 st>
+Time-stamp:	    <2019-09-26 11:07:01 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-09-26: Supported the abbreviated journal names for `econ-jpe.bst` because
+  JPE (Journal of Political Economy) uses abbreviated journal names.
 
 * 2019-09-21: Changed the default value for `bst.techrep`.
 
