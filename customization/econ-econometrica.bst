@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-09-21 22:39:35 st>
+% Time-stamp:          <2019-09-26 09:26:58 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -1257,6 +1257,7 @@ FUNCTION {format.names}
   while$
 }
 
+% For Econometrica, we define `format.name.ed` in addition to `format.name`.
 FUNCTION {format.names.ed}
 { 's :=
   % insert 1 to nameptr.
@@ -1455,6 +1456,7 @@ FUNCTION {format.editors.x}
         }
       if$
       editor format.names.ed *
+%       editor format.names *
       bst.editor.btitle.order #0 =
         { editor num.names$ #1 >
            { bst.editors * }
@@ -2260,9 +2262,12 @@ FUNCTION {incollection}
 
   format.in.ed.booktitle "booktitle" output.check.nocomma
   format.bvolume output.nocomma
+  % For Econometrica, publisher and its address are placed before edition,
+  % chapter and page number.
   output.address.organization.publisher
   format.edition output.nocomma
   format.chapter.pages output.nocomma
+%   output.address.organization.publisher
 
   bst.year.position #0 = not
     { format.year "year" output.check.nocomma }
