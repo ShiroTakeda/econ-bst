@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-09-26 09:17:27 st>
+Time-stamp:     <2019-10-01 09:56:14 st>
 -->
 
 Contents of this folder
@@ -26,6 +26,11 @@ Contents of this folder
 | `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | A style like JET (Journal of Economic Theoriy).         |
 | `econ-jie.bst`          | [`econ-jie.pdf`](econjie.pdf)                    | A style like JIE (Journal of International Economics).  |
 |                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | PDF file which use numerical citation mode.             |
+
+
+| File              | Explanation                                                               |
+|:------------------|:--------------------------------------------------------------------------|
+| journal_name.xlsx | This file stores correspondence between journal name and its abbreviation. |
 
 
 <!-- リンクの作成方法 -->

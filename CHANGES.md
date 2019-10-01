@@ -1,13 +1,15 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-09-26 11:07:01 st>
+Time-stamp:	    <2019-10-01 09:56:51 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-10-01: Modified `customization/README.md`.
 
 * 2019-09-26: Supported the abbreviated journal names for `econ-jpe.bst` because
   JPE (Journal of Political Economy) uses abbreviated journal names.
