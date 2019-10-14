@@ -1,13 +1,17 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-10-01 09:56:51 st>
+Time-stamp:	    <2019-10-14 21:26:26 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-10-14: In the previous version of econ.bst, econ.bst cannot handle DOI
+  field with TeX control sequences such as underscore. The new econ.bst can
+  handle DOI field with TeX control sequences.
 
 * 2019-10-01: Modified `customization/README.md`.
 
