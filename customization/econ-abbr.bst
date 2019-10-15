@@ -4,7 +4,6 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Time-stamp:          <2019-09-20 20:55:42 st>
 % Version: 2.5
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
@@ -700,12 +699,12 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", DOI: \href{http://dx.doi.org/" doi * "}{" * } % (default)
+{ ", DOI: \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
 
 % The string after DOI:
 %
 FUNCTION {bst.doi.post}
-{ "}" }    % (default)
+{ "}}" }	   % (default)
 
 % How to show URL and DOI fields when both fields exist.
 %

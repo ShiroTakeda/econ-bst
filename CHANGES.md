@@ -1,13 +1,21 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-09-26 11:07:01 st>
+Time-stamp:	    <2019-10-15 08:39:42 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-10-15: Removed "Time-Stamp" lines from all bst files.
+
+* 2019-10-14: In the previous version of econ.bst, econ.bst cannot handle DOI
+  field with TeX control sequences such as underscore. The new econ.bst can
+  handle DOI field with TeX control sequences.
+
+* 2019-10-01: Modified `customization/README.md`.
 
 * 2019-09-26: Supported the abbreviated journal names for `econ-jpe.bst` because
   JPE (Journal of Political Economy) uses abbreviated journal names.
