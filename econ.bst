@@ -1,4 +1,4 @@
-nnnnn%% econ.bst: BibTeX style file for papers in economics.
+%% econ.bst: BibTeX style file for papers in economics.
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
