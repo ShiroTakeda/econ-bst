@@ -1,13 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-10-15 08:39:42 st>
+Time-stamp:	    <2019-10-16 10:10:27 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-10-16: Set the roman font to font for URL (the default font for URL is
+  type writer font).  This is the change made to TeX file (not to bst file).
 
 * 2019-10-15: Removed "Time-Stamp" lines from all bst files.
 
