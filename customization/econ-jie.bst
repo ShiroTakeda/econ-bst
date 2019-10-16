@@ -481,7 +481,7 @@ FUNCTION {bst.edition.post}
 %
 FUNCTION {bst.volume.pre}
 { " " }
-% { ", Vol. " }    % (default)
+% { ", " }    % (default)
 
 % The string after volume:
 %
@@ -501,14 +501,13 @@ FUNCTION {bst.hide.number}
 % The string before number:
 %
 FUNCTION {bst.number.pre}
-{ " (" }
-% { ", No. " }    % (default)
+{ " (" }    % (default)
 
 % The string after number:
 %
 FUNCTION {bst.number.post}
 { ")," }
-% { "" }    % (default)
+% { ")" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       in 
@@ -526,12 +525,12 @@ FUNCTION {bst.in}
 %
 FUNCTION {bst.pages.pre}
 { " " }
-% { ", pp." }    % (default)
+% { ", " }    % (default)
 
 % The string before page:
 %
 FUNCTION {bst.page.pre}
-{ ", p." }    % (default)
+{ ", " }    % (default)
 
 % The string after page (multiple pages):
 %
@@ -680,8 +679,7 @@ FUNCTION {bst.show.url}
 % The string before url:
 %
 FUNCTION {bst.url.pre}
-{ ", \url{" }
-% { ", URL: \url{" }	% (default)
+{ ", \url{" }	% (default)
 
 % The string after url:
 %
@@ -716,8 +714,7 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * }
-% { ", DOI: \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
+{ ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
 
 % The string after DOI:
 %
@@ -733,7 +730,7 @@ FUNCTION {bst.doi.post}
 FUNCTION {bst.url.doi}
 % { #0 }    % (default) -> Both fields are displayed
 % { #1 }    % -> Only URL field is displayed
-{ #2 }    % -> Only DOI field is displayed 
+{ #2 }    % (default) --> Only DOI field is displayed 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Other functions:
