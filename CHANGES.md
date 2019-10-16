@@ -1,13 +1,16 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-10-16 10:10:27 st>
+Time-stamp:	    <2019-10-16 15:42:15 st>
 -->
 
 Changelogs for econ.bst
 ==============================
 
 ## Changelogs
+
+* 2019-10-16: Modified the default style of econ.bst. The new default style is
+  simpler than the old one.
 
 * 2019-10-16: Set the roman font to font for URL (the default font for URL is
   type writer font).  This is the change made to TeX file (not to bst file).
