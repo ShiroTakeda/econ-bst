@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-10-01 09:56:14 st>
+Time-stamp:     <2019-10-16 15:05:19 st>
 -->
 
 Contents of this folder
@@ -24,7 +24,8 @@ Contents of this folder
 | `econ-econometrica.bst` | [`econ-econometrica.pdf`](econ-econometrica.pdf) | A style like Econometrica.                              |
 | `econ-jpe.bst`          | [`econ-jpe.pdf`](econ-jpe.pdf)                   | A style like JPE (Journal of Poilitical Economy).       |
 | `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | A style like JET (Journal of Economic Theoriy).         |
-| `econ-jie.bst`          | [`econ-jie.pdf`](econjie.pdf)                    | A style like JIE (Journal of International Economics).  |
+| `econ-jie.bst`          | [`econ-jie.pdf`](econ-jie.pdf)                   | A style like JIE (Journal of International Economics).  |
+| `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst.                          |
 |                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | PDF file which use numerical citation mode.             |
 
 
