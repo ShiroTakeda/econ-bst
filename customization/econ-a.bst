@@ -346,7 +346,8 @@ FUNCTION {bst.author.pre}
 % The string after author:
 %
 FUNCTION {bst.author.post}
-{ "." }    % (default)
+{ "." }
+% { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       year
