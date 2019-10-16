@@ -3,7 +3,7 @@
 % Filename:            econ-example.tex
 % Author:              Shiro Takeda
 % First-written:       <2002/11/02>
-% Time-stamp:          <2019-10-14 21:09:24 st>
+% Time-stamp:          <2019-10-16 10:06:58 st>
 %
 % This document explains how to use econ.bst.
 
@@ -30,6 +30,9 @@
 \setlength{\textwidth}{420pt}
 
 \makeatletter
+
+% Set the roman font to font for URL (the default font for URL is type writer font).
+\renewcommand\UrlFont{\rmfamily}
 
 \newenvironment{Frame}%
 {\setlength{\fboxsep}{15pt}
