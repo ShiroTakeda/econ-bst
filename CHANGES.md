@@ -1,7 +1,6 @@
 <!--
 Author:			Shiro Takeda
 First-written:  <2008/11/18>
-Time-stamp:	    <2019-10-16 15:42:15 st>
 -->
 
 Changelogs for econ.bst

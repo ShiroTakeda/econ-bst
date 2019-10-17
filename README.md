@@ -3,7 +3,6 @@ Filename:       README.md
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2017-07-30>
-Time-stamp:     <2019-09-26 09:17:57 st>
 -->
 
 econ.bst
