@@ -3,7 +3,7 @@
 % Filename:            econ-example.tex
 % Author:              Shiro Takeda
 % First-written:       <2002/11/02>
-% Time-stamp:          <2019-10-16 10:06:58 st>
+% Time-stamp:          <2019-10-17 12:56:54 st>
 %
 % This document explains how to use econ.bst.
 
@@ -247,6 +247,20 @@ For this, change the contents of ``\texttt{bst.volume.pre}'',
 \begin{Frame}
 \begin{verbatim}
 FUNCTION {bst.volume.pre}
+{ ", " }
+FUNCTION {bst.volume.post}
+{ "" }
+FUNCTION {bst.number.pre}
+{ " (" }
+FUNCTION {bst.number.post}
+{ ")" }
+\end{verbatim}
+\end{Frame}
+
+\paragraph{New definition:}
+\begin{Frame}
+ \begin{verbatim}
+FUNCTION {bst.volume.pre}
 { ", Vol. " }
 FUNCTION {bst.volume.post}
 { "" }
@@ -257,23 +271,8 @@ FUNCTION {bst.number.post}
 \end{verbatim}
 \end{Frame}
 
-\paragraph{New definition:}
-\begin{Frame}
- \begin{verbatim}
-FUNCTION {bst.volume.pre}
-{ ", \textbf{" }
-FUNCTION {bst.volume.post}
-{ "}" }
-FUNCTION {bst.number.pre}
-{ " (" }
-FUNCTION {bst.number.post}
-{ ")" }
-\end{verbatim}
-\end{Frame}
-
-By this, the style of volume and number change from ``Vol. 5, No. 10''
-to ``\textbf{5} (10)''.  See ``\texttt{econ-b.bst}'' for an example.
-
+By this, the style of volume and number change from ``5 (10)'' to ``Vol. 5,
+Non. 10''.  See ``\texttt{econ-b.bst}'' for an example.
 
 \subsubsection{Abbreviation of author name}
 
@@ -457,10 +456,10 @@ With respect to aritcle type entry, the following rule is applied:
 
 For example, reference style changes as follows:
 \begin{description}
- \item[\#0: ] Mazda, A. and B. Subaru, 2007, ``ABC,'' \textit{Journal of Automobiles}, Vol. 1, pp. 1-10.
- \item[\#1: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, Vol. 1, pp. 1-10, 2007.
- \item[\#2: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, 2007, Vol. 1, pp. 1-10.
- \item[\#3: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, Vol. 1, 2007, pp. 1-10.
+ \item[\#0: ] Mazda, A. and B. Subaru, 2007, ``ABC,'' \textit{Journal of Automobiles}, 1, pp. 1-10.
+ \item[\#1: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, 1, pp. 1-10, 2007.
+ \item[\#2: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, 2007, 1, pp. 1-10.
+ \item[\#3: ] Mazda, A. and B. Subaru, ``ABC,'' \textit{Journal of Automobiles}, 1, 2007, pp. 1-10.
 \end{description}
 
 See ``\texttt{econ-a.bst}'' and ``\texttt{econ-b.bst}'' for exmpales.
@@ -641,10 +640,10 @@ and you can cite bibliographic entries as before.  For example, the command
 references:
 
 \begin{quote}
-Ray, Debraj \textcircled{r} Arthur Robson (2018) ``Certified Random: A New Order
-for Coauthorship,'' \textit{American Economic Review}, Vol. 108, No. 2,
-pp. 489--520, URL: \url{http://www.aeaweb.org/articles?id=10.1257/aer.20161492},
-DOI: \href{http://dx.doi.org/10.1257/aer.20161492}{10.1257/aer.20161492}.
+Ray, Debraj \textcircled{r} Arthur Robson (2018) ``Certified Random: A New
+Order for Coauthorship,'' \textit{American Economic Review}, 108 (2),
+489--520, \href{http://dx.doi.org/10.1257/aer.20161492}{\urlstyle{rm}
+\nolinkurl{10.1257/aer.20161492}}.
 \end{quote}
 
 Under the random order style, an entry with two authors is cited as already
