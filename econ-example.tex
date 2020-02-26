@@ -3,6 +3,7 @@
 % Filename:            econ-example.tex
 % Author:              Shiro Takeda
 % First-written:       <2002/11/02>
+% Time-stamp:          <2020-02-26 11:14:43 st>
 %
 % This document explains how to use econ.bst.
 
@@ -18,7 +19,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \definecolor{MyBrown}{rgb}{0.3,0,0}
-\definecolor{MyBlue}{rgb}{0,0,0.3}
+\definecolor{MyBlue}{rgb}{0,0.4,0.6}
 \definecolor{MyRed}{rgb}{0.4,0,0.1}
 \definecolor{MyGreen}{rgb}{0,0.4,0}
 \usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,linkcolor=MyBlue,citecolor=MyRed,filecolor=MyBlue,urlcolor=MyGreen]{hyperref}
@@ -95,6 +96,10 @@ features:
         wish.
   \item You can use ``\textit{certified random order}'' proposed by
         \href{http://dx.doi.org/10.1257/aer.20161492}{\citet[][AER]{10.1257/aer.20161492}}.
+        \begin{itemize}
+         \item If you want to use certified random order, please see Section
+               \ref{sec:cro}.
+        \end{itemize}
  \end{itemize}
 \end{Frame}
 
@@ -103,15 +108,12 @@ features:
 \section{How to use ``\texttt{econ.bst}''}
 
 \begin{itemize}
- \item ``\texttt{econ.bst}'' requires ``\texttt{natbib.sty}''. 
-       If ``\texttt{natbib.sty}'' is not installed in your \TeX{} system, you must
-       install it first.
+ \item ``\texttt{econ.bst}'' requires ``\texttt{natbib.sty}'', which is
+       installed in the standard \TeX{} system.
  \item Put ``\texttt{econ.bst}'' file somewhere under the directory (folder)
        ``\texttt{/texmf/bibtex/bst}''. Or you can place ``\texttt{econ.bst}'' at
        the same directory as the \TeX{} file you are editting.
- \item You may need to change the character code of ``\texttt{econ.bst}''
-       according to your \TeX system.
- \item See ``\texttt{econ-example.tex}'' for an example tex file.
+ \item See ``\texttt{econ-example.tex}'' for preparing an tex file.
  \item For \BibTeX{} in general, see, for example,
        \href{https://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM}{Using
        BibTeX: a short guide} by Martin J. Osborne.
@@ -121,7 +123,7 @@ features:
 \subsection{Preparing a tex file}
 
 In the tex file you are editting, you first need to load \texttt{natbib}
-package.
+package in the preample (i.e. before \verb|\begin{document}|)
 \begin{Frame}
 \begin{verbatim}
 \usepackage{natbib}
@@ -144,7 +146,6 @@ bibliography style (\texttt{econ.bst}) and database (\texttt{econ-example.bib}) 
 \bibliography{econ-example}
 \end{verbatim}
 \end{Frame}
-
 
 \section{Customization}
 
