@@ -3,7 +3,7 @@
 % Filename:            econ-example.tex
 % Author:              Shiro Takeda
 % First-written:       <2002/11/02>
-% Time-stamp:          <2020-02-26 11:14:43 st>
+% Time-stamp:          <2020-02-26 11:30:58 st>
 %
 % This document explains how to use econ.bst.
 
@@ -19,7 +19,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \definecolor{MyBrown}{rgb}{0.3,0,0}
-\definecolor{MyBlue}{rgb}{0,0.4,0.6}
+\definecolor{MyBlue}{rgb}{0,0.2,0.6}
 \definecolor{MyRed}{rgb}{0.4,0,0.1}
 \definecolor{MyGreen}{rgb}{0,0.4,0}
 \usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,linkcolor=MyBlue,citecolor=MyRed,filecolor=MyBlue,urlcolor=MyGreen]{hyperref}
@@ -61,7 +61,7 @@
 }
 
 \author{Shiro Takeda\thanks{email: {\ttfamily shiro.takeda@gmail.com}.}}
-\date{2019/09/23}
+\date{2020/02/26}
 
 %#####################################################################
 %######################### Document Starts ###########################
@@ -144,6 +144,20 @@ bibliography style (\texttt{econ.bst}) and database (\texttt{econ-example.bib}) 
 \begin{verbatim}
 \bibliographystyle{econ}
 \bibliography{econ-example}
+\end{verbatim}
+\end{Frame}
+
+\subsection{Running pdf\TeX{}}
+
+\texttt{econ-example.tex} is created so that it is compiled with pdf\LaTeX
+(``\texttt{pdflatex.exe}''). So to compile \texttt{econ-example.tex}, you just
+execute the following commnads.
+\begin{Frame}
+\begin{verbatim}
+pdflatex econ-example.tex
+bibtex econ-example
+pdflatex econ-example.tex
+pdflatex econ-example.tex
 \end{verbatim}
 \end{Frame}
 
@@ -681,9 +695,23 @@ FUNCTION {bst.use.nameorder}
 \end{verbatim}
 \end{Frame}
 
-Under the default setting, the symbol ``\textcircled{r}''
-(\verb|\textcircled{r}|) is used.  But you can use another symbol. If you want
-to use an alternative symbol, you need to change settings for
+Under the default setting, we use ``\textcircled{r}'' (\verb|\textcircled{r}|)
+for the symbol for separating author names.
+They are defined with the following code in \texttt{econ.bst}.
+\begin{Frame}
+\begin{verbatim}
+FUNCTION {bst.and.nameorder}
+{ " \textcircled{r} " }
+
+FUNCTION {bst.cite.and.nameorder}
+{ " \textcircled{r} " }
+
+FUNCTION {bst.and.others.nameorder}
+{ " \textcircled{r}~al." }
+\end{verbatim}
+\end{Frame}
+
+You can use an alternative symbol by redefining these functions:
 `\texttt{bst.and.nameorder}', `\texttt{bst.cite.and.nameorder}' and
 `\texttt{bst.and.others.nameorder}'.
 
