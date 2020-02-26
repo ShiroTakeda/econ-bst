@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2019-10-16 15:05:19 st>
+Time-stamp:     <2020-02-26 13:55:53 st>
 -->
 
 Contents of this folder
@@ -13,20 +13,20 @@ Contents of this folder
     bst.xxx have different values.
 + If you want to customize econ.bst, see these files.
 
-| bst file                | PDF file                                         | Explanation                                             |
-|:------------------------|:-------------------------------------------------|:--------------------------------------------------------|
-| `econ.bst`              | [`econ-default.pdf`](econ-default.pdf)           | The default econ.bst file.                              |
-| `econ-a.bst`            | [`econ-a.pdf`](econ-a.pdf)                       | A simple style.                                         |
-| `econ-b.bst`            | [`econ-b.pdf`](econ-b.pdf)                       | A style with much decoration.                           |
-| `econ-no-sort.bst`      | [`econ-no-sort.pdf`](econ-no-sort.pdf)           | This style lists entries in citation order.             |
-| `econ-abbr.bst`         | [`econ-abbr.pdf`](econ-abbr.pdf)                 | This style uses abbreviated journal name.               |
-| `econ-aea.bst`          | [`econ-aea.pdf`](econ-aea.pdf)                   | A style for AEA journals such as AER, JEL, AEJ and JEP. |
-| `econ-econometrica.bst` | [`econ-econometrica.pdf`](econ-econometrica.pdf) | A style like Econometrica.                              |
-| `econ-jpe.bst`          | [`econ-jpe.pdf`](econ-jpe.pdf)                   | A style like JPE (Journal of Poilitical Economy).       |
-| `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | A style like JET (Journal of Economic Theoriy).         |
-| `econ-jie.bst`          | [`econ-jie.pdf`](econ-jie.pdf)                   | A style like JIE (Journal of International Economics).  |
-| `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst.                          |
-|                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | PDF file which use numerical citation mode.             |
+| bst file                | PDF file                                         | Explanation                                               |
+|:------------------------|:-------------------------------------------------|:----------------------------------------------------------|
+| `econ.bst`              | [`econ-default.pdf`](econ-default.pdf)           | The default econ.bst file.                                |
+| `econ-a.bst`            | [`econ-a.pdf`](econ-a.pdf)                       | A simple style.                                           |
+| `econ-b.bst`            | [`econ-b.pdf`](econ-b.pdf)                       | A style with much decoration.                             |
+| `econ-no-sort.bst`      | [`econ-no-sort.pdf`](econ-no-sort.pdf)           | This style lists entries in citation order.               |
+| `econ-abbr.bst`         | [`econ-abbr.pdf`](econ-abbr.pdf)                 | This style uses abbreviated journal name.                 |
+| `econ-aea.bst`          | [`econ-aea.pdf`](econ-aea.pdf)                   | The style for AEA journals such as AER, JEL, AEJ and JEP. |
+| `econ-econometrica.bst` | [`econ-econometrica.pdf`](econ-econometrica.pdf) | The style for Econometrica.                               |
+| `econ-jpe.bst`          | [`econ-jpe.pdf`](econ-jpe.pdf)                   | The style for JPE (Journal of Poilitical Economy).        |
+| `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | The style for JET (Journal of Economic Theoriy).          |
+| `econ-jie.bst`          | [`econ-jie.pdf`](econ-jie.pdf)                   | The style for JIE (Journal of International Economics).   |
+| `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst.                            |
+|                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | An example with numerical citation mode.                  |
 
 
 | File              | Explanation                                                               |
