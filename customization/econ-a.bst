@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 2.5
+% Version: 2.7
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -37,7 +37,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.5" }
+FUNCTION {econ.version} { "2.7" }
 
 % File name
 FUNCTION {econ.file} { "econ.bst" }
