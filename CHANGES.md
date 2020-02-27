@@ -8,6 +8,10 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+## Ver 2.7
+
+* 2020-02-27: Modified the document files.
+
 * 2019-10-16: Modified the default style of econ.bst. The new default style is
   simpler than the old one.
 
