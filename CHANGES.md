@@ -8,6 +8,11 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+## Ver. 2.8
+
+* 2020-03-03: Changed the directory structure.
+
+
 ## Ver 2.7
 
 * 2020-02-27: Modified the document files.
