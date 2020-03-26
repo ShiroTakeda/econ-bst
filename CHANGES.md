@@ -8,6 +8,11 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+## Ver. 2.9
+
+* 2020-03-26: Fixed the bug related to book editors.
+
+
 ## Ver. 2.8
 
 * 2020-03-03: Changed the directory structure.
