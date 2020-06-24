@@ -14,8 +14,8 @@ Changelogs for econ.bst
   only the first N2 authors' names are displayed in the reference part (and
   other authors' names are omitted by "et el.").
   
-      N1 is determined by `bst.max.author.num` (the default value = 8).
-      N2 is determined by `bst.max.author.num.displayed` (the default value = 3).
+  N1 is determined by `bst.max.author.num` (the default value = 8).
+  N2 is determined by `bst.max.author.num.displayed` (the default value = 3).
   
   See econ-example.pdf or econ-many-authors.pdf in the customization folder.
 

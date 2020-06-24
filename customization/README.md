@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2020-02-26 13:55:53 st>
+Time-stamp:     <2020-06-24 23:43:29 st>
 -->
 
 Contents of this folder
@@ -27,6 +27,7 @@ Contents of this folder
 | `econ-jie.bst`          | [`econ-jie.pdf`](econ-jie.pdf)                   | The style for JIE (Journal of International Economics).   |
 | `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst.                            |
 |                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | An example with numerical citation mode.                  |
+|                         | [`econ-many-authors.pdf`](econ-many-authors.pdf) | An example with a very large number of authros            |
 
 
 | File              | Explanation                                                               |
