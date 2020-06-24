@@ -55,7 +55,7 @@
 
 %%% title, author, acknowledgement, and date
 \title{\texttt{econ.bst}:\\
-\BibTeX{} style for economics\\(ver. 2.9)\thanks{\texttt{econ.bst} is available at
+\BibTeX{} style for economics\\(ver. 3.0)\thanks{\texttt{econ.bst} is available at
 \url{https://github.com/ShiroTakeda/econ-bst}}
 }
 
@@ -552,6 +552,28 @@ Krugman, Paul~R. (1991) ``Is Bilateralism Bad?'' in Elhanan Helpman and Assaf
   Cambridge, MA, pp. 9--23.
 \end{Frame}
 
+\subsubsection{When the number of authors is very large}
+
+In some research areas, the number of authors of a paper is sometimes very large
+(more than 100 ). In such a bibliographic entry, it is not possible to list all
+authors names in the reference part.  To handle a bibliographic entry with many
+authors, ``\texttt{econ.bst}'' lists only a part of authors when the number of
+authors is large. In particular, econ.bst works as follows:
+\begin{itemize}
+ \item If the number of authors is greater than N1, only the first N2 authors'
+       names are displayed in the reference part (and other authors' names are
+       omitted by ``et el.'').
+ \item N1 is determined by `bst.max.author.num' (the default value = 8).
+ \item N2 is determined by `bst.max.author.num.displayed' (the default value =
+       3).
+\end{itemize}
+
+This function is applied to The following three entries:
+\citet{essd-10-405-2018}, \citet{luthi08:_high}, and
+\citet{doi:10.1175/2009BAMS2778.1}. In addition, \texttt{econ-many-authors.tex}
+in the customization folder includes other examples.
+
+
 \subsection{Customization of citation part}
 
 We have so far seen the customization of reference part. ``\texttt{econ.bst}''
@@ -889,13 +911,13 @@ FUNCTION {bst.notuse.absorder.field}
 \citet{BabikerRutherford-2005-EconomicEffectsof},
 \citet{goldin:katz:2011}, \citet{goldin:katz:2008}, \citet{goldin:katz:2000}.
 \citet{stakeda2019web},
-\citet{essd-10-405-2018},
-\citet{luthi08:_high},
-\citet{doi:10.1175/2009BAMS2778.1},
 \citet{Rivers-2005-CombiningTop-Downand},
 \citet{WilsonMannOtsuki-2005-AssessingBenefitsof},
 \citet{zhang2016Deep},
-\citet{imbens2019Optimized}.
+\citet{imbens2019Optimized},
+\citet{essd-10-405-2018},
+\citet{luthi08:_high},
+\citet{doi:10.1175/2009BAMS2778.1},
 
 \vspace*{1em}
 

@@ -8,6 +8,18 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+## Ver. 3.0
+
+* 2020-06-23: In the new econ.bst, if the number of authors is greater than N1,
+  only the first N2 authors' names are displayed in the reference part (and
+  other authors' names are omitted by "et el.").
+  
+      N1 is determined by `bst.max.author.num` (the default value = 8).
+      N2 is determined by `bst.max.author.num.displayed` (the default value = 3).
+  
+  See econ-example.pdf or econ-many-authors.pdf in the customization folder.
+
+
 ## Ver. 2.9
 
 * 2020-03-26: Fixed the bug related to book editors.

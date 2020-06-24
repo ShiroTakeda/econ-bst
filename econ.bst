@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 2.9
+% Version: 2.10
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -37,7 +37,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "2.9" }
+FUNCTION {econ.version} { "2.10" }
 
 % File name
 FUNCTION {econ.file} { "econ.bst" }
@@ -315,10 +315,18 @@ FUNCTION {bst.cite.and.nameorder}
 FUNCTION {bst.and.others.num}
 { #3 }    % If the number of authors is greater or equal to three (default).
 
-% If the number of authors is greater or equal to bst.max.author.num, only
-% first author is listed and other authors' names are abbreviated as "et al.".
+% If the number of authors is greater than N1, only the first N2 authors are
+% displayed in the reference part (and other authors' names are omitted by "et
+% al".
+% 
+% The following function determines the value of N1.
 FUNCTION {bst.max.author.num}
-{ #12 }    % If the number of authors is greater or equal to 12 (default).
+{ #8 }   % (default).
+
+% The following function determines the value of N2.
+FUNCTION {bst.max.author.num.display}
+{ #3 }    % (default).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -810,7 +818,7 @@ STRINGS { item.type }
 STRINGS { tempa tempb }
 
 %% Integer global variables:
-INTEGERS { nameptr namesleft numnames name.num }
+INTEGERS { nameptr namesleft numnames name.num numtrunc }
 INTEGERS { multiresult }
 INTEGERS { index }
 INTEGERS { len }
@@ -1170,6 +1178,11 @@ FUNCTION {bst.and.others.output}
 
 %%% author and editor
 
+% nameptr: author number
+% numnames: the total number of authors
+% namesleft: the number of authors which have not been processed.
+% numtrunc: bst.max.author.num.display
+
 %%% name
 FUNCTION {format.names}
 { 's :=
@@ -1178,11 +1191,20 @@ FUNCTION {format.names}
   % Set the number of authors to numnames.
   s num.names$ 'numnames :=
   numnames 'namesleft :=
-  % Repeat if namesleft > 0
+
+  numnames bst.max.author.num >
+    % If numnames > bst.max.author.num
+    { bst.max.author.num.display 'numtrunc := }
+    { #0 'numtrunc := }
+  if$
+
+  % Repeat if namesleft > 0 ---- Repeat from here
   { namesleft #0 > }
 
-  { nameptr #1 =
-      % First author
+  {
+    % Block A starts
+    nameptr #1 =
+      % A-1: If the author is the 1st author 
       { bst.author.name #0 =
         bst.author.name #1 =
         or
@@ -1198,7 +1220,7 @@ FUNCTION {format.names}
          }
         if$
       }
-      % The second or later authors
+      % A-2: If the author is the second or later authors (not the 1st author).
       { bst.author.name #0 =
         bst.author.name #2 =
         or
@@ -1215,27 +1237,49 @@ FUNCTION {format.names}
         if$
       }
     if$
+    % Block A ends
     
+    % Block B starts
     nameptr #1 >
-      % The second or later authors
-      { numnames bst.max.author.num >
-          { bst.and.others * 
-            #1 'namesleft :=  }
-          { nameorder.temp "random" =
-            bst.use.nameorder #0 = not and
-              { bst.and.nameorder * t * }
-              { namesleft #1 >
-                  % More than one authors left
-                  { ", " * t * }
-                  % Only one author left
-                  { t "others" =
-                      { bst.and.others.output * }
-                      { numnames #2 =
-                          % Entry with two authors
-                          { bst.and * t * }
-                          { bst.ands * t * }
-                        if$
-                      }
+
+      % B-1: If the author is the second or later authors
+      {
+
+	nameptr #1 - numtrunc =
+          % If nameptr - 1 = numtrunc
+	  { #1 'namesleft := 
+	    "others" 't := }
+	  'skip$
+	if$
+
+        % If numnames <= bst.max.author.num
+        nameorder.temp "random" =
+        bst.use.nameorder #0 = not and
+
+          % If random ordering is used
+          { bst.and.nameorder * t * }
+
+          % If random ordering is not used
+          { namesleft #1 >
+
+              % If more than one authors are left
+              { ", " * t * }
+
+              % If the author is the last author.
+              { t "others" =
+
+                  % If the name is "others"
+                  { bst.and.others.output * }
+
+                  % If the name is not "others"
+                  { numnames #2 =
+
+                      % If the entry have two authors
+                      { bst.and * t * }
+
+                      % If the entry have more than two authors
+                      { bst.ands * t * }
+
                     if$
                   }
                 if$
@@ -1244,12 +1288,17 @@ FUNCTION {format.names}
           }
         if$
       }
+
+      % When the author is the first author.
       't
     if$
+    % Block B ends
+
     nameptr #1 + 'nameptr :=
     namesleft #1 - 'namesleft :=
+
   }
-  while$
+  while$                        % ---- Repeat until here
 }
 
 % remove successive periods (commas) from author

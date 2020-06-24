@@ -1,0 +1,99 @@
+%#!pdflatex 
+%#BIBTEX bibtex econ-many-authors
+
+%############################## Main #################################
+\documentclass[10pt]{article}
+
+%% Use natbib.sty
+\usepackage[longnamesfirst]{natbib}
+\usepackage{newtxtext,newtxmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\definecolor{MyBrown}{rgb}{0.3,0,0}
+\definecolor{MyBlue}{rgb}{0,0,0.3}
+\definecolor{MyRed}{rgb}{0.4,0,0.1}
+\definecolor{MyGreen}{rgb}{0,0.4,0}
+\usepackage[bookmarks=true,%
+bookmarksnumbered=true,%
+colorlinks=true,%
+linkcolor=MyBlue,%
+citecolor=MyRed,%
+filecolor=MyBlue,%
+pagecolor=MyBlue,%
+urlcolor=MyGreen%
+]{hyperref}
+
+\setlength{\topmargin}{-20pt} 
+\setlength{\textheight}{648pt}
+\setlength{\oddsidemargin}{15pt}
+\setlength{\textwidth}{440pt}
+
+%#####################################################################
+%######################### Document Starts ###########################
+%#####################################################################
+\begin{document}
+
+\noindent {\Large Examples of the bibliographic entries with many authors.}
+\begin{itemize}
+ \item This file uses ``\texttt{econ.bst}'' and ``\verb|bib_with_many_authors.bib|''.
+\end{itemize}
+
+\vspace*{1em}
+
+In econ.bst, if the number of authors is greater than N1, only the first N2
+authors' names are displayed in the reference part (and other authors' names are
+omitted by "et el.").
+\begin{itemize}
+ \item N1 is determined by ``\texttt{bst.max.author.num}'' (the default value = 8).
+ \item N2 is determined by ``\texttt{bst.max.author.num.displayed}'' (the default value = 3).
+\end{itemize}
+
+\vspace*{1em}
+
+\noindent Examples of bibliographic entries with many authors.
+\begin{itemize}
+ \item \citet{Pilia_2020}, \citet{Abbott_2016}, \citet{LHC_Physics_Letters_20121}.
+ \item \citet{Abbott_2016} and \citet{LHC_Physics_Letters_20121} have more than
+       1000 authors (see the database in \verb|bib_with_many_authors.bib|).
+\end{itemize}
+
+\vspace*{1em}
+
+\noindent \textbf{[Note]}
+
+The bibtex program in ``TeX Live 2019'' generates the following error message when the
+number of authors is very large. bibtex in ``TeX Live 2020'' works well.
+\small
+\begin{verbatim}
+This is BibTeX, Version 0.99d (TeX Live 2019/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: econ-many-authors.aux
+The style file: ../econ.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: bib_with_many_authors.bib
+Your field is more than 20000 characters---line 398 of file bib_with_many_authors.bib
+ :                   B. Kaplan and A. Kapliy and J. Kaplon and D
+ :                                                              . Kar and
+I'm skipping whatever remains of this entry        
+\end{verbatim}
+\normalsize
+
+%% bst file:
+\bibliographystyle{../econ}
+\bibliography{bib_with_many_authors}
+
+\end{document}
+
+
+%#####################################################################
+%######################### Document Ends #############################
+%#####################################################################
+% --------------------
+% Local Variables:
+% fill-column: 80
+% End:
