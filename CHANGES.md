@@ -10,6 +10,8 @@ Changelogs for econ.bst
 
 ## Ver. 3.0
 
+* 2020-12-29: bst files in the customization folder are updated.
+
 * 2020-06-23: In the new econ.bst, if the number of authors is greater than N1,
   only the first N2 authors' names are displayed in the reference part (and
   other authors' names are omitted by "et el.").
