@@ -783,7 +783,9 @@ order of priority:
  \item Value of ``\texttt{year}'' field (if ``\texttt{bst.sort.year}'' has non-zero value)
  \item Value of ``\texttt{absorder}'' field (if ``\texttt{absorder}'' field has
        a value)
- \item Value of ``\texttt{author}'' (or ``\texttt{editor}'') field.
+ \item Value of ``\texttt{author}'' (or ``\texttt{editor}'') field. If
+       ``\texttt{sortname}'' field is assigned value, it is used instead of
+       ``\texttt{author}'' and ``\texttt{editor}''.
  \item Value of ``\texttt{year}'' field.
  \item Value of ``\texttt{order}'' field.
  \item Value of ``\texttt{month}'' field.
@@ -794,7 +796,7 @@ By default,
 \begin{itemize}
  \item ``\texttt{bst.sort.entry.type}'' and ``\texttt{bst.sort.year}'' have
        zero,
- \item \textbf{''\texttt{absorder}''} and \textbf{''\texttt{order}''}
+ \item \textbf{``\texttt{absorder}''} and \textbf{``\texttt{order}''}
        fields are not assigned values because they are fields specific
        to ``\texttt{econ.bst}''.
 \end{itemize}
@@ -862,11 +864,11 @@ FUNCTION {bst.sort.year}
 By default, old references are listed first.  But if you set non-zero to
 ``\texttt{bst.reverse.year}'', new references are listed first.
 
-\subsection{Sorting by ''\texttt{absorder}'' field}
+\subsection{Sorting by ``\texttt{absorder}'' field}
 
 If ``\texttt{absorder}'' is defined in bib file,
 ``\texttt{econ.bst}'' uses its content as the primary sorting key.
-You can set number 0--999 to ''\texttt{absorder}'' field.
+You can set number 0--999 to ``\texttt{absorder}'' field.
 
 \begin{Frame}
 \begin{center}
@@ -880,7 +882,7 @@ with the key \citet{takeda10:_cge_analy_welfar_effec_trade} has 999 for
 ``\texttt{absorder}'' field and thus listed in the last.
 
 
-\subsubsection{Ignore ''\texttt{absorder}'' field}
+\subsubsection{Ignore ``\texttt{absorder}'' field}
 
 If you set some values for ``\texttt{absorder}'' fields in bib file,
 but if you want to ignore them, set non-zero to
@@ -891,6 +893,43 @@ FUNCTION {bst.notuse.absorder.field}
 { #1 }
 \end{verbatim}
 \end{Frame}
+
+\subsection{Sorting by ``\texttt{sortname}'' field}
+
+If ``\texttt{sortname}'' field is assigned value, it is used for sorting instead
+of ``\texttt{author}'' or ``\texttt{editor}''.
+
+For example, the following bibliography item is listed after entries with
+authors whose family names begin with letter C.
+\begin{Frame}
+\begin{verbatim}
+@article{d'Aspremont-2004-BalancedBayesianMechanisms,
+  title        = {Balanced Bayesian Mechanisms},
+  author       = {{d'Aspremont}, Claude and Cr{\'e}mer, Jacques and
+                  {G{\'e}rard-Varet}, Louis-Andr{\'e}},
+  year         = 2004,
+  volume       = 115,
+  pages        = {385--396},
+  issn         = {0022-0531},
+  doi          = {10.1016/j.jet.2003.07.001},
+  journal      = {Journal of Economic Theory},
+  number       = 2,
+}
+\end{verbatim}
+\end{Frame}
+
+However, ``d'Aspremont'' should usually be listed as author whose name begin
+with letter A.  In this case, you had better to add the following
+``\texttt{sortname}'' field 
+
+\begin{Frame}
+\begin{verbatim}
+  sortname     = {Aspremont, Claude and Cr{\'e}mer, Jacques and
+                  {G{\'e}rard-Varet}, Louis-Andr{\'e}},
+\end{verbatim}
+\end{Frame}
+
+Then, this entry is listed as author whose name begin with letter A.
 
 \section{Misc.}
 
