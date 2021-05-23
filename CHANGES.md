@@ -14,6 +14,10 @@ Changelogs for econ.bst
 
 * 2021-05-23: Added sample bibliography items with sortname field.
 
+* 2021-05-23: Suported sortname field. If you add sortname field to a
+  bibliography entry, the value of sortname field is used for sorting instead of
+  author or editor.
+
 
 ## Ver. 3.0
 
