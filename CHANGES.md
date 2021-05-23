@@ -12,6 +12,8 @@ Changelogs for econ.bst
 
 * 2021-05-23: Fixed a bug in label for sorting.
 
+* 2021-05-23: Added sample bibliography items with sortname field.
+
 
 ## Ver. 3.0
 
