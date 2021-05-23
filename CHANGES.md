@@ -8,6 +8,11 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+## Ver. 3.1
+
+* 2021-05-23: Fixed a bug in label for sorting.
+
+
 ## Ver. 3.0
 
 * 2020-12-29: bst files in the customization folder are updated.

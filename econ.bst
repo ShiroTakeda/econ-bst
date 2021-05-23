@@ -37,7 +37,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "3.0" }
+FUNCTION {econ.version} { "3.1" }
 
 % File name
 FUNCTION {econ.file} { "econ.bst" }
@@ -2662,7 +2662,7 @@ FUNCTION {format.lab.names.abb}
      % if the number of authors is less than bst.and.others.num, full name.
      { s format.lab.names.full }
      % if the number of authors is equal or more than bst.and.others.num, abbreviated name.
-     { s #1 "{ll}" format.name$ bst.and.others.output * }
+     { s #1 "{vv~}{ll}" format.name$ bst.and.others.output * }
    if$
 }
 
