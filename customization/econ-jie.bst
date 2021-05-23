@@ -1,10 +1,10 @@
-n%% econ.bst: BibTeX style file for papers in economics.
+%% econ.bst: BibTeX style file for papers in economics.
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 3.0
+% Version: 3.1
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -31,7 +31,7 @@ n%% econ.bst: BibTeX style file for papers in economics.
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "3.0" }
+FUNCTION {econ.version} { "3.1" }
 
 % File name
 FUNCTION {econ.file} { "econ-jie.bst" }
@@ -47,7 +47,7 @@ ENTRY
     institution journal key month note number organization pages publisher
     school series title type url volume year
   % Fields specific to econ.bst
-    order absorder nameorder
+    order absorder nameorder sortname
   }
 
   % Definition of entry variable.  The entry variable is a variable which has
@@ -2677,7 +2677,7 @@ FUNCTION {format.lab.names.abb}
      % if the number of authors is less than bst.and.others.num, full name.
      { s format.lab.names.full }
      % if the number of authors is equal or more than bst.and.others.num, abbreviated name.
-     { s #1 "{ll}" format.name$ bst.and.others.output * }
+     { s #1 "{vv~}{ll}" format.name$ bst.and.others.output * }
    if$
 }
 
@@ -2735,58 +2735,74 @@ FUNCTION {format.names.full.wo.and}
 }
 
 FUNCTION {author.key.full.wo.and}
-{ author empty$
-    { key empty$
-        { cite$ #1 #3 substring$ }
-        { key #3 text.prefix$ }
+{ sortname empty$ not
+    { sortname format.names.full.wo.and }
+    { author empty$ not
+        { author format.names.full.wo.and }
+        { key empty$ not
+            { key #3 text.prefix$ }
+            { cite$ #1 #3 substring$ }
+          if$
+        }
       if$
     }
-    { author format.names.full.wo.and }
   if$
 }
 
 FUNCTION {author.editor.key.full.wo.and}
-{ author empty$
-    { editor empty$
-        { key empty$
-            { cite$ #1 #3 substring$ }
-            { key #3 text.prefix$ }
+{ sortname empty$ not
+    { sortname format.names.full.wo.and }
+    { author empty$ not
+        { author format.names.full.wo.and }
+        { editor empty$ not
+            { editor format.names.full.wo.and }
+            { key empty$
+                { cite$ #1 #3 substring$ }
+                { key #3 text.prefix$ }
+              if$
+            }
           if$
         }
-        { editor format.names.full.wo.and }
       if$
     }
-    { author format.names.full.wo.and }
   if$
 }
 
 FUNCTION {editor.key.organization.key.full.wo.and}
-{ editor empty$
-    { key empty$
-        { organization empty$
-            { cite$ #1 #3 substring$ }
-            { "The " #4 organization chop.word #3 text.prefix$ }
+{ sortname empty$ not
+    { sortname format.names.full.wo.and }
+    { editor empty$ not
+        { editor format.names.full.wo.and }
+        { key empty$ not
+            { key #3 text.prefix$ }
+            { organization empty$ not
+                { "The " #4 organization chop.word #3 text.prefix$ }
+                { cite$ #1 #3 substring$ }
+              if$
+            }
           if$
         }
-        { key #3 text.prefix$ }
       if$
     }
-    { editor format.names.full.wo.and }
   if$
 }
 
 FUNCTION {author.key.organization.key.full.wo.and}
-{ author empty$
-    { key empty$
-        { organization empty$
-            { cite$ #1 #3 substring$ }
-            { "The " #4 organization chop.word #3 text.prefix$ }
+{ sortname empty$ not
+    { sortname format.names.full.wo.and }
+    { author empty$ not
+        { author format.names.full.wo.and }
+        { key empty$ not
+            { key #3 text.prefix$ }
+            { organization empty$ not         
+                { "The " #4 organization chop.word #3 text.prefix$ }
+                { cite$ #1 #3 substring$ }
+              if$
+            }
           if$
         }
-        { key #3 text.prefix$ }
       if$
     }
-    { author format.names.full.wo.and }
   if$
 }
 
@@ -2980,13 +2996,17 @@ FUNCTION {calc.cyear}
 }
 
 FUNCTION {calc.sort.label.abb}
-{ author empty$
-    { editor empty$
-       { "" }
-       { editor 's := }
+{ sortname empty$ not
+    { sortname 's := }
+    { author empty$ not
+        { author 's := }
+        { editor empty$ not
+           { editor 's := }
+           { "" }
+          if$
+        }
       if$
     }
-    { author 's := }
   if$
   s sort.format.names.abb 't :=
   year empty$

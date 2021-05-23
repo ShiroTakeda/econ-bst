@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2018 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 3.0
+% Version: 3.1
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
