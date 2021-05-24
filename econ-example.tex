@@ -783,9 +783,11 @@ order of priority:
  \item Value of ``\texttt{year}'' field (if ``\texttt{bst.sort.year}'' has non-zero value)
  \item Value of ``\texttt{absorder}'' field (if ``\texttt{absorder}'' field has
        a value)
- \item Value of ``\texttt{author}'' (or ``\texttt{editor}'') field. If
-       ``\texttt{sortname}'' field is assigned value, it is used instead of
-       ``\texttt{author}'' and ``\texttt{editor}''.
+ \item Value of ``\texttt{author}'' (or ``\texttt{editor}'') field.
+       \begin{itemize}
+        \item If ``\texttt{sortname}'' field is assigned a value, it is used
+              instead of ``\texttt{author}'' and ``\texttt{editor}''.
+       \end{itemize}
  \item Value of ``\texttt{year}'' field.
  \item Value of ``\texttt{order}'' field.
  \item Value of ``\texttt{month}'' field.
@@ -896,11 +898,12 @@ FUNCTION {bst.notuse.absorder.field}
 
 \subsection{Sorting by ``\texttt{sortname}'' field}
 
-If ``\texttt{sortname}'' field is assigned value, it is used for sorting instead
-of ``\texttt{author}'' or ``\texttt{editor}''.
+If ``\texttt{sortname}'' field is assigned a value, it is used for sorting
+instead of ``\texttt{author}'' or ``\texttt{editor}''.
 
-For example, the following bibliography item is listed after entries with
-authors whose family names begin with letter C.
+For example, the first author name of the following bibliography
+entry starts with the letter "d", so it is listed after the
+documents with author names that start with the letter c.
 \begin{Frame}
 \begin{verbatim}
 @article{d'Aspremont-2004-BalancedBayesianMechanisms,
@@ -918,10 +921,9 @@ authors whose family names begin with letter C.
 \end{verbatim}
 \end{Frame}
 
-However, ``d'Aspremont'' should usually be listed as author whose name begin
-with letter A.  In this case, you had better to add the following
-``\texttt{sortname}'' field 
-
+However, for the name ``d'Aspremont'' we should think that it starts with the
+letter a.In this case, you had better to add the following ``\texttt{sortname}''
+field
 \begin{Frame}
 \begin{verbatim}
   sortname     = {Aspremont, Claude and Cr{\'e}mer, Jacques and
@@ -929,7 +931,11 @@ with letter A.  In this case, you had better to add the following
 \end{verbatim}
 \end{Frame}
 
-Then, this entry is listed as author whose name begin with letter A.
+Then, this entry is listed as author whose name begin with letter A. The
+following three entries have sortname fields:
+\citet{d'Aspremont-2004-BalancedBayesianMechanisms},
+\citet{d'Aspremont-2003-CorrelationIndependenceAndBayesian}, and
+\citet{d'Aspremont-1998-LinearInequalityMethodsTo}.
 
 \section{Misc.}
 
