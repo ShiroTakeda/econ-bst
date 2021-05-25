@@ -3641,4 +3641,5 @@ EXECUTE {end.bib}
 %  Local Variables:
 %  fill-column: 78
 %  mode: bst
+%  coding: utf-8-unix
 %  End:

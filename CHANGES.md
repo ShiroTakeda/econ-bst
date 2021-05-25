@@ -8,6 +8,9 @@ Changelogs for econ.bst
 
 ## Changelogs
 
+* 2021-05-25: Changed line ending of all text files to LF only.
+
+
 ## Ver. 3.1
 
 * 2021-05-23: Fixed a bug in label for sorting.
@@ -371,7 +374,7 @@ Changelogs for econ.bst
 Local Variables:
 mode: markdown
 fill-column: 80
-coding: utf-8-dos
+coding: utf-8-unix
 End:
 -->
 

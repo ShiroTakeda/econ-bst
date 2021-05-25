@@ -38,7 +38,7 @@ features:
 Local Variables:
 mode: markdown
 fill-column: 80
-coding: utf-8-dos
+coding: utf-8-unix
 End:
 -->
 

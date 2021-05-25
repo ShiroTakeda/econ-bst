@@ -1362,7 +1362,7 @@ FUNCTION {compare.names.aer}
       s i.aer "{ff }{vv }{ll}{ jj}" format.name$
       =
         { #1 i.aer <
-            { " and " * }       % \bysame �ŏȗ����钘�҂̑O�ɂ� and 
+            { " and " * }       % \bysame で省略する著者の前につく and 
             { }
           if$
           "\bysame{}" *
@@ -3666,4 +3666,5 @@ EXECUTE {end.bib}
 %  Local Variables:
 %  fill-column: 78
 %  mode: bst
+%  coding: utf-8-unix
 %  End:

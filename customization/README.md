@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2020-06-24 23:43:29 st>
+Time-stamp:     <2021-05-25 08:19:21 st>
 -->
 
 Contents of this folder
@@ -43,7 +43,7 @@ Contents of this folder
 Local Variables:
 mode: markdown
 fill-column: 90
-coding: utf-8-dos
+coding: utf-8-unix
 End:
 -->
 
