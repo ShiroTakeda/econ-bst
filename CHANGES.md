@@ -6,7 +6,9 @@ First-written:  <2008/11/18>
 Changelogs for econ.bst
 ==============================
 
-## Changelogs
+## Ver. 3.1.1 
+
+* 2021-12-28: Fixed minor bugs.
 
 * 2021-05-25: Changed line ending of all text files to LF only.
 

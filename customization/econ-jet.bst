@@ -1,4 +1,4 @@
-nn%% econ-jet.bst: BibTeX style file for "Journal of Economic Theory".
+%% econ-jet.bst: BibTeX style file for "Journal of Economic Theory".
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
