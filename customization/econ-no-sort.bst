@@ -3640,6 +3640,6 @@ EXECUTE {end.bib}
 %  --------------------
 %  Local Variables:
 %  fill-column: 78
-%  mode: bst
+%  mode: bibtex-style
 %  coding: utf-8-unix
 %  End:
