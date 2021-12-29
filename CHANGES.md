@@ -8,6 +8,8 @@ Changelogs for econ.bst
 
 ## Ver. 3.1.1 
 
+* 2021-12-29: Changed the license (lppl 1.3 -> lppl 1.3c).
+
 * 2021-12-28: Fixed minor bugs.
 
 * 2021-05-25: Changed line ending of all text files to LF only.
