@@ -2492,7 +2492,7 @@ FUNCTION {compare.names.aer}
       s i.aer "{ff }{vv }{ll}{ jj}" format.name$
       =
         { #1 i.aer <
-            { " and " * }       % \bysame で省略する著者の前につく and 
+            { " and " * }
             { }
           if$
           "\bysame{}" *
