@@ -3665,6 +3665,6 @@ EXECUTE {end.bib}
 %  --------------------
 %  Local Variables:
 %  fill-column: 78
-%  coding: utf-8-unix
+%  coding: utf-8
 %  mode: bibtex-style
 %  End:

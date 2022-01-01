@@ -377,7 +377,7 @@ Changelogs for econ.bst
 --------------------
 Local Variables:
 fill-column: 80
-coding: utf-8-unix
+coding: utf-8
 mode: markdown
 End:
 -->

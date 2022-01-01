@@ -24,6 +24,6 @@ First-written:  <2017-07-30>
 Local Variables:
 mode: markdown
 fill-column: 80
-coding: utf-8-unix
+coding: utf-8
 End:
 -->
