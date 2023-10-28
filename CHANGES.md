@@ -6,6 +6,17 @@ First-written:  <2008/11/18>
 Changelogs for econ.bst
 ==============================
 
+## Ver. 3.2
+
+* 2023-10-27: Added the new style `econ-te.bst`, which is the style for
+  "Theoretical Economics".
+  
+* 2023-10-27: In econ-sample.tex, I added `pagebackref` option to hyperref
+  package which realizes page back reference.
+  
+* 2023-10-28: Changed the default value of `bst.mthesis` and `bst.phdthesis`.
+
+
 ## Ver. 3.1.1 
 
 * 2021-12-29: Changed the license (lppl 1.3 -> lppl 1.3c).
