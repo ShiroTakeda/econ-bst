@@ -2,9 +2,9 @@
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
-% Copyright (C) 2001-2022 Shiro Takeda
+% Copyright (C) 2001-2023 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 3.1.1
+% Version: 3.2
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -29,7 +29,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "3.1.1" }
+FUNCTION {econ.version} { "3.2" }
 
 % File name
 FUNCTION {econ.file} { "econ-te.bst" }
@@ -75,8 +75,8 @@ ENTRY
 % See econ-sample.pdf for details.
 % 
 FUNCTION {bst.use.bysame}
-% { #0 }    % Not use \bysame
-{ #1 }    % -> Use \bysame (default)
+{ #0 }    % Not use \bysame
+% { #1 }    % -> Use \bysame (default)
 % { #2 }    % -> Use \bysame of alternative style.
 
 % The definition of \bysame command.
@@ -739,12 +739,12 @@ FUNCTION {bst.techrep}
 % The string that represents master thesis:
 %
 FUNCTION {bst.mthesis}
-{ " Master's thesis" }    % (default)
+{ ", Master's thesis" }    % (default)
 
 % The string that represents phd thesis:
 %
 FUNCTION {bst.phdthesis}
-{ " Ph.D. dissertation" }    % (default)
+{ ", Ph.D. dissertation" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
