@@ -702,7 +702,8 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
+{ ". \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * }
+% { ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
 
 % The string after DOI:
 %
