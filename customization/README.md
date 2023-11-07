@@ -2,7 +2,7 @@
 Author:         Shiro Takeda
 e-mail          <shiro.takeda@gmail.com>
 First-written:  <2016-03-16>
-Time-stamp:     <2023-10-27 23:52:31 st>
+Time-stamp:     <2023-11-07 09:55:28 st>
 -->
 
 Contents of this folder
@@ -23,16 +23,16 @@ Contents of this folder
 | `econ-aea.bst`          | [`econ-aea.pdf`](econ-aea.pdf)                   | The style for AEA journals such as AER, JEL, AEJ and JEP. |
 | `econ-econometrica.bst` | [`econ-econometrica.pdf`](econ-econometrica.pdf) | The style for Econometrica.                               |
 | `econ-jpe.bst`          | [`econ-jpe.pdf`](econ-jpe.pdf)                   | The style for JPE (Journal of Poilitical Economy).        |
-| `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | The style for JET (Journal of Economic Theoriy).          |
+| `econ-jet.bst`          | [`econ-jet.pdf`](econ-jet.pdf)                   | The style for JET (Journal of Economic Theory).           |
 | `econ-jie.bst`          | [`econ-jie.pdf`](econ-jie.pdf)                   | The style for JIE (Journal of International Economics).   |
 | `econ-te.bst`           | [`econ-te.pdf`](econ-te.pdf)                     | The style for TE (Theoretical Economics).                 |
-| `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst.                            |
+| `econ-old.bst`          | [`econ-old.pdf`](econ-old.pdf)                   | The style of the old econ.bst (ver. 2.7).                 |
 |                         | [`econ-numbers.pdf`](econ-numbers.pdf)           | An example with numerical citation mode.                  |
 |                         | [`econ-many-authors.pdf`](econ-many-authors.pdf) | An example with a very large number of authros            |
 
 
-| File              | Explanation                                                               |
-|:------------------|:--------------------------------------------------------------------------|
+| File              | Explanation                                                                |
+|:------------------|:---------------------------------------------------------------------------|
 | journal_name.xlsx | This file stores correspondence between journal name and its abbreviation. |
 
 
