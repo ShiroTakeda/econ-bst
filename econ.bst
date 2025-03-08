@@ -37,7 +37,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "3.2" }
+FUNCTION {econ.version} { "3.3" }
 
 % File name
 FUNCTION {econ.file} { "econ.bst" }
@@ -672,7 +672,7 @@ FUNCTION {bst.show.url}
 % The string before url:
 %
 FUNCTION {bst.url.pre}
-{ ", \url{" }	% (default)
+{ ", \urlstyle{tt}\url{" }	% (default)
 
 % The string after url:
 %
@@ -707,7 +707,7 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
+{ ", \href{https://doi.org/" doi * "}{\urlstyle{tt}\nolinkurl{" * } % (default)
 
 % The string after DOI:
 %
