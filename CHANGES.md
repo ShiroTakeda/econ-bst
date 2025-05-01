@@ -6,6 +6,15 @@ First-written:  <2008/11/18>
 Changelogs for econ.bst
 ==============================
 
+## Ver. 3.3
+
+* 2025-04-26: Added functions `bst.bvolume.pre` and `bst.bvolume.post` to set
+  strings related to the volume of a book.
+  
+* 2025-05-01: Made revisions that completely rewrote the program.
+
+
+
 ## Ver. 3.2
 
 * 2023-10-27: Added the new style `econ-te.bst`, which is the style for

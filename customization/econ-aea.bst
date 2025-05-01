@@ -1,10 +1,10 @@
-%% aea.bst: BibTeX style file for journals of American Economic Association (AEA).
+%% econ-aea.bst: BibTeX style file for journals of American Economic Association (AEA).
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
-% Copyright (C) 2001-2023 Shiro Takeda
+% Copyright (C) 2001-2025 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 3.2
+% Version: 3.3
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -20,9 +20,9 @@
 % 
 % The Current Maintainer of this work is Shiro Takeda.
 
-%% Main features of aea.bst
+%% Main features of econ-aea.bst
 
-% "aea.bst" is a BibTeX style file for journals of American Economic
+% "econ-aea.bst" is a BibTeX style file for journals of American Economic
 % Association such as
 % - The American Economic Review
 % - Papers and Proceedins
@@ -32,11 +32,11 @@
 % AEA Style Guide is found at the following site:
 % https://www.aeaweb.org/journals/aer/submissions/accepted-articles/styleguide
 
-% "aea.bst" is created from "econ.bst" which is distributed from
+% "econ-aea.bst" is created from "econ.bst" which is distributed from
 % https://github.com/ShiroTakeda/econ-bst
 
 % version number
-FUNCTION {econ.version} { "3.2" }
+FUNCTION {econ.version} { "3.3" }
 
 % File name
 FUNCTION {econ.file} { "econ-aea.bst" }
@@ -45,6 +45,22 @@ FUNCTION {econ.file} { "econ-aea.bst" }
 FUNCTION {econ.debug}
 { #0 }    % Debug mode off (default).
 % { #1 }    % Debug mode on.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Explanation of terms used in this program
+
+%% [Entry]
+%% An entry is a single document in the reference. The "entry type" refers to
+%% the type of document, such as an article or a book.
+
+%% [Field]
+%% Field is the title, author, year, etc. specified in an entry.
+
+%% [Citation keyword]
+%% The "citation keyword" is a set of characters specified in each entry. This
+%% is the argument of the "\cite" command.
+
 
 ENTRY
   %%% Declaration of field
@@ -293,8 +309,8 @@ FUNCTION {bst.cite.ands}
 % non-zero to this function.
 % 
 FUNCTION {bst.use.nameorder}
-{ #1 }  % Use random order (default)
-% { #0 }        % Not use random order
+{ #1 }	% Use random order (default)
+% { #0 }	% Not use random order
 
 %%% String used to separate author names in references for the entry of random
 % author order.
@@ -363,7 +379,7 @@ FUNCTION {bst.author.post}
 % The string before year only for aritcle type entry.
 %
 FUNCTION {bst.year.pre}
-{ " " }
+{ ", " }
 % { " (" }    % (default)
 
 % The string after year only for aritcle type entry.
@@ -375,7 +391,7 @@ FUNCTION {bst.year.post}
 % The string after year for non-article type entry (book, incollection etc)
 %
 FUNCTION {bst.year.na.pre}
-{ " " }
+{ ", " }
 % { " (" }    % (default)
 
 % The string after year for non-article type entry (book, incollection etc)
@@ -410,7 +426,7 @@ FUNCTION {bst.book.pre}
 %
 FUNCTION {bst.book.post}
 { "}." }
-% { "}" }    % (default)
+% { "}," }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       booktitle
@@ -423,8 +439,7 @@ FUNCTION {bst.btitle.pre}
 % The string after booktitle:
 %
 FUNCTION {bst.btitle.post}
-{ "}," }
-% { "}" }    % (default)
+{ "}," }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       journal name
@@ -446,7 +461,6 @@ FUNCTION {bst.journal.post}
 %
 FUNCTION {bst.journal.name.abb}
 { #0 }    % (default)
-% { #1 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       editor notation:
@@ -454,17 +468,19 @@ FUNCTION {bst.journal.name.abb}
 % The string that indicates multiple editors:
 %
 FUNCTION {bst.editors}
-{ " eds. " }    % (default)
+{ " \textbf{eds.}" }
+% { " eds. " }    % (default)
 
 % The string that indicates single editor:
 %
 FUNCTION {bst.editor}
-{ " ed. " }    % (default)
+{ " \textbf{ed.}" }
+% { " ed. " }    % (default)
 
 % Order of editor and booktitle in incollection and inproceedings entries.
 %
-% If set to #0:         editors -> booktitle order
-% If set to non-zero:   booktitle -> editors order
+% If set to #0: 	editors -> booktitle order
+% If set to non-zero:	booktitle -> editors order
 %
 FUNCTION {bst.editor.btitle.order}
 { #1 }
@@ -495,6 +511,19 @@ FUNCTION {bst.volume.pre}
 % The string after volume:
 %
 FUNCTION {bst.volume.post}
+{ "" }    % (default)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       volume for book
+
+% The string before volume in book:
+%
+FUNCTION {bst.bvolume.pre}
+{ ", Vol.~" }    % (default)
+
+% The string after volume in book
+%
+FUNCTION {bst.bvolume.post}
 { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -534,7 +563,7 @@ FUNCTION {bst.in}
 %
 FUNCTION {bst.pages.pre}
 { " " }
-% { ", pp." }    % (default)
+% { ", " }    % (default)
 
 % The string before page:
 %
@@ -563,7 +592,8 @@ FUNCTION {bst.chapter.pre}
 % The string after chapter:
 %
 FUNCTION {bst.chapter.post}
-{ "" }    % (default)
+{ ", " }
+% { "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       month
@@ -610,8 +640,7 @@ FUNCTION {bst.publisher.pre}
 % The string after publisher:
 %
 FUNCTION {bst.publisher.post}
-{ ", " }
-% { "" }    % (default)
+{ "" }    % (default)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       series
@@ -689,7 +718,7 @@ FUNCTION {bst.show.url}
 % The string before url:
 %
 FUNCTION {bst.url.pre}
-{ ", \url{" }	% (default)
+{ ", \urlstyle{tt}\url{" }	% (default)
 
 % The string after url:
 %
@@ -724,13 +753,13 @@ FUNCTION {bst.show.doi}
 % The string before DOI:
 %
 FUNCTION {bst.doi.pre}
-{ ". \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * }
-% { ", \href{http://dx.doi.org/" doi * "}{\urlstyle{rm} \nolinkurl{" * } % (default)
+{ ". \href{https://doi.org/" doi * "}{\urlstyle{tt}\nolinkurl{" * }
+% { ", \href{https://doi.org/" doi * "}{\urlstyle{tt}\nolinkurl{" * } % (default)
 
 % The string after DOI:
 %
 FUNCTION {bst.doi.post}
-{ "}}" }    % (default)
+{ "}}" }	   % (default)
 
 % How to show URL and DOI fields when both fields exist.
 %
@@ -757,7 +786,7 @@ FUNCTION {bst.note.post}
 % The string that represents Technical report:
 %
 FUNCTION {bst.techrep}
-{ "Technical Report" }    % (default)
+{ ", Technical Report" }    % (default)
 
 % The string that represents master thesis:
 %
@@ -845,6 +874,10 @@ INTEGERS { output.state before.all mid.sentence after.sentence after.block }
 INTEGERS { last.period.comma }
 INTEGERS { len1.aer len2.aer i.aer }
 
+% output.state
+% -> This is a variable that holds which location in a single bibliography entry.
+% -> before.all or mid.sentence
+
 %%% Definition of functions:
 FUNCTION {not}
 {   { #0 }
@@ -874,36 +907,31 @@ FUNCTION {init.state.consts}
 
 %%% Remove comma and add period:
 %
-%%%
 FUNCTION {add.period.x}
-{ duplicate$
-  #-1 #1 substring$ "," =
+{ duplicate$ 't :=
+  t #-1 #1 substring$ "," =
     { #-2 global.max$ substring$ "." * }
-    { duplicate$
-      #-1 #2 substring$ ". " =
+    { t #-1 #2 substring$ ". " =
         { #-3 global.max$ substring$ "." * }
-        { duplicate$
-          #-1 #2 substring$ ", " =
+        { t #-1 #2 substring$ ", " =
             { #-3 global.max$ substring$ "." * }
-            { duplicate$
-              #-1 #2 substring$ ",'" =
+            { t #-1 #2 substring$ ",'" =
                 { #-3 global.max$ substring$ ".'" * }
-                { duplicate$
-                  #-1 #2 substring$ ".'" =
+                { t #-1 #2 substring$ ".'" =
                     { #-3 global.max$ substring$ ".'" * }
-                    { duplicate$
-                      #-1 #2 substring$ ".~" =
+                    { t #-1 #2 substring$ ".~" =
                         { #-3 global.max$ substring$ ".~" * }
-                        { duplicate$
-                          #-1 #2 substring$ ",~" =
+                        { t #-1 #2 substring$ ",~" =
                             { #-3 global.max$ substring$ ".~" * }
-                            { duplicate$
-                              #-1 #3 substring$ ",''" =
+                            { t #-1 #3 substring$ ",''" =
                                 { #-4 global.max$ substring$ ".''" * }
-                                { duplicate$
-                                  #-1 #3 substring$ ".''" =
+                                { t #-1 #3 substring$ ".''" =
                                     { #-4 global.max$ substring$ ".''" * }
-                                    { add.period$ }
+                                    { t #-1 #2 substring$ ": " =
+                                        { #-3 global.max$ substring$ "." * }
+                                        { add.period$ }
+                                      if$
+                                    }
                                   if$
                                 }
                               if$
@@ -923,56 +951,39 @@ FUNCTION {add.period.x}
   if$
 }
 
-FUNCTION {output.nonnull}
-{ 's :=
-  % mid.sentence
-  output.state mid.sentence =
-    { ", " * write$ }
-    % not mid.sentence
-    { output.state after.block =
-        % after.block
-        { add.period.x " " * write$ }
-        % before.all
-        { output.state before.all =
-            'write$
-            { add.period.x " " * write$ }
-          if$
-        }
-      if$
-      % not mid.sentence, set to mid.sentence
-      mid.sentence 'output.state :=
-    }
-  if$
-  s
-}
-
 %%% If the last character is period or comma, set non-zero to
 %%% last.period.comma.
-FUNCTION {period.comma.p}
+FUNCTION {last.period.comma.p}
 { duplicate$ 't :=
   t #-1 #1 substring$ "." = 
   t #-1 #1 substring$ "," = or
-  t #-1 #1 substring$ ":" = or 
+  t #-1 #2 substring$ ". " = or
+  t #-1 #2 substring$ ", " = or
   t #-1 #2 substring$ ".'" = or
   t #-1 #2 substring$ ",'" = or
   t #-1 #3 substring$ ".''" = or
   t #-1 #3 substring$ ",''" = or
   t #-1 #2 substring$ ".~" = or
   t #-1 #2 substring$ ",~" = or
+  t #-1 #1 substring$ ":" = or 
+  t #-1 #2 substring$ ": " = or
+  t #-1 #2 substring$ ".}" = or
+  t #-1 #2 substring$ ",}" = or
     { #1 'last.period.comma := }
     { #0 'last.period.comma := }
   if$
 }
 
-%%% remove unnecessary comma.
+%%% remove comma
+% A function that removes the period or comma at the beginning of a field.
 FUNCTION {remove.pre.comma}
 { 's :=
-  s empty$
-    { "" }
-    { s #1 #1 substring$ "," = 
+   s #1 #1 substring$ "," = 
        { s #2 global.max$ substring$ }
        { s #1 #1 substring$ "." = 
           { s #2 global.max$ substring$ }
+         { s #1 #1 substring$ ":" = 
+             { s #2 global.max$ substring$ }
           's
          if$
        }
@@ -981,63 +992,29 @@ FUNCTION {remove.pre.comma}
   if$
 }
 
-%%% output.nonnull.nocomma is the same as output.nonnull except that it does
-%%% not add commas even in mid.sentence.
-FUNCTION {output.nonnull.nocomma}
+FUNCTION {output.field}
 { 's :=
   output.state mid.sentence =
     % mid.sentence
-    { period.comma.p "" * write$ }
-
+    { last.period.comma.p % Check whether the last of the previous field is
+			  % period or comma -> Assign to the variable
+			  % last.period.comma.
+      write$ }		  % Write the contents of the previous field.
     % not mid.sentence
-    { output.state after.block =
-        % after.block
-        { add.period.x " " * write$ }
+    { output.state before.all =
         % before.all
-        { output.state before.all =
-            'write$
-            { add.period$ " " * write$ }
-          if$
-        }
+        'write$ % Write the contents of the previous field.
+	% not before.all
+        'skip$ % This line is never executed.
       if$
       mid.sentence 'output.state :=
     }
   if$
   last.period.comma #0 =
+    % The last character in the field before the one is not a period or comma.
     { s }
+    % The last character in the field before the one is a period or comma.
     { s remove.pre.comma }
-  if$
-}
-
-% Not used in the current econ.bst.
-% FUNCTION {output}
-% { duplicate$ empty$
-%     'pop$
-%     'output.nonnull
-%   if$
-% }
-
-FUNCTION {output.nocomma}
-{ duplicate$ empty$
-    'pop$
-    'output.nonnull.nocomma
-  if$
-}
-
-% Not used in the current econ.bst.
-% FUNCTION {output.check}
-% { 't :=
-%   duplicate$ empty$
-%     { pop$ "empty " t * " in " * cite$ * warning$ }
-%     'output.nonnull
-%   if$
-% }
-
-FUNCTION {output.check.nocomma}
-{ 't :=
-  duplicate$ empty$
-    { pop$ "empty " t * " in " * cite$ * warning$ }
-    'output.nonnull.nocomma
   if$
 }
 
@@ -1058,31 +1035,6 @@ FUNCTION {fin.entry}
 { add.period.x
   write$
   newline$
-}
-
-FUNCTION {new.block}
-{ output.state before.all =
-    'skip$
-    { after.block 'output.state := }
-  if$
-}
-
-FUNCTION {new.sentence}
-{ output.state after.block =
-    'skip$
-    { output.state before.all =
-        'skip$
-        { after.sentence 'output.state := }
-      if$
-    }
-  if$
-}
-
-FUNCTION {new.block.check}
-{ empty$
-    'skip$
-    'new.block
-  if$
 }
 
 FUNCTION {field.or.null}
@@ -1126,56 +1078,93 @@ FUNCTION {format.journal.name.abb}
   jname
 }
 
-%%% journal
-FUNCTION {format.journal}
-{ journal empty$
+%%% Remove commas in the cases like "?." and "?,".
+FUNCTION {remove.irrelevant.period.comma}
+{ 's :=
+  s empty$
     { "" }
-    { bst.journal.pre format.journal.name.abb * bst.journal.post * }
-  if$
-}
-
-%%% title for book
-FUNCTION {format.book}
-{ title empty$
-    { "" }
-    { bst.book.pre title * bst.book.post * }
-  if$
-}
-
-FUNCTION {format.url}
-{ url empty$
-    { "" }
-    { type$ "online" = bst.show.url or
-        { bst.url.pre url * bst.url.post *
-          access empty$
-             { "" * }
-             { bst.access.pre * access * bst.access.post * }
+    { s #-1 #3 substring$ "?,'" =
+      s #-1 #3 substring$ "?.'" = or
+        { s #-3 global.max$ substring$ "'" * }
+        { s #-1 #4 substring$ "?,''" =
+          s #-1 #4 substring$ "?.''" = or
+            { s #-4 global.max$ substring$ "''" * }
+            { s #-1 #2 substring$ "?," =
+              s #-1 #2 substring$ "?." = or
+                { s #-2 global.max$ substring$ "" * }
+                { s #-1 #3 substring$ "?,~" =
+                  s #-1 #3 substring$ "?.~" = or
+                    { s #-4 global.max$ substring$ "?~" * }
+                    { s #-1 #3 substring$ ".}." =
+		        { s #-3 global.max$ substring$ "}" * }
+                        's
+		      if$
+		    }
+                  if$
+                }
+              if$
+            }
           if$
         }
-        { "" }
       if$
     }
   if$
 }
 
-FUNCTION {format.doi}
-{ doi empty$ bst.show.doi not or
-    { "" }
-    { bst.doi.pre doi * bst.doi.post * }
+%%% journal
+FUNCTION {format.output.journal}
+{ journal empty$
+    'skip$
+    { bst.journal.pre format.journal.name.abb * bst.journal.post * 'jname :=
+      jname remove.irrelevant.period.comma output.field }
   if$
 }
 
-FUNCTION {format.url.doi}
+FUNCTION {format.output.book}
+{ title empty$
+    { "there's no title in " cite$ * warning$ }
+    { bst.hide.title #0 = not
+        'skip$
+        { bst.book.pre title * bst.book.post * output.field }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.output.url}
+    { type$ "online" = bst.show.url or
+        { bst.url.pre url * bst.url.post *
+          access empty$
+         { "" * output.field }
+         { bst.access.pre * access * bst.access.post * output.field }
+          if$
+        }
+    'skip$
+      if$
+    }
+
+FUNCTION {format.output.doi}
+{ bst.show.doi
+    { bst.doi.pre doi * bst.doi.post * output.field }
+    'skip$
+  if$
+}
+
+FUNCTION {format.output.url.doi}
 { url empty$
-    { format.doi }
     { doi empty$
-        { format.url }
+        'skip$
+        { format.output.doi }
+      if$
+    }
+    { doi empty$
+        { format.output.url }
         { bst.url.doi #0 =
-            { format.url output.nocomma
-              format.doi }
+            { format.output.url 
+	      format.output.doi  }
             { bst.url.doi #1 =
-                { format.url } 
-                { format.doi }
+                { format.output.url } 
+                { format.output.doi }
               if$
             }
           if$
@@ -1215,27 +1204,24 @@ FUNCTION {format.names}
     { bst.max.author.num.display 'numtrunc := }
     { #0 'numtrunc := }
   if$
-
   % Repeat if namesleft > 0 ---- Repeat from here
   { namesleft #0 > }
-
   {
     % Block A starts
     nameptr #1 =
       % A-1: If the author is the 1st author 
       { bst.author.name #0 =
-        bst.author.name #1 =
-        or
+        bst.author.name #1 = or
            { bst.first.name.initial #0 = 
-            { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
-            { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
+              { s nameptr "{vv~}{ll}{, ff}{, jj}" format.name$ 't := }
+              { s nameptr "{vv~}{ll}{, f.}{, jj}" format.name$ 't := }
            if$
-         }
+           }
            { bst.first.name.initial #0 = 
               { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
               { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-           if$
-         }
+             if$
+           }
         if$
       }
       % A-2: If the author is the second or later authors (not the 1st author).
@@ -1259,45 +1245,32 @@ FUNCTION {format.names}
     
     % Block B starts
     nameptr #1 >
-
       % B-1: If the author is the second or later authors
-      {
-
-	nameptr #1 - numtrunc =
+      { nameptr #1 - numtrunc =
           % If nameptr - 1 = numtrunc
 	  { #1 'namesleft := 
 	    "others" 't := }
 	  'skip$
 	if$
-
         % If numnames <= bst.max.author.num
         nameorder.temp "random" =
         bst.use.nameorder #0 = not and
-
           % If random ordering is used
           { bst.and.nameorder * t * }
-
           % If random ordering is not used
           { namesleft #1 >
-
               % If more than one authors are left
               { ", " * t * }
-
               % If the author is the last author.
               { t "others" =
-
                   % If the name is "others"
                   { bst.and.others.output * }
-
                   % If the name is not "others"
                   { numnames #2 =
-
                       % If the entry have two authors
                       { bst.and * t * }
-
                       % If the entry have more than two authors
                       { bst.ands * t * }
-
                     if$
                   }
                 if$
@@ -1306,15 +1279,73 @@ FUNCTION {format.names}
           }
         if$
       }
-
       % When the author is the first author.
       't
     if$
     % Block B ends
-
     nameptr #1 + 'nameptr :=
     namesleft #1 - 'namesleft :=
+  }
+  while$                        % ---- Repeat until here
+}
 
+%%% name
+FUNCTION {format.names.editors}
+{ 's :=
+  % insert 1 to nameptr.
+  #1 'nameptr :=
+  % Set the number of authors to numnames.
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+
+  numnames bst.max.author.num >
+    % If numnames > bst.max.author.num
+    { bst.max.author.num.display 'numtrunc := }
+    { #0 'numtrunc := }
+  if$
+  % Repeat if namesleft > 0 ---- Repeat from here
+  { namesleft #0 > }
+  {
+    % Block A starts
+    bst.first.name.initial #0 = 
+      { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+      { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+    if$
+    % Block A ends
+    % Block B starts
+    nameptr #1 >
+      % B-1: If the author is the second or later authors
+      {	nameptr #1 - numtrunc =
+          % If nameptr - 1 = numtrunc
+	  { #1 'namesleft := 
+	    "others" 't := }
+	  'skip$
+	if$
+        namesleft #1 >
+          % If more than one authors are left
+          { ", " * t * }
+          % If the author is the last author.
+          { t "others" =
+              % If the name is "others"
+              { bst.and.others.output * }
+              % If the name is not "others"
+              { numnames #2 =
+                  % If the entry have two authors
+                  { bst.and * t * }
+                  % If the entry have more than two authors
+                  { bst.ands * t * }
+                if$
+              }
+            if$
+          }
+        if$
+      }
+      % When the author is the first author.
+      't
+    if$
+    % Block B ends
+    nameptr #1 + 'nameptr :=
+    namesleft #1 - 'namesleft :=
   }
   while$                        % ---- Repeat until here
 }
@@ -1385,9 +1416,9 @@ FUNCTION {compare.names.aer}
 }
 
 %%% author
-FUNCTION {format.authors}
+FUNCTION {format.output.authors}
 { author empty$
-    { "" }
+    'skip$
     { bst.use.bysame #2 =
         { prev.author.aer author compare.names.aer 's :=
           author 'prev.author.aer := }
@@ -1397,14 +1428,15 @@ FUNCTION {format.authors}
         { "\bysame " }
         { bst.author.pre s remove.ss.period.auth * }
       if$
+      output.field
     }
   if$
 }
 
 %%% editor
-FUNCTION {format.editors}
+FUNCTION {format.output.editors}
 { editor empty$
-    { "" }
+    'skip$
     { bst.use.bysame #2 =
         { prev.author.aer editor compare.names.aer 's :=
           editor 'prev.author.aer := }
@@ -1415,8 +1447,8 @@ FUNCTION {format.editors}
         { bst.author.pre s remove.ss.period.auth * }
       if$
       s num.names$ #1 >
-       { bst.editors * }
-       { bst.editor * }
+       { bst.editors * output.field }
+       { bst.editor * output.field }
       if$
     }
   if$
@@ -1445,64 +1477,30 @@ FUNCTION {format.editors.alt}
   if$
 }
 
-%%% format.in.ed.booktitle
 FUNCTION {format.editors.x}
-{ editor empty$
+{ bst.editor.btitle.order #0 =
     { "" }
-    { bst.editor.btitle.order #0 =
-        { "" }
-        { editor num.names$ #1 >
-           { " edited by " }    % For econ-aea.bst
-           { " edited by " }    % For econ-aea.bst
+    { editor num.names$ #1 >
+       { " edited by " }    % For econ-aea.bst
+       { " edited by " }    % For econ-aea.bst
 %            { bst.editors " by " * }
 %            { bst.editor  " by " * }
-          if$
-        }
       if$
-      editor format.names *
+    }
+  if$
+  editor format.names.editors *
       bst.editor.btitle.order #0 =
         { editor num.names$ #1 >
            { bst.editors * }
            { bst.editor * }
           if$
         }
-        { "" * }
-      if$
-    }
-  if$
-}
-
-%%% Remove commas in the cases like "?." and "?,".
-FUNCTION {remove.irrelevant.period.comma}
-{ 's :=
-  s empty$
-    { "" }
-    { s #-1 #3 substring$ "?,'" =
-      s #-1 #3 substring$ "?.'" = or
-        { s #-3 global.max$ substring$ "'" * }
-        { s #-1 #4 substring$ "?,''" =
-          s #-1 #4 substring$ "?.''" = or
-            { s #-4 global.max$ substring$ "''" * }
-            { s #-1 #2 substring$ "?," =
-              s #-1 #2 substring$ "?." = or
-                { s #-2 global.max$ substring$ "" * }
-                { s #-1 #3 substring$ "?,~" =
-                  s #-1 #3 substring$ "?.~" = or
-                    { s #-4 global.max$ substring$ "?~" * }
-                    's
-                  if$
-                }
-              if$
-            }
-          if$
-        }
-      if$
-    }
+    { ", " * }
   if$
 }
 
 %%% title
-FUNCTION {format.title.sub}
+FUNCTION {format.title}
 { bst.title.lower.case #0 =
      { bst.title.pre title * bst.title.post * }
      { bst.title.pre title "t" change.case$ * bst.title.post * }
@@ -1510,19 +1508,14 @@ FUNCTION {format.title.sub}
 }
 
 %%% title
-FUNCTION {format.title}
+FUNCTION {format.output.title}
 { title empty$
-  bst.hide.title #0 = not or
-    { "" }
-    { format.title.sub remove.irrelevant.period.comma }
+    { "there's no title in " cite$ * warning$ }
+    { bst.hide.title #0 = not
+        'skip$
+        { format.title remove.irrelevant.period.comma output.field }
   if$
 }
-
-%%% title for misc.
-FUNCTION {format.misc.title}
-{ title empty$
-    { "" }
-    { bst.title.pre title * bst.title.post * }
   if$
 }
 
@@ -1554,23 +1547,15 @@ FUNCTION {n.dashify}
 }
 
 %%% year
-FUNCTION {format.year}
+FUNCTION {format.output.year}
 { year empty$
-    { "there's no year in " cite$ * warning$
-      ", " }
+    { "there's no year in " cite$ * warning$ }
     { type$ "article" =
         { bst.year.pre year * extra.label * bst.year.post * }
         { bst.year.na.pre year * extra.label * bst.year.na.post * }
       if$
+      output.field
     }
-  if$
-}
-
-%%% page for book
-FUNCTION {format.book.pages}
-{ pages empty$
-    { "" }
-    { bst.pages.pre pages * bst.pages.post * }
   if$
 }
 
@@ -1578,9 +1563,17 @@ FUNCTION {format.book.pages}
 FUNCTION {tie.or.space.connect}
 { duplicate$ text.length$ #3 <
     { "~" }
-    { " " }
+    { "" }
   if$
   swap$ * *
+}
+
+FUNCTION {tie.or.space.connect.alt}
+{ duplicate$ text.length$ #3 <
+    { "~" }
+    { " " }
+  if$
+  swap$ *
 }
 
 FUNCTION {either.or.check}
@@ -1590,53 +1583,58 @@ FUNCTION {either.or.check}
   if$
 }
 
+%%% page for book
+FUNCTION {format.output.book.pages}
+{ pages empty$
+    'skip$
+    { bst.pages.pre pages n.dashify tie.or.space.connect.alt * bst.pages.post *
+      output.field }
+  if$
+}
+
 %%% volume for book
-FUNCTION {format.bvolume}
+FUNCTION {format.output.bvolume}
 { volume empty$
-    { "" }
-%     { bst.volume.pre volume * bst.volume.post *
+    'skip$
+%     { bst.bvolume.pre volume * bst.bvolume.post *
     { " Volume " volume * "." * % For econ-aea.bst
       series empty$
         'skip$
         %% If there is series field
         { " of " * series * bst.series.post * }
       if$
-%       "volume and number" number either.or.check
+      output.field
     }
   if$
 }
 
 %%% series
-FUNCTION {output.series}
+FUNCTION {format.output.series}
 { series empty$
-    { "" }
-    { bst.series.pre series * bst.series.post * }
+    'skip$
+    { bst.series.pre series * bst.series.post * output.field }
  if$
 }
 
 %%% number and series
-FUNCTION {format.number.series}
-{ volume empty$
+FUNCTION {format.output.number.series}
     { number empty$
-      bst.hide.month #0 = not or
+      bst.hide.number #0 = not or
         % number is empty
         { series empty$
-            { "" }
+        'skip$
             % series is not empty.
-            { output.series }
+        { format.output.series }
           if$
         }
         % number is not empty$
         { series empty$
-            { bst.number.pre number * bst.number.post * }
+        { bst.number.pre number * bst.number.post * output.field }
             % series is not empty.
             { bst.in bst.series.pre * series * bst.series.post *
-              bst.number.pre * number * bst.number.post * }
-          if$
-        }
+          bst.number.pre * number * bst.number.post * output.field }
       if$
     }
-    { "" }
   if$
 }
 
@@ -1720,29 +1718,36 @@ FUNCTION {convert.edition}
 }
 
 %%% edition
-FUNCTION {format.edition}
+FUNCTION {format.output.edition}
 { edition empty$
-    { "" }
-    { output.state mid.sentence =
-        { bst.edition.pre convert.edition "l" change.case$ * bst.edition.post * }
-        { bst.edition.pre convert.edition "t" change.case$ * bst.edition.post * }
-      if$
-    }
+    'skip$
+    { bst.edition.pre convert.edition "l" change.case$ * bst.edition.post * output.field }
   if$
 }
 
 %%% month
-FUNCTION {format.month}
+FUNCTION {format.output.month}
 { month empty$
   bst.hide.month #0 = not or
-    { "" }
-    { bst.month.pre month * bst.month.post * }
+    'skip$
+    { bst.month.pre month * bst.month.post * output.field }
   if$
 }
 
-%%% year and month
-FUNCTION {format.date}
-{ format.month format.year *
+FUNCTION {format.output.date}
+{ month empty$
+    { year empty$
+        'skip$
+        { format.output.year }
+      if$
+    }
+    { year empty$
+        { format.output.month }
+        { format.output.month
+ 	 format.output.year }
+      if$
+    }
+  if$ 
 }
 
 %%% Is multiple pages like 1-100?
@@ -1768,131 +1773,48 @@ FUNCTION { multi.page.check }
 
 %%% pages
 FUNCTION {format.pages}
+{ pages multi.page.check
+    { bst.pages.pre pages n.dashify tie.or.space.connect.alt * bst.pages.post * }
+    { bst.page.pre pages tie.or.space.connect.alt * bst.page.post * }
+  if$
+}
+
+FUNCTION {format.output.pages}
 { pages empty$
-    { "" }
-    { pages multi.page.check
-      { bst.pages.pre pages n.dashify tie.or.space.connect * bst.pages.post }
-      { bst.page.pre pages tie.or.space.connect * bst.page.post }
-     if$
-    }
+    'skip$
+    { format.pages output.field }
  if$
 }
 
 %%% number
-FUNCTION {format.number}
+FUNCTION {format.output.number}
 { number empty$
   bst.hide.number #0 = not or
-    { "" }
-    { bst.number.pre number * bst.number.post * }
+    'skip$
+    { bst.number.pre number * bst.number.post * output.field }
   if$
 }
 
 %%% volume
-FUNCTION {format.volume}
+FUNCTION {format.output.volume}
 { volume empty$
     'skip$
-    { bst.volume.pre volume * bst.volume.post *
-      bst.year.position #3 =
-        { format.year * }
-        'skip$
-      if$
-    }
-  if$
-}
-
-%%% number, page
-FUNCTION {format.number.pages}
-{ number empty$
-    { format.pages }
-    { format.number format.pages * }
-  if$
-}
-
-%%% volume, page
-FUNCTION {format.volume.pages}
-{ volume empty$
-    { format.pages }
-    { format.volume format.pages * }
-  if$
-}
-
-%%% volume, number, page
-FUNCTION {format.volume.number.pages}
-{ volume empty$
-    { number empty$
-        { format.pages }
-        { format.number format.pages * }
-      if$
-    }
-    { number empty$
-        { format.volume format.pages * }
-        { format.volume format.number * format.pages * }
-      if$
-    }
-  if$
-}
-
-% volume, number, page
-FUNCTION {format.vol.num.pages}
-{ volume empty$
-    %% volume is empty.
-    { number empty$
-        %% number is empty.
-        { pages empty$
-            % warning
-            { "there is no volume, number, and pages in " cite$ * warning$ "" } 
-            { "" format.pages * }
-         if$
-        }
-        %% number is not empty.
-        % warning
-        { "there's a number but no volume in " cite$ * warning$
-          format.number.pages }
-     if$
-    }
-    %% volume is not empty.
-    { number empty$
-        %% number is empty.
-        { format.volume.pages }
-        %% number is not empty.
-        { format.volume.number.pages }
-     if$
-    }
+    { bst.volume.pre volume * bst.volume.post * output.field }
   if$
 }
 
 %%% chapter
-FUNCTION {format.chapter}
+FUNCTION {format.output.chapter}
 { chapter empty$
-    { "" }
-    { type empty$
-        { bst.chapter.pre chapter tie.or.space.connect * bst.chapter.post }
-        { ", " * type " " * chapter * }
-      if$
-    }
-  if$
-}
-
-%%% chapter, pages
-FUNCTION {format.chapter.pages}
-{ chapter empty$
-    { pages empty$
-        { "" }
-        { "" format.pages * }
-      if$
-    }
-    { pages empty$
-        { "" format.chapter * }
-        { "" format.chapter * format.pages * }
-      if$
-    }
+    'skip$
+    { bst.chapter.pre chapter tie.or.space.connect.alt * bst.chapter.post * output.field }
   if$
 }
 
 %%% editor and booktitle
-FUNCTION {format.in.ed.booktitle}
+FUNCTION {format.output.in.ed.booktitle}
 { booktitle empty$
-    { "" }
+    'skip$
     { editor empty$
         { bst.in format.btitle * }
         { bst.editor.btitle.order #0 =
@@ -1901,114 +1823,65 @@ FUNCTION {format.in.ed.booktitle}
           if$
         }
       if$
+      output.field
     }
   if$
 }
 
 %%% howpublished
-FUNCTION {format.howpublished}
+FUNCTION {format.output.howpublished}
 { howpublished empty$
-    { "" }
-    { bst.howpublished.pre howpublished * bst.howpublished.post * }
+    'skip$
+    { bst.howpublished.pre howpublished * bst.howpublished.post * output.field }
   if$
 }
 
 %%% address
-FUNCTION {format.address}
+FUNCTION {format.output.address}
 { address empty$
-    { "" }
-    { bst.address.pre address * bst.address.post * }
+    'skip$
+    { bst.address.pre address * bst.address.post * output.field }
   if$
 }
 
 %%% publisher
-FUNCTION {format.publisher}
+FUNCTION {format.output.publisher}
 { publisher empty$
-    { "" }
-    { address empty$            % For econ-aea.bst
-        { ", " publisher * bst.publisher.post * }
-        { bst.publisher.pre publisher * bst.publisher.post * }
+    'skip$
+    { address empty$ % For econ-aea.bst
+	{ ", " publisher * bst.publisher.post * output.field }
+	{ bst.publisher.pre publisher * bst.publisher.post * output.field }
       if$
     }
   if$
 }
 
 %%% organization
-FUNCTION {format.organization}
+FUNCTION {format.output.organization}
 { organization empty$
-    { "" }
-    { bst.organization.pre organization * bst.organization.post * }
+    'skip$
+    { bst.organization.pre organization * bst.organization.post * output.field }
   if$
 }
 
 %% publisher and address
-FUNCTION {output.publisher.address}
-{ address empty$
-    { format.publisher "publisher" output.check.nocomma }
+FUNCTION {format.output.publisher.address}
     { bst.address.position #0 = 
-        { format.address output.nocomma
-          format.publisher "publisher" output.check.nocomma }
-        { format.publisher "publisher" output.check.nocomma
-          format.address output.nocomma }
-      if$
-    }
+    { format.output.address
+      format.output.publisher }
+    { format.output.publisher
+      format.output.address }
   if$
 }
 
 %% address, organization, publisher
-FUNCTION {output.address.organization.publisher}
-{ address empty$
-    %% address is empty
-    { organization empty$
-        %% organization is empty
-        { publisher empty$
-            'skip$
-            { format.publisher "publisher" output.check.nocomma }
-          if$
-        }
-        %% organization is not empty
-        { publisher empty$
-            { format.organization "organization" output.check.nocomma }
-            { format.organization "organization" output.check.nocomma
-              format.publisher "publisher" output.check.nocomma }
-          if$
-        }
-     if$
-    }
-    %% address is not empty
-    { organization empty$
-        %% organization is empty
-        { publisher empty$
-            %% publisher is empty
-            { format.address output.nocomma }
-            %% publisher is not empty
-            { bst.address.position #0 =
-                { format.address output.nocomma
-                  format.publisher "publisher" output.check.nocomma }
-                { format.publisher "publisher" output.check.nocomma
-                  format.address output.nocomma }
-              if$
-            }
-         if$
-        }
-        %% organization is not empty
-        { publisher empty$
-            %% publisher is empty
-            { format.organization "organization" output.check.nocomma
-              format.address output.nocomma }
-            %% publisher is not empty
-            { format.organization "organization" output.check.nocomma
-              bst.address.position #0 = 
-                { format.address output.nocomma
-                  format.publisher "publisher" output.check.nocomma }
-                { format.publisher "publisher" output.check.nocomma
-                  format.address output.nocomma }
-              if$
-            }
-         if$
-        }
-     if$
-    }
+FUNCTION {format.output.address.organization.publisher}
+{ format.output.organization
+  bst.address.position #0 = 
+    { format.output.address
+      format.output.publisher }
+    { format.output.publisher
+      format.output.address }
   if$
 }
 
@@ -2018,7 +1891,7 @@ FUNCTION {empty.misc.check}
   month empty$ year empty$ note empty$
   and and and and and
   key empty$ not and
-    { "all relevant fields are empty in " cite$ * warning$ }
+    { "All relevant fields are empty in " cite$ * warning$ }
     'skip$
   if$
 }
@@ -2026,59 +1899,66 @@ FUNCTION {empty.misc.check}
 FUNCTION {format.thesis.type}
 { type empty$
     'skip$
-    { pop$ " " type * }
+    { pop$ ", " type * }
   if$
 }
 
 FUNCTION {format.tr.number}
 { type empty$
     { bst.techrep }
-    { " " type * }
+    { ", " type * }
   if$
   number empty$
+  bst.hide.number #0 = not or
     { "t" change.case$ }
     { number tie.or.space.connect }
   if$
 }
 
 %%% phdthesis
-FUNCTION {format.phd}
-{ bst.phdthesis }
+FUNCTION {format.output.phd}
+{ bst.phdthesis format.thesis.type output.field }
 
 %%% mastersthesis
-FUNCTION {format.mthesis}
-{ bst.mthesis }
+FUNCTION {format.output.mthesis}
+{ bst.mthesis format.thesis.type output.field }
 
 %%% school
-FUNCTION {format.school}
+FUNCTION {format.output.school}
 { school empty$
-    { "" }
-    { bst.school.pre school * bst.school.post * }
+    'skip$
+    { bst.school.pre school * bst.school.post * output.field }
   if$
 }
 
 %%% institution
-FUNCTION {format.institution}
+FUNCTION {format.output.institution}
 { institution empty$
-    { "" }
-    { bst.institution.pre institution * bst.institution.post * }
+    'skip$
+    { bst.institution.pre institution * bst.institution.post * output.field }
+  if$
+}
+
+FUNCTION {format.output.note}
+{ note empty$
+    'skip$
+    { bst.note.pre note * bst.note.post * output.field }
   if$
 }
 
 %%% remove first ? characters.
+% example
+%
+% "abc" #3" x1 chop.word
+%
+% If the first three characters of x1 are equal to abc, the function returns
+% the string with abc removed. Otherwise, it returns x1 as is.
 FUNCTION {chop.word}
 { 's :=
   'len :=
   s #1 len substring$ =
     { s len #1 + global.max$ substring$ }
     's
-  if$
-}
-
-FUNCTION {format.note}
-{ note empty$
-    { "" }
-    { bst.note.pre note * bst.note.post * }
   if$
 }
 
@@ -2143,28 +2023,30 @@ FUNCTION {output.bibitem}
 
 FUNCTION {article}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-
-  format.journal "journal" output.check.nocomma
+  format.output.title
+  format.output.journal
   bst.year.position #2 =
-    { format.date output.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.vol.num.pages output.nocomma
-
+  format.output.volume
+  bst.year.position #3 =
+    { format.output.year }
+    'skip$
+  if$
+  format.output.number
+  format.output.pages
   bst.year.position #1 =
-    { format.date output.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2174,32 +2056,26 @@ FUNCTION {article}
 FUNCTION {book}
 { output.bibitem
   author empty$
-    { format.editors "author and editor" output.check.nocomma }
-    { format.authors output.nonnull.nocomma
+    { format.output.editors }
+    { format.output.authors
       "author and editor" editor either.or.check 
     }
   if$
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.book "title" output.check.nocomma
-
-  format.bvolume output.nocomma
-  format.number.series output.nocomma
-  output.publisher.address
-
-  format.edition output.nocomma
-  format.book.pages output.nocomma
-
+  format.output.book
+  format.output.bvolume
+  format.output.number.series
+  format.output.edition
+  format.output.publisher.address
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2208,15 +2084,21 @@ FUNCTION {book}
 
 FUNCTION {booklet}
 { output.bibitem
-  format.authors output.nocomma
-  format.year output.nocomma
-  format.misc.title "title" output.check.nocomma
-  format.howpublished output.nocomma
-  format.address output.nocomma
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+%	Only the author field can be used? The editor field cannot be used?
+  format.output.authors
+  bst.year.position #0 =
+    { format.output.year }
+    'skip$
+  if$
+  format.output.title
+  format.output.howpublished
+  format.output.address
+  bst.year.position #0 = not
+    { format.output.year }
+    'skip$
+  if$
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2226,32 +2108,28 @@ FUNCTION {booklet}
 FUNCTION {inbook}
 { output.bibitem
   author empty$
-    { format.editors "author and editor" output.check.nocomma }
-    { format.authors output.nonnull.nocomma
+    { format.output.editors }
+    { format.output.authors 
       "author and editor" editor either.or.check
     }
   if$
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-%   format.book remove.pre.comma "title" output.check.nocomma
-  format.book "title" output.check.nocomma
-  format.edition output.nocomma
-
-  format.bvolume output.nocomma
-  format.chapter.pages "chapter and pages" output.check.nocomma
-  format.number.series output.nocomma
-  output.publisher.address
-
+  format.output.book
+  format.output.edition
+  format.output.bvolume
+  format.output.chapter
+  format.output.pages
+  format.output.number.series
+  format.output.publisher.address
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2260,27 +2138,24 @@ FUNCTION {inbook}
 
 FUNCTION {incollection}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-
-  format.in.ed.booktitle "booktitle" output.check.nocomma
-  format.bvolume output.nocomma
-  format.edition output.nocomma
-  format.chapter.pages output.nocomma
-  output.address.organization.publisher
-
+  format.output.title
+  format.output.in.ed.booktitle
+  format.output.bvolume
+  format.output.edition
+  format.output.chapter
+  format.output.pages
+  format.output.address.organization.publisher
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2289,27 +2164,23 @@ FUNCTION {incollection}
 
 FUNCTION {inproceedings}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-
-  format.in.ed.booktitle "booktitle" output.check.nocomma
-  format.bvolume output.nocomma
-  format.number.series output.nocomma
-  format.pages output.nocomma
-  output.address.organization.publisher
-
+  format.output.title
+  format.output.in.ed.booktitle
+  format.output.bvolume
+  format.output.number.series
+  format.output.pages
+  format.output.address.organization.publisher
   bst.year.position #0 = not
-    { format.date output.nocomma }
-    { format.month output.nocomma }
+    { format.output.date }
+    { format.output.month }
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2321,120 +2192,47 @@ FUNCTION {conference}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       manual
+
 FUNCTION {manual}
 { output.bibitem
-  author empty$
-    { organization empty$
-        'skip$
-        { organization output.nonnull.nocomma
-          address output.nocomma
-        }
-      if$
-    }
-    { format.authors output.nonnull.nocomma }
-  if$
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
-    'skip$
-  if$
-  format.book "title" output.check.nocomma
-  author empty$
-    { organization empty$
-        { format.address new.block.check
-          format.address output.nocomma
-        }
+    { format.output.year }
         'skip$
       if$
-    }
-    { output.address.organization.publisher }
-  if$
-  format.edition output.nocomma
-
+  format.output.book
+  format.output.address.organization.publisher
+  format.output.edition
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       mastersthesis
 
-FUNCTION {mastersthesis}
+FUNCTION {masterthesis}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-  format.mthesis format.thesis.type output.nonnull.nocomma
-  format.school "school" output.check.nocomma
-  format.address output.nocomma
-
+  format.output.title
+  format.output.mthesis
+  format.output.school
+  format.output.address 
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       misc
-
-FUNCTION {misc}
-{ output.bibitem
-  format.authors "author" output.check.nocomma
-  bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
-    'skip$
-  if$
-  format.misc.title output.nocomma
-  format.howpublished output.nocomma
-
-  bst.year.position #0 = not
-    { format.date output.nocomma }
-    { format.month output.nocomma }
-  if$
-
-  format.url.doi output.nocomma
-  
-  format.note output.nocomma
-  fin.entry
-  empty.misc.check
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       Online
-
-FUNCTION {online}
-{ output.bibitem
-  format.authors "author" output.check.nocomma
-  bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
-    'skip$
-  if$
-  format.misc.title output.nocomma
-  format.howpublished output.nocomma
-
-  bst.year.position #0 = not
-    { format.date output.nocomma }
-    { format.month output.nocomma }
-  if$
-
-  format.url.doi output.nocomma
-  
-  format.note output.nocomma
-  fin.entry
-  empty.misc.check
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2442,28 +2240,21 @@ FUNCTION {online}
 
 FUNCTION {phdthesis}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.book "title" output.check.nocomma
-  format.phd
-  format.thesis.type output.nonnull.nocomma
-  format.school "school" output.check.nocomma
-  address empty$
-    'skip$
-    { format.address output.nocomma }
-  if$
-
+  format.output.book
+  format.output.phd
+  format.output.school
+  format.output.address
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2473,27 +2264,25 @@ FUNCTION {phdthesis}
 FUNCTION {proceedings}
 { output.bibitem
   editor empty$
-    { organization output.nocomma }
-    { format.editors output.nonnull.nocomma }
+    { organization output.field }
+    { format.output.editors }
   if$
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.btitle remove.pre.comma "title" output.check.nocomma
-  format.bvolume output.nocomma
-  format.number.series output.nocomma
-  output.address.organization.publisher
-
+  format.output.book
+  format.output.bvolume
+  format.output.number.series
+  format.output.address.organization.publisher
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
+
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2501,24 +2290,21 @@ FUNCTION {proceedings}
 
 FUNCTION {techreport}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-  format.tr.number output.nonnull.nocomma
-  format.institution "institution" output.check.nocomma
-  format.address output.nocomma
-
+  format.output.title
+  format.tr.number output.field
+  format.output.institution
+  format.output.address
   bst.year.position #0 = not
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-
-  format.url.doi output.nocomma
-
-  format.note output.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
 }
 
@@ -2527,26 +2313,62 @@ FUNCTION {techreport}
 
 FUNCTION {unpublished}
 { output.bibitem
-  format.authors "author" output.check.nocomma
+  format.output.authors
   bst.year.position #0 =
-    { format.year "year" output.check.nocomma }
+    { format.output.year }
     'skip$
   if$
-  format.title "title" output.check.nocomma
-
+  format.output.title
   bst.year.position #0 = not
-    { format.date remove.pre.comma output.nocomma }
-    { month empty$
-        'skip$
-        { format.month remove.pre.comma output.nocomma }
-      if$
-    }
+    { format.output.date }
+    { format.output.month }
   if$
-
-  format.url.doi output.nocomma
-
-  format.note "note" output.check.nocomma
+  format.output.url.doi
+  format.output.note
   fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       online
+
+FUNCTION {online}
+{ output.bibitem
+  format.output.authors
+  bst.year.position #0 =
+    { format.output.year }
+    'skip$
+  if$
+  format.output.title
+  format.output.howpublished
+  bst.year.position #0 = not
+    { format.output.date }
+    { format.output.month }
+  if$
+  format.output.url.doi
+  format.output.note
+  fin.entry
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       misc
+
+FUNCTION {misc}
+{ output.bibitem
+  format.output.authors
+  bst.year.position #0 =
+    { format.output.year }
+    'skip$
+  if$
+  format.output.title
+  format.output.howpublished
+  bst.year.position #0 = not
+    { format.output.date }
+    { format.output.month }
+  if$
+  format.output.url.doi
+  format.output.note
+  fin.entry
+  empty.misc.check
 }
 
 FUNCTION {default.type}
@@ -3214,24 +3036,24 @@ FUNCTION {bst.sort.entry.type.order}
                                     { item.type "masterthesis" =
                                         { "10" }
                                         { item.type "misc" =
-                                           { "11" }
-                                           { item.type "phdthesis" =
-                                              { "12" }
-                                              { item.type "proceedings" =
-                                                 { "13" }
-                                                 { item.type "techreport" =
-                                                    { "14" }
-                                                    { item.type "unpublished" =
-                                                       { "15" }
-                                                       { "16" }
+                                            { "11" }
+                                            { item.type "phdthesis" =
+                                                { "12" }
+                                                { item.type "proceedings" =
+                                                    { "13" }
+                                                    { item.type "techreport" =
+                                                        { "14" }
+                                                        { item.type "unpublished" =
+                                                            { "15" }
+                                                            { "16" }
+                                                          if$
+                                                        }
                                                       if$
                                                     }
-                                                   if$
-                                                 }
-                                                if$
-                                              }
-                                             if$
-                                           }
+                                                  if$
+                                                }
+                                              if$
+                                            }
                                           if$
                                         }
                                       if$
@@ -3302,8 +3124,7 @@ FUNCTION {presort.one}
       if$
     }
   if$
-  * " " *
-  " "
+  * " "
   order empty$
     { "/// " * }
     { bst.notuse.order.field #0 =
@@ -3597,10 +3418,10 @@ ITERATE {forward.pass.two}
 
 FUNCTION{punctuation}
 {
-  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"  write$ newline$
-  "%  This bbl file is created by aea.bst ver." econ.version *          write$ newline$
-  "%  The latest aea.bst is available at"                               write$ newline$
-  "%  <https://github.com/ShiroTakeda/econ-bst>"                         write$ newline$ newline$
+  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" write$ newline$
+  "%  This bbl file is created by " econ.file * " ver." * econ.version *          write$ newline$
+  "%  The latest " econ.file * " is available at " *			write$ newline$
+  "%  <https://github.com/ShiroTakeda/econ-bst>"                        write$ newline$ newline$
 }
 
 EXECUTE {punctuation}
