@@ -6,6 +6,11 @@ First-written:  <2008/11/18>
 Changelogs for econ.bst
 ==============================
 
+## Ver. 3.3.1
+
+* 2026-08-14: This is a minor bug fix of econ-econometrica.bst.
+
+
 ## Ver. 3.3
 
 * 2025-04-26: Added functions `bst.bvolume.pre` and `bst.bvolume.post` to set
@@ -137,8 +142,8 @@ Changelogs for econ.bst
 * Added the function to implement certificated random author ordering propsed by
   the following article.
 
-  Ray, Debraj ⓡ Arthur Robson (2018) "Certiﬁed Random: A New Order for
-  Coauthorship," American Economic Review, Vol. 108, No. 2, pp. 489–520, URL:
+  Ray, Debraj ⓡ Arthur Robson (2018) "Certified Random: A New Order for
+  Coauthorship," American Economic Review, Vol. 108, No. 2, pp. 489 E20, URL:
   http://www.aeaweb.org/articles?id=10.1257/aer.20161492, DOI:
   http://dx.doi.org/10.1257/aer.20161492.
   

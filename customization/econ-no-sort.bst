@@ -2,7 +2,7 @@
 %
 % Author: Shiro Takeda
 % Maintainer: Shiro Takeda
-% Copyright (C) 2001-2025 Shiro Takeda
+% Copyright (C) 2001-2026 Shiro Takeda
 % First-written:       <2007/07/28>
 % Version: 3.3.1
 % Keywords: TeX, BibTeX, bst 
