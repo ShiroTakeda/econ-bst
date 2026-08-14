@@ -4,7 +4,7 @@
 % Maintainer: Shiro Takeda
 % Copyright (C) 2001-2025 Shiro Takeda
 % First-written:       <2007/07/28>
-% Version: 3.3
+% Version: 3.3.1
 % Keywords: TeX, BibTeX, bst 
 % URL: https://github.com/ShiroTakeda/econ-bst
 
@@ -37,7 +37,7 @@
 % For changelogs, see CHANGES.txt file.
 
 % version number
-FUNCTION {econ.version} { "3.3" }
+FUNCTION {econ.version} { "3.3.1" }
 
 % File name
 FUNCTION {econ.file} { "econ.bst" }
@@ -851,13 +851,29 @@ INTEGERS { multiresult }
 INTEGERS { index }
 INTEGERS { len }
 INTEGERS { last.extra.num }
-INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+INTEGERS { output.state before.all mid.sentence }
 INTEGERS { last.period.comma }
 INTEGERS { len1.aer len2.aer i.aer }
 
 % output.state
 % -> This is a variable that holds which location in a single bibliography entry.
 % -> before.all or mid.sentence
+
+% debug.write: (s --)  write$ only when the debug mode is on.
+FUNCTION {debug.write}
+{ econ.debug #0 =
+    { pop$ }   % debug=0 
+    { write$ } % debug!=0 -> write$
+  if$
+}
+
+% debug.newline: (s --)  newline$ only when the debug mode is on.
+FUNCTION {debug.newline}
+{ econ.debug #0 =
+    'skip$
+    { newline$ } 
+  if$
+}
 
 %%% Definition of functions:
 FUNCTION {not}
@@ -882,8 +898,6 @@ FUNCTION {or}
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
-  #2 'after.sentence :=
-  #3 'after.block :=
 }
 
 %%% Remove comma and add period:
@@ -1493,8 +1507,8 @@ FUNCTION {format.output.title}
     { bst.hide.title #0 = not
         'skip$
         { format.title remove.irrelevant.period.comma output.field }
-  if$
-}
+      if$
+    }
   if$
 }
 
@@ -2790,15 +2804,13 @@ FUNCTION {calc.cyear}
   if$
   sortify 'sort.label :=
   % For debug
-  econ.debug #0 = not
-    { "sort.label = ``\texttt{" write$
-      sort.label write$
-      "}''\\" write$
-      newline$
-    }
-    'skip$
- if$
- pop$
+
+  "sort.label = ``\texttt{" debug.write
+  sort.label debug.write
+  "}''\\" debug.write
+  debug.newline
+
+  pop$
 }
 
 FUNCTION {calc.sort.label.abb}
